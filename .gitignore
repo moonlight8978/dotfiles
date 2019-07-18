@@ -2,3 +2,5 @@
 /tmp
 
 yarn-error.log
+/build/*
+!/build/.gitkeep
