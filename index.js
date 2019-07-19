@@ -51,14 +51,13 @@ shell.ln('-s', pathFromProject('configs/zsh/themes/zeta.zsh-theme'), zetaThemePa
 shell.source()
 
 // Install nodejs
-if (!shell.check('node')) {
-  shell.exec('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | $SHELL')
-  shell.source()
-  const latest = shell.exec('source ~/.nvm/nvm.sh && nvm ls-remote --lts | tail -n 1', {
-    silent: true,
-  }).stdout
-  shell.exec(`source ~/.nvm/nvm.sh && nvm install ${latest.match(/v[|0-9|.]+/)[0]}`)
-}
+shell.exec('curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | $SHELL')
+shell.source()
+const latest = shell.exec('source ~/.nvm/nvm.sh && nvm ls-remote --lts | tail -n 1', {
+  silent: true,
+}).stdout
+const version = latest.match(/v[|0-9|.]+/)[0]
+shell.exec(`source ~/.nvm/nvm.sh && nvm install ${version} && nvm alias default ${version}`)
 
 // Install yarn
 if (!shell.check('yarn')) {
