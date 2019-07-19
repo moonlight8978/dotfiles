@@ -30,7 +30,7 @@ shell.upgrade()
 shell.install(...basePackages)
 
 // Install git
-shell.exec('')
+shell.addRepository('ppa:git-core/ppa')
 shell.update()
 shell.install('git')
 shell.ln('-s', pathFromProject('configs/.gitconfig'), pathFromHome('.gitconfig'))
