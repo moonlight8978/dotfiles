@@ -1,0 +1,37 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@moonlight8978.github.com:moonlight8978/dotfiles.git",
+  "author": "_MoonLight_ <moonlight8978@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "utl": "./build/index.js"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/meow": "^5.0.0",
+    "@types/shelljs": "^0.8.8",
+    "jest": "^26.0.1",
+    "jest-extended": "^0.11.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^5.1.0",
+    "meow": "^7.0.1",
+    "shelljs": "^0.8.4"
+  },
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc",
+    "presetup": "yarn build",
+    "setup": "yarn unlink && yarn link && chmod +x build/index.js"
+  }
+}
