@@ -39,6 +39,16 @@ export default class Git {
     shell.exec(`git cherry-pick ${commitToCherryPick}`);
   }
 
+  checkout({ branch }: { branch: BranchName }): void {
+    try {
+      shell.exec(`git branch -D ${branch}`);
+    } catch {
+    } finally {
+      shell.exec(`git fetch origin ${branch}`);
+      shell.exec(`git checkout ${branch}`);
+    }
+  }
+
   getCurrentBranchName(): BranchName {
     return shell.exec("git rev-parse --abbrev-ref HEAD");
   }

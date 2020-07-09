@@ -48,6 +48,12 @@ if (cli.input[0] === "g") {
       });
       break;
 
+    case "co":
+      app.requiredOption("-b, --branch <branch>", "base branch");
+      program.parse(process.argv);
+      new Git().checkout({ branch: program.branch });
+      break;
+
     default:
       shell.echo("Not supported command.");
       shell.exit(1);
