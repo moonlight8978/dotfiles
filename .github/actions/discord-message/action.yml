@@ -23,6 +23,10 @@ inputs:
     description: Discord webhook url
     required: true
 
+outputs:
+  message:
+    description: Message
+
 runs:
   using: node20
   main: dist/index.js

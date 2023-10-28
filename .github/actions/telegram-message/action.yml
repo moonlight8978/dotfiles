@@ -1,0 +1,35 @@
+name: discord-message
+description: Post message to Discord action
+author: _MoonLight_ <moonlight8978@gmail.com>
+
+inputs:
+  message:
+    description: Check telegram-message-parse .message
+    required: false
+    default: ''
+  columns:
+    description: Check telegram-message-parse .columns
+    required: false
+    default: ''
+  group:
+    description: Telegram group ID
+    required: true
+  token:
+    description: Telegram BOT token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - id: telegram-message-parse
+      uses: moonlight8978/dotfiles/.github/actions/telegram-message-parse@action/telegram-message
+      with:
+        message: ${{ inputs.message }}
+        columns: ${{ inputs.columns }}
+    - uses: appleboy/telegram-action@master
+      with:
+        to: ${{ inputs.group }}
+        token: ${{ inputs.token }}
+        format: html
+        message: ${{ steps.telegram-message-parse.outputs.message }}
+        disable_web_page_preview: true
