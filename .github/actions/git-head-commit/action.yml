@@ -1,0 +1,19 @@
+name: git-head-commit
+description: Git head commit info
+author: _MoonLight_ <moonlight8978@gmail.com>
+
+outputs:
+  message:
+    description: The commit message
+  author:
+    description: The author of the commit
+  sha-short:
+    description: The short sha of the commit
+  sha:
+    description: The sha of the commit
+  branch:
+    description: The branch of the commit
+
+runs:
+  using: node20
+  main: dist/index.js

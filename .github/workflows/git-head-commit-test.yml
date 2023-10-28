@@ -1,0 +1,22 @@
+name: Test discord message
+
+on:
+  push:
+    branches:
+      - feat/git-head-commit
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: git-head-commit
+        uses: moonlight8978/dotfiles/.github/actions/git-head-commit@main
+      - run: |
+          echo ${{ steps.git-head-commit.outputs.message }}
+          echo ${{ steps.git-head-commit.outputs.author }}
+          echo ${{ steps.git-head-commit.outputs.sha-short }}
+          echo ${{ steps.git-head-commit.outputs.branch }}
+          echo ${{ steps.git-head-commit.outputs.sha }}
+
