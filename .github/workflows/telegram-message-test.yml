@@ -10,7 +10,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - uses: moonlight8978/dotfiles/.github/actions/telegram-message@action/telegram-message
+      - uses: moonlight8978/dotfiles/.github/actions/telegram-message@main
         with:
           message: ✅ PASSING  l  Development
           columns: |

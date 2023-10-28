@@ -22,7 +22,7 @@ runs:
   using: composite
   steps:
     - id: telegram-message-parse
-      uses: moonlight8978/dotfiles/.github/actions/telegram-message-parse@action/telegram-message
+      uses: moonlight8978/dotfiles/.github/actions/telegram-message-parse@main
       with:
         message: ${{ inputs.message }}
         columns: ${{ inputs.columns }}
