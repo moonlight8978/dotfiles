@@ -25,7 +25,7 @@ export function parseColumns(columns: string) {
   return columns
     .split('|W|')
     .map(e => e.trim())
-    .filter(Boolean)
+    .slice(1)
     .reduce((acc, column, index) => {
       if (index % 3 === 0) {
         acc.push({
