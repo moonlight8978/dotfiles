@@ -28,4 +28,5 @@ jobs:
 ```bash
 npm install
 npm run package
+npm run test
 ```
