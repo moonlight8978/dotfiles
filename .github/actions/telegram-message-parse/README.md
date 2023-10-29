@@ -1,5 +1,7 @@
 # discord-message
 
+![coverage](badges/coverage.svg)
+
 Action to post message to Discord
 
 ### Usage
