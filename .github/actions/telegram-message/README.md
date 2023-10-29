@@ -17,5 +17,5 @@ jobs:
             |W| full |W| Build |W| <a href="${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}">${{ github.sha }}</a>
             |W| full |W| Changelog |W| ${{ github.event.head_commit.message }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          group: "-1"
+          group: '-1'
 ```
