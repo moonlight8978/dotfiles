@@ -89,7 +89,7 @@ export async function run(): Promise<void> {
     columnsToMessage(parseColumns(inputs.columns))
   ].join('')
 
-  core.debug(message)
+  console.log(message)
 
   try {
     await axios.post(

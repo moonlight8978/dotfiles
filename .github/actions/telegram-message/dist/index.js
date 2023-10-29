@@ -26173,7 +26173,7 @@ async function run() {
         lineBreak,
         columnsToMessage(parseColumns(inputs.columns))
     ].join('');
-    core.debug(message);
+    console.log(message);
     try {
         await axios_1.default.post(`https://api.telegram.org/bot${inputs.token}/sendMessage`, {
             chat_id: inputs.groupId,
