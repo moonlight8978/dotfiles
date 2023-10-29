@@ -31531,7 +31531,7 @@ async function run() {
     core.setOutput('file', id);
     core.setOutput('folder', folderId);
     core.setOutput('file-size', size);
-    core.setOutput('url', `https://drive.google.com/file/d/${id}/view`);
+    core.setOutput('file-url', `https://drive.google.com/file/d/${id}/view`);
 }
 exports.run = run;
 

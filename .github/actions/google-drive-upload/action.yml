@@ -19,10 +19,10 @@ outputs:
     description: Google Drive folder ID to save the artifacts
   file:
     description: Google Drive file ID
-  url:
+  file-url:
     description: Google Drive file URL
   file-size:
-    description: File size
+    description: File size in Bytes
 runs:
   using: 'node20'
   main: 'dist/index.js'

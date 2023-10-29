@@ -22,7 +22,7 @@ jobs:
             file: ${{ steps.upload-artifacts.outputs.file }}
             folder: ${{ steps.upload-artifacts.outputs.folder }}
             file-size: ${{ steps.upload-artifacts.outputs.file-size }}
-            url: ${{ steps.upload-artifacts.outputs.url }}
+            file-url: ${{ steps.upload-artifacts.outputs.file-url }}
 ```
 
 - `folder`: Take the id from folder URL. eg:
