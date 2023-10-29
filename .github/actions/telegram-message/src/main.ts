@@ -11,8 +11,8 @@ type Column = {
   placement: string
 }
 
-export function htmlSafe(str: string) {
-  return str.replace(/<html-safe>((.|\n|\r\n)*?)<\/html-safe>/, (_, p1) => {
+export function htmlEscape(str: string) {
+  return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
     return escape(p1).replace(/[\r\n]/gm, lineBreak)
   })
 }
@@ -58,7 +58,7 @@ export function parseColumns(columns: string) {
 export function columnsToMessage(columns: Column[]) {
   return columns
     .map(column => {
-      const content = htmlSafe(column.content)
+      const content = htmlEscape(column.content)
 
       return column.placement === 'full'
         ? `▪️ <b>${column.title}</b>${lineBreak}${content}`

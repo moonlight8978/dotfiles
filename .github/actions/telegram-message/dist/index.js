@@ -26099,18 +26099,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = exports.columnsToMessage = exports.parseColumns = exports.htmlSafe = void 0;
+exports.run = exports.columnsToMessage = exports.parseColumns = exports.htmlEscape = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const yup_1 = __nccwpck_require__(8281);
 const lodash_1 = __nccwpck_require__(250);
 const axios_1 = __importDefault(__nccwpck_require__(8757));
 const lineBreak = `&#10;`;
-function htmlSafe(str) {
-    return str.replace(/<html-safe>((.|\n|\r\n)*?)<\/html-safe>/, (_, p1) => {
+function htmlEscape(str) {
+    return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
         return (0, lodash_1.escape)(p1).replace(/[\r\n]/gm, lineBreak);
     });
 }
-exports.htmlSafe = htmlSafe;
+exports.htmlEscape = htmlEscape;
 function parseColumns(columns) {
     const columnContentSchema = (0, yup_1.string)().required();
     const columnPlacementSchema = (0, yup_1.string)().required().oneOf(['full', 'inline']);
@@ -26146,7 +26146,7 @@ exports.parseColumns = parseColumns;
 function columnsToMessage(columns) {
     return columns
         .map(column => {
-        const content = htmlSafe(column.content);
+        const content = htmlEscape(column.content);
         return column.placement === 'full'
             ? `▪️ <b>${column.title}</b>${lineBreak}${content}`
             : `▪️ <b>${column.title}</b>: ${content}`;
