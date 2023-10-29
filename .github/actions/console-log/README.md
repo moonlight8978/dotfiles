@@ -1,6 +1,6 @@
-# git-head-commit
+# console-log
 
-Action to post message to Discord
+Log a message (single or multi-line) in Github Actions
 
 ### Usage
 
