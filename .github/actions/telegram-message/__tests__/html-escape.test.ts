@@ -21,4 +21,9 @@ Co-author: bichle-mechmaster <bich.le@icetea.io></html-escape>`
       `fix: Fix html entities&#10;&#10;1. feat1&#10;2. feat2&#10;&#10;Co-author: bichle-mechmaster &lt;bich.le@icetea.io&gt;`
     )
   })
+
+  it('escape empty string', () => {
+    const input = `<html-escape></html-escape>`
+    expect(htmlEscape(input)).toEqual('')
+  })
 })
