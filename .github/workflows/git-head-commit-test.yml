@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feat/git-head-commit
+      - feat/fix-tele-message
   workflow_dispatch:
 
 jobs:
