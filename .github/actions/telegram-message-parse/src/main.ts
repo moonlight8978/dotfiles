@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
-import axios from 'axios'
 import { number, string, object } from 'yup'
+import { escape } from 'lodash'
 
 const lineBreak = `&#10;`
 
@@ -10,7 +10,11 @@ type Column = {
   placement: string
 }
 
-function parseColumns(columns: string) {
+export function htmlSafe(str: string) {
+  return str.replace(/<html-safe>(.*?)<\/html-safe>/g, (_, p1) => escape(p1))
+}
+
+export function parseColumns(columns: string) {
   const columnContentSchema = string().required()
   const columnPlacementSchema = string().required().oneOf(['full', 'inline'])
   const columnTitleSchema = string().required()
@@ -50,6 +54,16 @@ function parseColumns(columns: string) {
     }, [] as Column[])
 }
 
+export function columnsToMessage(columns: Column[]) {
+  return columns
+    .map(column =>
+      column.placement === 'full'
+        ? `▪️ <b>${column.title}</b>${lineBreak}${column.content}`
+        : `▪️ <b>${column.title}</b>: ${column.content}`
+    )
+    .join(lineBreak)
+}
+
 export async function run(): Promise<void> {
   const schema = object({
     message: string().required().trim(),
@@ -61,14 +75,13 @@ export async function run(): Promise<void> {
     columns: core.getInput('columns')
   })
 
-  const list = parseColumns(inputs.columns).map(column =>
-    column.placement === 'full'
-      ? `▪️ <b>${column.title}</b>${lineBreak}${column.content}`
-      : `▪️ <b>${column.title}</b>: ${column.content}`
-  )
-
-  core.setOutput(
+  const list = core.setOutput(
     'message',
-    [inputs.message, lineBreak, lineBreak, list.join(lineBreak)].join('')
+    [
+      inputs.message,
+      lineBreak,
+      lineBreak,
+      columnsToMessage(parseColumns(inputs.columns))
+    ].join('')
   )
 }

@@ -1,5 +1,7 @@
 # discord-message
 
+![coverage](badges/coverage.svg)
+
 Action to post message to Discord
 
 ### Usage
@@ -26,4 +28,5 @@ jobs:
 ```bash
 npm install
 npm run package
+npm run test
 ```

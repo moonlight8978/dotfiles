@@ -18,6 +18,6 @@ jobs:
             |W| full |W| Status |W| Succeed
             |W| full |W| Author |W| ${{ github.triggering_actor || github.event.head_commit.author.name || github.event.head_commit.author.username }}
             |W| full |W| Build |W| <a href="${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}">${{ github.sha }}</a>
-            |W| full |W| Changelog |W| ${{ github.event.head_commit.message }}
+            |W| full |W| Changelog |W| <html-safe>${{ github.event.head_commit.message }}</html-safe>
           token: ${{ secrets.TELEGRAM_TOKEN }}
           group: "-844798107"
