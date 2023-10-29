@@ -1,5 +1,7 @@
 # telegram-message
 
+![coverage](badges/coverage.svg)
+
 ### Usage
 
 ```yml
