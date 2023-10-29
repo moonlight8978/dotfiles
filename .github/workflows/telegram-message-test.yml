@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - action/telegram-message
+      - test/tele
   workflow_dispatch:
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - uses: moonlight8978/dotfiles/.github/actions/telegram-message@main
+      - uses: moonlight8978/dotfiles/.github/actions/telegram-message@test/tele
         with:
           message: ✅ PASSING  l  Development
           columns: |

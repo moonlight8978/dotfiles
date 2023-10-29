@@ -19,17 +19,5 @@ inputs:
     required: true
 
 runs:
-  using: composite
-  steps:
-    - id: telegram-message-parse
-      uses: moonlight8978/dotfiles/.github/actions/telegram-message-parse@main
-      with:
-        message: ${{ inputs.message }}
-        columns: ${{ inputs.columns }}
-    - uses: appleboy/telegram-action@master
-      with:
-        to: ${{ inputs.group }}
-        token: ${{ inputs.token }}
-        format: html
-        message: ${{ steps.telegram-message-parse.outputs.message }}
-        disable_web_page_preview: true
+  using: node20
+  main: dist/index.js

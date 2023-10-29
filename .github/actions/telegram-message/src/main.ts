@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import { number, string, object } from 'yup'
 import { escape } from 'lodash'
+import axios from 'axios'
 
 const lineBreak = `&#10;`
 
@@ -11,7 +12,9 @@ type Column = {
 }
 
 export function htmlSafe(str: string) {
-  return str.replace(/<html-safe>(.*?)<\/html-safe>/g, (_, p1) => escape(p1))
+  return str.replace(/<html-safe>((.|\n|\r\n)*?)<\/html-safe>/, (_, p1) => {
+    return escape(p1).replace(/[\r\n]/gm, lineBreak)
+  })
 }
 
 export function parseColumns(columns: string) {
@@ -44,9 +47,7 @@ export function parseColumns(columns: string) {
           break
 
         case 2:
-          currentColumn.content = columnContentSchema
-            .cast(column)
-            .replace(/[\r\n]/gm, lineBreak)
+          currentColumn.content = columnContentSchema.cast(column)
           break
       }
 
@@ -56,32 +57,55 @@ export function parseColumns(columns: string) {
 
 export function columnsToMessage(columns: Column[]) {
   return columns
-    .map(column =>
-      column.placement === 'full'
-        ? `▪️ <b>${column.title}</b>${lineBreak}${column.content}`
-        : `▪️ <b>${column.title}</b>: ${column.content}`
-    )
+    .map(column => {
+      const content = htmlSafe(column.content)
+
+      return column.placement === 'full'
+        ? `▪️ <b>${column.title}</b>${lineBreak}${content}`
+        : `▪️ <b>${column.title}</b>: ${content}`
+    })
     .join(lineBreak)
 }
 
 export async function run(): Promise<void> {
   const schema = object({
     message: string().required().trim(),
-    columns: string().required().trim()
+    columns: string().required().trim(),
+    groupId: string().required().trim(),
+    token: string().required().trim()
   })
 
   const inputs = schema.cast({
     message: core.getInput('message'),
-    columns: core.getInput('columns')
+    columns: core.getInput('columns'),
+    groupId: core.getInput('group'),
+    token: core.getInput('token')
   })
 
-  const list = core.setOutput(
-    'message',
-    [
-      inputs.message,
-      lineBreak,
-      lineBreak,
-      columnsToMessage(parseColumns(inputs.columns))
-    ].join('')
-  )
+  const message = [
+    inputs.message,
+    lineBreak,
+    lineBreak,
+    columnsToMessage(parseColumns(inputs.columns))
+  ].join('')
+
+  core.debug(message)
+
+  try {
+    await axios.post(
+      `https://api.telegram.org/bot${inputs.token}/sendMessage`,
+      {
+        chat_id: inputs.groupId,
+        text: message,
+        parse_mode: 'HTML',
+        disable_web_page_preview: true
+      }
+    )
+  } catch (err: any) {
+    core.error(err.message)
+    if (err.response) {
+      core.error(JSON.stringify(err.response.data))
+    }
+    core.setFailed(err.message)
+  }
 }
