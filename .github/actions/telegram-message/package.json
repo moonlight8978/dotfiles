@@ -1,22 +1,9 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
-  "version": "0.0.0",
-  "author": "",
+  "name": "@moonkit/telegram-message",
+  "description": "_MoonLight_ toolkit",
+  "version": "1.0.0",
+  "author": "_MoonLight_",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
-  },
-  "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
-  },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
   "exports": {
     ".": "./dist/index.js"
   },
@@ -72,7 +59,6 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
-    "@types/lodash": "^4.14.200",
     "@types/node": "^20.8.9",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
