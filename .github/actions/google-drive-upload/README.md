@@ -16,7 +16,7 @@ jobs:
           folder: google-drive-folder-id
           file: Test.csv
           destination: ${{ github.run_id }}/Test.csv
-      - moonlight8978/dotfiles/.github/actions/console-log@main
+      - uses: moonlight8978/dotfiles/.github/actions/console-log@main
         with:
           message: |
             file: ${{ steps.upload-artifacts.outputs.file }}
