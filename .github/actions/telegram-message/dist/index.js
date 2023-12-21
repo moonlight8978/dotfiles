@@ -26159,13 +26159,15 @@ async function run() {
         message: (0, yup_1.string)().required().trim(),
         columns: (0, yup_1.string)().required().trim(),
         groupId: (0, yup_1.string)().required().trim(),
-        token: (0, yup_1.string)().required().trim()
+        token: (0, yup_1.string)().required().trim(),
+        topic: (0, yup_1.string)().optional()
     });
     const inputs = schema.cast({
-        message: core.getInput('message'),
-        columns: core.getInput('columns'),
-        groupId: core.getInput('group'),
-        token: core.getInput('token')
+        message: core.getInput('message', { required: true }),
+        columns: core.getInput('columns', { required: true }),
+        groupId: core.getInput('group', { required: true }),
+        token: core.getInput('token', { required: true }),
+        topic: core.getInput('topic')
     });
     const message = [
         inputs.message,
@@ -26179,7 +26181,8 @@ async function run() {
             chat_id: inputs.groupId,
             text: message,
             parse_mode: 'HTML',
-            disable_web_page_preview: true
+            disable_web_page_preview: true,
+            reply_to_message_id: inputs.topic
         });
     }
     catch (err) {

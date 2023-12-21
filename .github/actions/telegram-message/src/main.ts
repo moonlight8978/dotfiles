@@ -72,14 +72,16 @@ export async function run(): Promise<void> {
     message: string().required().trim(),
     columns: string().required().trim(),
     groupId: string().required().trim(),
-    token: string().required().trim()
+    token: string().required().trim(),
+    topic: string().optional()
   })
 
   const inputs = schema.cast({
-    message: core.getInput('message'),
-    columns: core.getInput('columns'),
-    groupId: core.getInput('group'),
-    token: core.getInput('token')
+    message: core.getInput('message', { required: true }),
+    columns: core.getInput('columns', { required: true }),
+    groupId: core.getInput('group', { required: true }),
+    token: core.getInput('token', { required: true }),
+    topic: core.getInput('topic')
   })
 
   const message = [
@@ -98,7 +100,8 @@ export async function run(): Promise<void> {
         chat_id: inputs.groupId,
         text: message,
         parse_mode: 'HTML',
-        disable_web_page_preview: true
+        disable_web_page_preview: true,
+        reply_to_message_id: inputs.topic || undefined
       }
     )
   } catch (err: any) {
