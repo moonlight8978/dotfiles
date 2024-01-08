@@ -31136,6 +31136,7 @@ async function capture(command, args, fallback = () => '') {
 }
 async function run() {
     const payload = github.context.payload;
+    const type = core.getInput('type', { required: true });
     const sha = await capture('git', ['rev-parse', 'HEAD'], () => github.context.sha);
     const shaShort = await capture('git', ['rev-parse', '--short', 'HEAD'], () => sha.slice(0, 7));
     const branch = await capture('git', ['rev-parse', '--abbrev-ref', 'HEAD'], () => github.context.ref.replace(/^refs\/heads\//, ''));
@@ -31148,10 +31149,37 @@ async function run() {
             event.sender.name ??
             event.sender.login);
     });
-    const message = await capture('git', ['log', '-1', '--pretty=format:%s%n%n%b'], () => {
-        const event = payload;
-        return event.head_commit?.message ?? github.context.workflow;
-    });
+    const getLatestCommitMessage = async () => {
+        return await capture('git', ['log', '-1', '--pretty=format:%s%n%n%b'], () => {
+            const event = payload;
+            return event.head_commit?.message ?? github.context.workflow;
+        });
+    };
+    const getMessage = async () => {
+        if (type === 'head') {
+            return await getLatestCommitMessage();
+        }
+        const parentCommits = await capture('git', [
+            'show',
+            '--pretty=%ph',
+            '--quiet',
+            'HEAD'
+        ]).then(output => output.split(' '));
+        const isMergeCommit = parentCommits.length > 1;
+        if (!isMergeCommit) {
+            return await getLatestCommitMessage();
+        }
+        const previousMergeCommit = parentCommits[0];
+        const changelog = await capture('git', [
+            'log',
+            '--oneline',
+            '--no-merges',
+            '--pretty=format:"- %s"',
+            `${previousMergeCommit}..HEAD`
+        ]);
+        return changelog;
+    };
+    const message = await getMessage();
     core.setOutput('sha-short', shaShort);
     core.setOutput('sha', sha);
     core.setOutput('branch', branch);

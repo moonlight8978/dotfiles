@@ -2,6 +2,12 @@ name: git-head-commit
 description: Git head commit info
 author: _MoonLight_ <moonlight8978@gmail.com>
 
+inputs:
+  type:
+    description: The type of detection
+    required: true
+    default: head
+
 outputs:
   message:
     description: The commit message
