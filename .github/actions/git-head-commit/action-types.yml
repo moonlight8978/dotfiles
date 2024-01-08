@@ -1,0 +1,10 @@
+inputs:
+  strategy:
+    type: enum
+    allowed-values:
+      - head
+      - smart
+  head-format:
+    type: string
+  merge-format:
+    type: string

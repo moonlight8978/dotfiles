@@ -27,6 +27,12 @@ async function capture(
 export async function run(): Promise<void> {
   const payload = github.context.payload
 
+  const strategy = core.getInput('strategy', { required: true }) as
+    | 'head'
+    | 'smart'
+  const headFormat = core.getInput('head-format', { required: true })
+  const mergeFormat = core.getInput('merge-format', { required: true })
+
   const sha = await capture(
     'git',
     ['rev-parse', 'HEAD'],
@@ -59,14 +65,48 @@ export async function run(): Promise<void> {
     }
   )
 
-  const message = await capture(
-    'git',
-    ['log', '-1', '--pretty=format:%s%n%n%b'],
-    () => {
-      const event = payload as PushEvent
-      return event.head_commit?.message ?? github.context.workflow
+  const getLatestCommitMessage = async () => {
+    return await capture(
+      'git',
+      ['log', '-1', `--pretty=format:${headFormat}`],
+      () => {
+        const event = payload as PushEvent
+        return event.head_commit?.message ?? github.context.workflow
+      }
+    )
+  }
+
+  const getMessage = async () => {
+    if (strategy === 'head') {
+      return await getLatestCommitMessage()
     }
-  )
+
+    const parentCommits = await capture('git', [
+      'show',
+      '--pretty=%ph',
+      '--quiet',
+      'HEAD'
+    ]).then(output => output.split(' '))
+
+    const isMergeCommit = parentCommits.length > 1
+
+    if (!isMergeCommit) {
+      return await getLatestCommitMessage()
+    }
+
+    const previousMergeCommit = parentCommits[0]
+    const changelog = await capture('git', [
+      'log',
+      '--oneline',
+      '--no-merges',
+      `--pretty=format:${mergeFormat}`,
+      `${previousMergeCommit}..HEAD`
+    ])
+
+    return changelog
+  }
+
+  const message = await getMessage()
 
   core.setOutput('sha-short', shaShort)
   core.setOutput('sha', sha)
