@@ -30,6 +30,8 @@ export async function run(): Promise<void> {
   const strategy = core.getInput('strategy', { required: true }) as
     | 'head'
     | 'smart'
+  const headFormat = core.getInput('head-format', { required: true })
+  const mergeFormat = core.getInput('merge-format', { required: true })
 
   const sha = await capture(
     'git',
@@ -66,7 +68,7 @@ export async function run(): Promise<void> {
   const getLatestCommitMessage = async () => {
     return await capture(
       'git',
-      ['log', '-1', '--pretty=format:%s%n%n%b'],
+      ['log', '-1', `--pretty=format:${headFormat}`],
       () => {
         const event = payload as PushEvent
         return event.head_commit?.message ?? github.context.workflow
@@ -97,7 +99,7 @@ export async function run(): Promise<void> {
       'log',
       '--oneline',
       '--no-merges',
-      '--pretty=format:"- %s"',
+      `--pretty=format:${mergeFormat}`,
       `${previousMergeCommit}..HEAD`
     ])
 

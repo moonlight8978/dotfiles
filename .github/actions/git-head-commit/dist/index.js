@@ -31137,6 +31137,8 @@ async function capture(command, args, fallback = () => '') {
 async function run() {
     const payload = github.context.payload;
     const strategy = core.getInput('strategy', { required: true });
+    const headFormat = core.getInput('head-format', { required: true });
+    const mergeFormat = core.getInput('merge-format', { required: true });
     const sha = await capture('git', ['rev-parse', 'HEAD'], () => github.context.sha);
     const shaShort = await capture('git', ['rev-parse', '--short', 'HEAD'], () => sha.slice(0, 7));
     const branch = await capture('git', ['rev-parse', '--abbrev-ref', 'HEAD'], () => github.context.ref.replace(/^refs\/heads\//, ''));
@@ -31150,7 +31152,7 @@ async function run() {
             event.sender.login);
     });
     const getLatestCommitMessage = async () => {
-        return await capture('git', ['log', '-1', '--pretty=format:%s%n%n%b'], () => {
+        return await capture('git', ['log', '-1', `--pretty=format:${headFormat}`], () => {
             const event = payload;
             return event.head_commit?.message ?? github.context.workflow;
         });
@@ -31174,7 +31176,7 @@ async function run() {
             'log',
             '--oneline',
             '--no-merges',
-            '--pretty=format:"- %s"',
+            `--pretty=format:${mergeFormat}`,
             `${previousMergeCommit}..HEAD`
         ]);
         return changelog;
