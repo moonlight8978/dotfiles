@@ -31136,7 +31136,7 @@ async function capture(command, args, fallback = () => '') {
 }
 async function run() {
     const payload = github.context.payload;
-    const type = core.getInput('type', { required: true });
+    const strategy = core.getInput('strategy', { required: true });
     const sha = await capture('git', ['rev-parse', 'HEAD'], () => github.context.sha);
     const shaShort = await capture('git', ['rev-parse', '--short', 'HEAD'], () => sha.slice(0, 7));
     const branch = await capture('git', ['rev-parse', '--abbrev-ref', 'HEAD'], () => github.context.ref.replace(/^refs\/heads\//, ''));
@@ -31156,7 +31156,7 @@ async function run() {
         });
     };
     const getMessage = async () => {
-        if (type === 'head') {
+        if (strategy === 'head') {
             return await getLatestCommitMessage();
         }
         const parentCommits = await capture('git', [

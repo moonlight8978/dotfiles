@@ -1,5 +1,5 @@
 inputs:
-  type:
+  strategy:
     type: enum
     allowed-values:
       - head

@@ -3,8 +3,8 @@ description: Git head commit info
 author: _MoonLight_ <moonlight8978@gmail.com>
 
 inputs:
-  type:
-    description: The type of detection
+  strategy:
+    description: The type of detection strategy
     required: true
     default: head
 

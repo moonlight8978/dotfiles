@@ -27,7 +27,9 @@ async function capture(
 export async function run(): Promise<void> {
   const payload = github.context.payload
 
-  const type = core.getInput('type', { required: true }) as 'head' | 'smart'
+  const strategy = core.getInput('strategy', { required: true }) as
+    | 'head'
+    | 'smart'
 
   const sha = await capture(
     'git',
@@ -73,7 +75,7 @@ export async function run(): Promise<void> {
   }
 
   const getMessage = async () => {
-    if (type === 'head') {
+    if (strategy === 'head') {
       return await getLatestCommitMessage()
     }
 
