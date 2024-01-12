@@ -30994,8 +30994,7 @@ async function run() {
     const schema = (0, yup_1.object)({
         message: (0, yup_1.string)().required().trim(),
         columns: (0, yup_1.string)().required().trim(),
-        webhookUrl: (0, yup_1.string)().required().trim(),
-        color: (0, yup_1.string)().required().trim()
+        webhookUrl: (0, yup_1.string)().required().trim()
     });
     const inputs = schema.cast({
         message: core.getInput('message'),

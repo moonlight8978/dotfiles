@@ -103,8 +103,7 @@ export async function run(): Promise<void> {
   const schema = object({
     message: string().required().trim(),
     columns: string().required().trim(),
-    webhookUrl: string().required().trim(),
-    color: string().required().trim()
+    webhookUrl: string().required().trim()
   })
 
   const inputs = schema.cast({
