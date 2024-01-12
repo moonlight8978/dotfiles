@@ -30915,6 +30915,9 @@ function parseBlocks(text) {
             type = variants[0] || type;
             width = variants[1] || width;
         }
+        else {
+            width = column.variant;
+        }
         switch (type) {
             case 'image':
                 return {

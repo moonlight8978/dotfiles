@@ -12,6 +12,8 @@ export function parseBlocks(text: string) {
       const variants = column.variant.split(':')
       type = variants[0] || type
       width = variants[1] || width
+    } else {
+      width = column.variant
     }
 
     switch (type) {
