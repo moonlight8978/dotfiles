@@ -105,6 +105,7 @@ export async function run(): Promise<void> {
       }
     )
   } catch (err: any) {
+    console.error(err.message, err.stack)
     core.error(err.message)
     if (err.response) {
       core.error(JSON.stringify(err.response.data))

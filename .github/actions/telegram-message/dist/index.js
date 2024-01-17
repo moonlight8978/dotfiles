@@ -48205,6 +48205,7 @@ async function run() {
         });
     }
     catch (err) {
+        console.error(err.message, err.stack);
         core.error(err.message);
         if (err.response) {
             core.error(JSON.stringify(err.response.data));
