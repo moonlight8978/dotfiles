@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
-import { number, string, object } from 'yup'
+import { string, object } from 'yup'
 import { escape } from 'lodash'
-import axios from 'axios'
+import fetch from 'node-fetch'
 
 const lineBreak = `&#10;`
 
@@ -94,16 +94,24 @@ export async function run(): Promise<void> {
   console.log(message)
 
   try {
-    await axios.post(
+    const response = await fetch(
       `https://api.telegram.org/bot${inputs.token}/sendMessage`,
       {
-        chat_id: inputs.groupId,
-        text: message,
-        parse_mode: 'HTML',
-        disable_web_page_preview: true,
-        reply_to_message_id: inputs.topic || undefined
+        method: 'post',
+        body: JSON.stringify({
+          chat_id: inputs.groupId,
+          text: message,
+          parse_mode: 'HTML',
+          disable_web_page_preview: true,
+          reply_to_message_id: inputs.topic || undefined,
+          headers: { 'Content-Type': 'application/json' }
+        })
       }
     )
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`)
+    }
   } catch (err: any) {
     console.error(err.message, err.stack)
     core.error(err.message)
