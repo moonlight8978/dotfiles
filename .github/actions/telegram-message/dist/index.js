@@ -48126,9 +48126,11 @@ const axios_1 = __importDefault(__nccwpck_require__(6795));
 const column_1 = __nccwpck_require__(6773);
 const lineBreak = `&#10;`;
 function htmlEscape(str) {
-    return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
+    const escaped = str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
         return (0, lodash_1.escape)(p1).replace(/[\r\n]/gm, lineBreak);
     });
+    // how
+    return (0, lodash_1.trim)((0, lodash_1.trim)((0, lodash_1.trim)(escaped), `${lineBreak}`));
 }
 exports.htmlEscape = htmlEscape;
 function columnsToMessage(columns) {

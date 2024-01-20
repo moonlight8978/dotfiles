@@ -26,4 +26,14 @@ Co-author: bichle-mechmaster <bich.le@icetea.io></html-escape>`
     const input = `<html-escape></html-escape>`
     expect(htmlEscape(input)).toEqual('')
   })
+
+  it('remove trailing comma and spaces', () => {
+    const input = `<html-escape>
+      http://localhost/dashboard/\nhttp://localhost/grafana/dashboards
+    </html-escape>`
+
+    expect(htmlEscape(input)).toEqual(
+      'http://localhost/dashboard/\nhttp://localhost/grafana/dashboards'
+    )
+  })
 })

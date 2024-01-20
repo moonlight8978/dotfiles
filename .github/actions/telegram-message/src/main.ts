@@ -1,15 +1,21 @@
 import * as core from '@actions/core'
 import { string, object } from 'yup'
-import { escape } from 'lodash'
+import { escape, trim } from 'lodash'
 import axios from 'axios'
 import { Column, parseColumns } from '@munkit/column'
 
 const lineBreak = `&#10;`
 
 export function htmlEscape(str: string) {
-  return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
-    return escape(p1).replace(/[\r\n]/gm, lineBreak)
-  })
+  const escaped = str.replace(
+    /<html-escape>((.|\n|\r\n)*?)<\/html-escape>/,
+    (_, p1) => {
+      return escape(p1).replace(/[\r\n]/gm, lineBreak)
+    }
+  )
+
+  // how
+  return trim(trim(trim(escaped), `${lineBreak}`))
 }
 
 export function columnsToMessage(columns: Column[]) {
