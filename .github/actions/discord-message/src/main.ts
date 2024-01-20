@@ -1,50 +1,7 @@
 import * as core from '@actions/core'
 import axios from 'axios'
-import { number, string, object } from 'yup'
-
-type Column = {
-  title: string
-  content: string
-  width: string
-}
-
-function parseColumns(columns: string) {
-  const columnContentSchema = string().required()
-  const columnWidthSchema = string().required().oneOf(['full', 'inline'])
-  const columnTitleSchema = string().required()
-
-  return columns
-    .split('|W|')
-    .map(e => e.trim())
-    .filter(Boolean)
-    .reduce((acc, column, index) => {
-      if (index % 3 === 0) {
-        acc.push({
-          content: '',
-          title: '',
-          width: 'full'
-        })
-      }
-
-      const currentColumn = acc[acc.length - 1]
-
-      switch (index % 3) {
-        case 0:
-          currentColumn.width = columnWidthSchema.cast(column)
-          break
-
-        case 1:
-          currentColumn.title = columnTitleSchema.cast(column)
-          break
-
-        case 2:
-          currentColumn.content = columnContentSchema.cast(column)
-          break
-      }
-
-      return acc
-    }, [] as Column[])
-}
+import { string, object } from 'yup'
+import { parseColumns } from '@munkit/column'
 
 export async function run(): Promise<void> {
   const schema = object({
@@ -64,7 +21,7 @@ export async function run(): Promise<void> {
   const embeds = parseColumns(inputs.columns).map(column => ({
     name: column.title,
     value: column.content,
-    inline: column.width === 'inline'
+    inline: column.variant === 'inline'
   }))
 
   await axios

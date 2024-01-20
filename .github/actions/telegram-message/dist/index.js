@@ -48118,11 +48118,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = exports.columnsToMessage = exports.parseColumns = exports.htmlEscape = void 0;
+exports.run = exports.columnsToMessage = exports.htmlEscape = void 0;
 const core = __importStar(__nccwpck_require__(3949));
 const yup_1 = __nccwpck_require__(9159);
 const lodash_1 = __nccwpck_require__(2163);
 const axios_1 = __importDefault(__nccwpck_require__(6795));
+const column_1 = __nccwpck_require__(6773);
 const lineBreak = `&#10;`;
 function htmlEscape(str) {
     return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
@@ -48130,43 +48131,11 @@ function htmlEscape(str) {
     });
 }
 exports.htmlEscape = htmlEscape;
-function parseColumns(columns) {
-    const columnContentSchema = (0, yup_1.string)().required();
-    const columnPlacementSchema = (0, yup_1.string)().required().oneOf(['full', 'inline']);
-    const columnTitleSchema = (0, yup_1.string)().required();
-    return columns
-        .split('|W|')
-        .map(e => e.trim())
-        .slice(1)
-        .reduce((acc, column, index) => {
-        if (index % 3 === 0) {
-            acc.push({
-                content: '',
-                title: '',
-                placement: ''
-            });
-        }
-        const currentColumn = acc[acc.length - 1];
-        switch (index % 3) {
-            case 0:
-                currentColumn.placement = columnPlacementSchema.cast(column);
-                break;
-            case 1:
-                currentColumn.title = columnTitleSchema.cast(column);
-                break;
-            case 2:
-                currentColumn.content = columnContentSchema.cast(column);
-                break;
-        }
-        return acc;
-    }, []);
-}
-exports.parseColumns = parseColumns;
 function columnsToMessage(columns) {
     return columns
         .map(column => {
         const content = htmlEscape(column.content);
-        return column.placement === 'full'
+        return column.variant === 'full'
             ? `▪️ <b>${column.title}</b>${lineBreak}${content}`
             : `▪️ <b>${column.title}</b>: ${content}`;
     })
@@ -48192,7 +48161,7 @@ async function run() {
         inputs.message,
         lineBreak,
         lineBreak,
-        columnsToMessage(parseColumns(inputs.columns))
+        columnsToMessage((0, column_1.parseColumns)(inputs.columns))
     ].join('');
     console.log(message);
     try {
@@ -48214,6 +48183,51 @@ async function run() {
     }
 }
 exports.run = run;
+
+
+/***/ }),
+
+/***/ 6773:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseColumns = void 0;
+const lodash_1 = __nccwpck_require__(2163);
+const yup_1 = __nccwpck_require__(9159);
+function parseColumns(columns) {
+    const columnContentSchema = (0, yup_1.string)().required();
+    const columnVariantSchema = (0, yup_1.string)().required();
+    const columnTitleSchema = (0, yup_1.string)().required();
+    return columns
+        .split('|W|')
+        .map((col) => (0, lodash_1.trim)(col))
+        .slice(1)
+        .reduce((acc, column, index) => {
+        if (index % 3 === 0) {
+            acc.push({
+                content: '',
+                title: '',
+                variant: '',
+            });
+        }
+        const currentColumn = acc[acc.length - 1];
+        switch (index % 3) {
+            case 0:
+                currentColumn.variant = columnVariantSchema.cast(column);
+                break;
+            case 1:
+                currentColumn.title = columnTitleSchema.cast(column);
+                break;
+            case 2:
+                currentColumn.content = columnContentSchema.cast(column);
+                break;
+        }
+        return acc;
+    }, []);
+}
+exports.parseColumns = parseColumns;
 
 
 /***/ }),

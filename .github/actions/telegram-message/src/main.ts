@@ -1,15 +1,10 @@
 import * as core from '@actions/core'
-import { number, string, object } from 'yup'
+import { string, object } from 'yup'
 import { escape } from 'lodash'
 import axios from 'axios'
+import { Column, parseColumns } from '@munkit/column'
 
 const lineBreak = `&#10;`
-
-type Column = {
-  title: string
-  content: string
-  placement: string
-}
 
 export function htmlEscape(str: string) {
   return str.replace(/<html-escape>((.|\n|\r\n)*?)<\/html-escape>/, (_, p1) => {
@@ -17,50 +12,12 @@ export function htmlEscape(str: string) {
   })
 }
 
-export function parseColumns(columns: string) {
-  const columnContentSchema = string().required()
-  const columnPlacementSchema = string().required().oneOf(['full', 'inline'])
-  const columnTitleSchema = string().required()
-
-  return columns
-    .split('|W|')
-    .map(e => e.trim())
-    .slice(1)
-    .reduce((acc, column, index) => {
-      if (index % 3 === 0) {
-        acc.push({
-          content: '',
-          title: '',
-          placement: ''
-        })
-      }
-
-      const currentColumn = acc[acc.length - 1]
-
-      switch (index % 3) {
-        case 0:
-          currentColumn.placement = columnPlacementSchema.cast(column)
-          break
-
-        case 1:
-          currentColumn.title = columnTitleSchema.cast(column)
-          break
-
-        case 2:
-          currentColumn.content = columnContentSchema.cast(column)
-          break
-      }
-
-      return acc
-    }, [] as Column[])
-}
-
 export function columnsToMessage(columns: Column[]) {
   return columns
     .map(column => {
       const content = htmlEscape(column.content)
 
-      return column.placement === 'full'
+      return column.variant === 'full'
         ? `▪️ <b>${column.title}</b>${lineBreak}${content}`
         : `▪️ <b>${column.title}</b>: ${content}`
     })

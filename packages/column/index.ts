@@ -1,3 +1,4 @@
+import { trim } from 'lodash'
 import { string } from 'yup'
 
 export type Column = {
@@ -13,7 +14,7 @@ export function parseColumns(columns: string) {
 
   return columns
     .split('|W|')
-    .map((e) => e.trim())
+    .map((col) => trim(col))
     .slice(1)
     .reduce((acc, column, index) => {
       if (index % 3 === 0) {
