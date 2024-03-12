@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { string, object } from 'yup'
 import { parseColumns } from '@munkit/column'
 
@@ -23,6 +23,8 @@ export async function run(): Promise<void> {
     value: column.content,
     inline: column.variant === 'inline'
   }))
+
+  core.info(JSON.stringify(embeds))
 
   await axios
     .post(
@@ -50,12 +52,12 @@ export async function run(): Promise<void> {
     )
     .then(() => {
       core.info('Message sent')
-      core.debug(JSON.stringify(embeds))
     })
     .catch(err => {
       core.error(err.message)
       if (err.response) {
         core.error(err.response.data)
+        core.error(err.response.request.body)
       }
       core.setFailed(err.message)
     })

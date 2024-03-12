@@ -48141,6 +48141,7 @@ async function run() {
         value: column.content,
         inline: column.variant === 'inline'
     }));
+    core.info(JSON.stringify(embeds));
     await axios_1.default
         .post(inputs.webhookUrl, {
         content: inputs.message,
@@ -48162,12 +48163,12 @@ async function run() {
     })
         .then(() => {
         core.info('Message sent');
-        core.debug(JSON.stringify(embeds));
     })
         .catch(err => {
         core.error(err.message);
         if (err.response) {
             core.error(err.response.data);
+            core.error(err.response.request.body);
         }
         core.setFailed(err.message);
     });
