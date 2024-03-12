@@ -8,3 +8,5 @@ inputs:
     type: string
   merge-format:
     type: string
+  limit:
+    type: number

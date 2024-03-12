@@ -15,6 +15,10 @@ inputs:
     description: The format of the merge commit message
     required: false
     default: '- %s (%h by %aN)'
+  limit:
+    description: The number of commits to output
+    required: false
+    default: '10'
 
 outputs:
   message:

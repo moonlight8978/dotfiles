@@ -24,8 +24,6 @@ export async function run(): Promise<void> {
     inline: column.variant === 'inline'
   }))
 
-  core.info(JSON.stringify(embeds))
-
   await axios
     .post(
       inputs.webhookUrl,

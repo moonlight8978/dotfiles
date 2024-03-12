@@ -48141,7 +48141,6 @@ async function run() {
         value: column.content,
         inline: column.variant === 'inline'
     }));
-    core.info(JSON.stringify(embeds));
     await axios_1.default
         .post(inputs.webhookUrl, {
         content: inputs.message,

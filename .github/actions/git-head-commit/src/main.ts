@@ -32,6 +32,7 @@ export async function run(): Promise<void> {
     | 'smart'
   const headFormat = core.getInput('head-format', { required: true })
   const mergeFormat = core.getInput('merge-format', { required: true })
+  const limit = Number(core.getInput('limit', { required: true }))
 
   const sha = await capture(
     'git',
@@ -95,13 +96,15 @@ export async function run(): Promise<void> {
     }
 
     const previousMergeCommit = parentCommits[0]
-    const changelog = await capture('git', [
+    const commits = await capture('git', [
       'log',
       '--oneline',
       '--no-merges',
       `--pretty=format:${mergeFormat}`,
       `${previousMergeCommit}..HEAD`
-    ])
+    ]).then(stdout => stdout.split('\n').filter(Boolean))
+
+    const changelog = commits.slice(0, limit).join('\n')
 
     return changelog
   }

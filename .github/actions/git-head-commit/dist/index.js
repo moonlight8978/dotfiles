@@ -30187,6 +30187,7 @@ async function run() {
     const strategy = core.getInput('strategy', { required: true });
     const headFormat = core.getInput('head-format', { required: true });
     const mergeFormat = core.getInput('merge-format', { required: true });
+    const limit = Number(core.getInput('limit', { required: true }));
     const sha = await capture('git', ['rev-parse', 'HEAD'], () => github.context.sha);
     const shaShort = await capture('git', ['rev-parse', '--short', 'HEAD'], () => sha.slice(0, 7));
     const branch = await capture('git', ['rev-parse', '--abbrev-ref', 'HEAD'], () => github.context.ref.replace(/^refs\/heads\//, ''));
@@ -30220,13 +30221,14 @@ async function run() {
             return await getLatestCommitMessage();
         }
         const previousMergeCommit = parentCommits[0];
-        const changelog = await capture('git', [
+        const commits = await capture('git', [
             'log',
             '--oneline',
             '--no-merges',
             `--pretty=format:${mergeFormat}`,
             `${previousMergeCommit}..HEAD`
-        ]);
+        ]).then(stdout => stdout.split('\n').filter(Boolean));
+        const changelog = commits.slice(0, limit).join('\n');
         return changelog;
     };
     const message = await getMessage();
