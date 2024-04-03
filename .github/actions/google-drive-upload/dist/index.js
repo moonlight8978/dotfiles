@@ -54159,7 +54159,7 @@ const path_1 = __importDefault(__nccwpck_require__(1017));
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 const os_1 = __importDefault(__nccwpck_require__(2037));
 const glob_1 = __nccwpck_require__(3465);
-async function upload(remoteFolderId, localFilePath, destinationFilePath, serviceAccountBase64) {
+async function upload(remoteFolderId, localFilePath, destDirName, serviceAccountBase64) {
     const credentialsFilePath = path_1.default.join(os_1.default.tmpdir(), `${new Date().getTime()}.service-account.json`);
     fs_1.default.writeFileSync(credentialsFilePath, Buffer.from(serviceAccountBase64, 'base64'));
     const auth = new google.auth.GoogleAuth({
@@ -54177,9 +54177,6 @@ async function upload(remoteFolderId, localFilePath, destinationFilePath, servic
         supportsAllDrives: true,
         includeTeamDriveItems: true
     });
-    const destFileInfo = path_1.default.parse(destinationFilePath);
-    const destFileName = destFileInfo.base;
-    const destDirName = destFileInfo.dir && path_1.default.parse(destFileInfo.dir).base;
     const findOrCreateFolder = async () => {
         // @ts-expect-error Missing type definition
         const folder = listFolderResponse.data.files?.find((item) => item.name === destDirName);
@@ -54213,10 +54210,11 @@ async function upload(remoteFolderId, localFilePath, destinationFilePath, servic
     }
     const srcFile = srcFiles[0];
     const fileSize = fs_1.default.statSync(srcFile).size;
+    const destFilename = path_1.default.parse(srcFile).base;
     const uploadResponse = await client.files.create({
         requestBody: {
             parents: [destFolderId],
-            name: destFileName
+            name: destFilename
         },
         media: {
             body: fs_1.default.createReadStream(srcFile)

@@ -9,7 +9,7 @@ import { glob } from 'glob'
 export async function upload(
   remoteFolderId: string,
   localFilePath: string,
-  destinationFilePath: string,
+  destDirName: string,
   serviceAccountBase64: string
 ) {
   const credentialsFilePath = path.join(
@@ -39,10 +39,6 @@ export async function upload(
     supportsAllDrives: true,
     includeTeamDriveItems: true
   })
-
-  const destFileInfo = path.parse(destinationFilePath)
-  const destFileName = destFileInfo.base
-  const destDirName = destFileInfo.dir && path.parse(destFileInfo.dir).base
 
   const findOrCreateFolder = async (): Promise<string> => {
     // @ts-expect-error Missing type definition
@@ -86,12 +82,13 @@ export async function upload(
 
   const srcFile = srcFiles[0]
   const fileSize = fs.statSync(srcFile).size
+  const destFilename = path.parse(srcFile).base
 
   const uploadResponse = await client.files.create(
     {
       requestBody: {
         parents: [destFolderId],
-        name: destFileName
+        name: destFilename
       },
       media: {
         body: fs.createReadStream(srcFile)
