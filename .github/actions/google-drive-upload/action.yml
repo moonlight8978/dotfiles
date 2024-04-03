@@ -10,7 +10,9 @@ inputs:
     description: Service account base64 encoded
   file:
     required: true
-    description: Local file path to upload
+    description:
+      Local file path to upload, support glob pattern, use first match if
+      multiple files found
   destination:
     required: true
     description: Destination file path

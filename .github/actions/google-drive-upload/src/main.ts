@@ -4,6 +4,7 @@ import { object, string } from 'yup'
 import path from 'path'
 import fs from 'fs'
 import os from 'os'
+import { glob } from 'glob'
 
 export async function upload(
   remoteFolderId: string,
@@ -69,7 +70,22 @@ export async function upload(
 
   const destFolderId = await findOrCreateFolder()
 
-  const fileSize = fs.statSync(localFilePath).size
+  const srcFiles = await glob(localFilePath)
+  if (srcFiles.length === 0) {
+    core.warning(`No files found for pattern: ${localFilePath}`)
+    return {
+      id: '',
+      folderId: '',
+      size: 0
+    }
+  } else if (srcFiles.length > 1) {
+    core.warning(
+      `Multiple files found for pattern: ${localFilePath}. Using the first one.`
+    )
+  }
+
+  const srcFile = srcFiles[0]
+  const fileSize = fs.statSync(srcFile).size
 
   const uploadResponse = await client.files.create(
     {
@@ -78,7 +94,7 @@ export async function upload(
         name: destFileName
       },
       media: {
-        body: fs.createReadStream(localFilePath)
+        body: fs.createReadStream(srcFile)
       },
       supportsAllDrives: true,
       supportsTeamDrives: true
