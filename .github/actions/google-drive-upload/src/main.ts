@@ -82,13 +82,13 @@ export async function upload(
 
   const srcFile = srcFiles[0]
   const fileSize = fs.statSync(srcFile).size
-  const destFilename = path.parse(srcFile).base
+  const srcFilename = path.parse(srcFile).base
 
   const uploadResponse = await client.files.create(
     {
       requestBody: {
         parents: [destFolderId],
-        name: destFilename
+        name: srcFilename
       },
       media: {
         body: fs.createReadStream(srcFile)
@@ -109,7 +109,8 @@ export async function upload(
   return {
     id: uploadResponse.data.id!,
     folderId: destFolderId,
-    size: fileSize
+    size: fileSize,
+    name: srcFilename
   }
 }
 
@@ -128,7 +129,7 @@ export async function run(): Promise<void> {
     destination: core.getInput('destination')
   })
 
-  const { id, folderId, size } = await upload(
+  const { id, folderId, size, name } = await upload(
     inputs.folder,
     inputs.file,
     inputs.destination,
@@ -139,4 +140,5 @@ export async function run(): Promise<void> {
   core.setOutput('folder', folderId)
   core.setOutput('file-size', size)
   core.setOutput('file-url', `https://drive.google.com/file/d/${id}/view`)
+  core.setOutput('file-name', name)
 }

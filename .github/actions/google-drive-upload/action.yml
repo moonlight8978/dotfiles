@@ -25,6 +25,8 @@ outputs:
     description: Google Drive file URL
   file-size:
     description: File size in Bytes
+  file-name:
+    description: Uploaded file name
 runs:
   using: 'node20'
   main: 'dist/index.js'

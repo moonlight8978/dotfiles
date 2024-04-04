@@ -54210,11 +54210,11 @@ async function upload(remoteFolderId, localFilePath, destDirName, serviceAccount
     }
     const srcFile = srcFiles[0];
     const fileSize = fs_1.default.statSync(srcFile).size;
-    const destFilename = path_1.default.parse(srcFile).base;
+    const srcFilename = path_1.default.parse(srcFile).base;
     const uploadResponse = await client.files.create({
         requestBody: {
             parents: [destFolderId],
-            name: destFilename
+            name: srcFilename
         },
         media: {
             body: fs_1.default.createReadStream(srcFile)
@@ -54232,7 +54232,8 @@ async function upload(remoteFolderId, localFilePath, destDirName, serviceAccount
     return {
         id: uploadResponse.data.id,
         folderId: destFolderId,
-        size: fileSize
+        size: fileSize,
+        name: srcFilename
     };
 }
 exports.upload = upload;
@@ -54249,11 +54250,12 @@ async function run() {
         file: core.getInput('file'),
         destination: core.getInput('destination')
     });
-    const { id, folderId, size } = await upload(inputs.folder, inputs.file, inputs.destination, inputs.serviceAccountBase64);
+    const { id, folderId, size, name } = await upload(inputs.folder, inputs.file, inputs.destination, inputs.serviceAccountBase64);
     core.setOutput('file', id);
     core.setOutput('folder', folderId);
     core.setOutput('file-size', size);
     core.setOutput('file-url', `https://drive.google.com/file/d/${id}/view`);
+    core.setOutput('file-name', name);
 }
 exports.run = run;
 
