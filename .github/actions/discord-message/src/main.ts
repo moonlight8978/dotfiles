@@ -1,72 +1,181 @@
 import * as core from '@actions/core'
 import { string, object, number } from 'yup'
-import { parseColumns } from '@munkit/column'
+import { Column, parseColumns } from '@munkit/column'
 import {
   WebhookClient,
   EmbedBuilder,
   ActionRowBuilder,
   ButtonBuilder,
-  ButtonStyle
+  ButtonStyle,
+  Client,
+  GatewayIntentBits,
+  Events,
+  TextChannel,
+  ThreadChannel
 } from 'discord.js'
 
-export async function run(): Promise<void> {
-  const schema = object({
-    message: string().required().trim(),
-    columns: string().required().trim(),
-    webhookUrl: string().required().trim(),
-    color: number().integer().required(),
-    threadId: string().trim().optional().nullable()
-  })
+class DiscordBotClient {
+  #token: string
+  #channelId: string
+  #client!: Client
 
-  const inputs = schema.cast({
-    message: core.getInput('message'),
-    columns: core.getInput('columns'),
-    webhookUrl: core.getInput('webhook-url'),
-    color: core.getInput('color'),
-    threadId: core.getInput('thread-id')
-  })
+  constructor(inputs: any) {
+    const { token, channel } = object({
+      token: string().required().trim(),
+      channel: string().required().trim()
+    }).cast(inputs)
 
-  const client = new WebhookClient({
-    url: inputs.webhookUrl
-  })
+    this.#token = token
+    this.#channelId = channel
+  }
 
-  const columns = parseColumns(inputs.columns)
-  const embed = new EmbedBuilder().setColor(inputs.color).addFields(
-    columns
-      .filter(column => ['inline', 'full'].includes(column.variant))
-      .map(column => ({
+  async bootstrap() {
+    core.info('Bootstrapping bot client')
+    this.#client = await new Promise((resolve, reject) => {
+      const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+
+      client.once(Events.ClientReady, async readyClient => {
+        core.info(`Bot is ready. ${readyClient.user.tag}`)
+        resolve(readyClient)
+        client.destroy()
+      })
+
+      client.once(Events.Error, error => {
+        core.error(error.message)
+        core.setFailed(error.message)
+
+        reject(error)
+      })
+
+      client.login(this.#token)
+    })
+  }
+
+  async sendMessage(color: number, message: string, columns: Column[]) {
+    const channel = (await this.#client.channels.fetch(this.#channelId)) as
+      | TextChannel
+      | ThreadChannel
+      | null
+
+    if (!channel) {
+      throw new Error(`Channel not found: ${this.#channelId}`)
+    }
+
+    const embedColumns = columns.filter(column =>
+      ['inline', 'full'].includes(column.variant)
+    )
+
+    const embed = new EmbedBuilder().setColor(color).addFields(
+      embedColumns.map(column => ({
         name: column.title,
         value: column.content,
         inline: column.variant === 'inline'
       }))
-  )
-
-  const components = columns
-    .filter(column =>
-      ['button'].some(variant => column.variant.includes(variant))
     )
-    .map(column => {
-      if (column.variant.includes('button')) {
-        const style = ((column.variant.split(':')[1] as any) ??
-          'PRIMARY') as ButtonStyle
-        return new ActionRowBuilder<ButtonBuilder>().addComponents(
-          new ButtonBuilder()
+
+    const components = columns
+      .filter(column =>
+        ['button'].some(variant => column.variant.includes(variant))
+      )
+      .map(column => {
+        if (column.variant.includes('button')) {
+          const style = ((column.variant.split(':')[1] as any) ??
+            ButtonStyle.Primary) as ButtonStyle
+          return new ButtonBuilder()
             .setStyle(style)
             .setLabel(column.title)
             .setURL(column.content)
-        )
-      }
+        }
 
-      throw new Error('Invalid column variant')
+        throw new Error('Invalid column variant')
+      })
+
+    core.info(`embeds: ${embedColumns.length}`)
+    core.info(`components: ${components.length}`)
+
+    await channel.send({
+      embeds: embedColumns.length ? [embed] : undefined,
+      content: message || undefined,
+      components: components.length
+        ? [new ActionRowBuilder<ButtonBuilder>().addComponents(components)]
+        : undefined
     })
+  }
+}
+
+class DiscordWebhookClient {
+  #url: string
+  #threadId?: string
+  #client!: WebhookClient
+
+  constructor(inputs: any) {
+    const { webhookUrl, threadId } = object({
+      webhookUrl: string().required().trim(),
+      threadId: string().optional().nullable()
+    }).cast(inputs)
+
+    this.#url = webhookUrl
+    this.#threadId = threadId || undefined
+  }
+
+  async bootstrap() {
+    core.info('Bootstrapping webhook client')
+    this.#client = new WebhookClient({ url: this.#url })
+  }
+
+  async sendMessage(color: number, message: string, columns: Column[]) {
+    const embedColumns = columns.filter(column =>
+      ['inline', 'full'].includes(column.variant)
+    )
+
+    const embed = new EmbedBuilder().setColor(color).addFields(
+      embedColumns.map(column => ({
+        name: column.title,
+        value: column.content,
+        inline: column.variant === 'inline'
+      }))
+    )
+
+    await this.#client.send({
+      embeds: embedColumns.length ? [embed] : undefined,
+      content: message || undefined,
+      threadId: this.#threadId
+    })
+  }
+}
+
+export async function run(): Promise<void> {
+  const isBotClient = !!core.getInput('token')
+
+  const client = isBotClient
+    ? new DiscordBotClient({
+        token: core.getInput('token'),
+        channel: core.getInput('channel')
+      })
+    : new DiscordWebhookClient({
+        webhookUrl: core.getInput('webhook-url'),
+        threadId: core.getInput('thread-id')
+      })
+
+  const messageInputs = object({
+    message: string().trim(),
+    columns: string().required().trim(),
+    color: number().integer().required()
+  }).cast({
+    message: core.getInput('message'),
+    columns: core.getInput('columns'),
+    color: core.getInput('color')
+  })
+
+  const columns = parseColumns(messageInputs.columns)
 
   try {
-    await client.send({
-      embeds: [embed],
-      content: inputs.message,
-      threadId: inputs.threadId || undefined,
-      components: components
-    })
+    await client.bootstrap()
+    await client.sendMessage(
+      messageInputs.color,
+      messageInputs.message || '',
+      columns
+    )
     core.info('Message sent')
   } catch (err: any) {
     core.error(err.message)
