@@ -37,18 +37,23 @@ class DiscordBotClient {
       client.once(Events.ClientReady, async readyClient => {
         core.info(`Bot is ready. ${readyClient.user.tag}`)
         resolve(readyClient)
-        client.destroy()
       })
 
-      client.once(Events.Error, error => {
+      client.once(Events.Error, async error => {
         core.error(error.message)
         core.setFailed(error.message)
+
+        await client.destroy()
 
         reject(error)
       })
 
       client.login(this.#token)
     })
+  }
+
+  async terminate() {
+    await this.#client?.destroy().catch(() => {})
   }
 
   async sendMessage(color: number, message: string, columns: Column[]) {
@@ -123,6 +128,8 @@ class DiscordWebhookClient {
     this.#client = new WebhookClient({ url: this.#url })
   }
 
+  async terminate() {}
+
   async sendMessage(color: number, message: string, columns: Column[]) {
     const embedColumns = columns.filter(column =>
       ['inline', 'full'].includes(column.variant)
@@ -180,5 +187,7 @@ export async function run(): Promise<void> {
   } catch (err: any) {
     core.error(err.message)
     core.setFailed(err.message)
+  } finally {
+    await client.terminate()
   }
 }
