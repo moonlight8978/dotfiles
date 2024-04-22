@@ -58,8 +58,8 @@ export async function run(): Promise<void> {
       return (
         event.head_commit?.author.username ??
         event.head_commit?.author.name ??
-        event.pusher.name ??
-        event.pusher.username ??
+        event.pusher?.name ??
+        event.pusher?.username ??
         event.sender.name ??
         event.sender.login
       )
