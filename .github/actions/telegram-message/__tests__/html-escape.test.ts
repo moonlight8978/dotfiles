@@ -33,7 +33,13 @@ Co-author: bichle-mechmaster <bich.le@icetea.io></html-escape>`
     </html-escape>`
 
     expect(htmlEscape(input)).toEqual(
-      'http://localhost/dashboard/\nhttp://localhost/grafana/dashboards'
+      'http://localhost/dashboard/&#10;http://localhost/grafana/dashboards'
     )
+  })
+
+  it('parse the semver correctly', () => {
+    const input = `1.0`
+
+    expect(htmlEscape(input)).toEqual('1.0')
   })
 })

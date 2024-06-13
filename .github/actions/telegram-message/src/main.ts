@@ -10,12 +10,12 @@ export function htmlEscape(str: string) {
   const escaped = str.replace(
     /<html-escape>((.|\n|\r\n)*?)<\/html-escape>/,
     (_, p1) => {
-      return escape(p1).replace(/[\r\n]/gm, lineBreak)
+      return escape(p1).replaceAll(lineBreak, '\n')
     }
   )
 
   // how
-  return trim(trim(trim(escaped), `${lineBreak}`))
+  return trim(escaped).replaceAll(/[\r\n]/gm, lineBreak)
 }
 
 export function columnsToMessage(columns: Column[]) {
