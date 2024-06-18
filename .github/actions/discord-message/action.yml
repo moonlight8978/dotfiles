@@ -26,6 +26,14 @@ inputs:
     description: Thread ID to post message
     required: false
     default: ''
+  token:
+    description: Discord bot token
+    required: false
+    default: ''
+  channel:
+    description: Channel ID to post message
+    required: false
+    default: ''
 
 runs:
   using: node20
