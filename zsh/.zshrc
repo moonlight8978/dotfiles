@@ -31,7 +31,7 @@ autoload -U +X bashcompinit && bashcompinit
 setopt hist_find_no_dups hist_reduce_blanks
 
 # cd without typing cd
-setopt auto_cd
+#setopt auto_cd
 
 # Themes
 zcomet load zsh-users/zsh-syntax-highlighting

@@ -1,8 +1,13 @@
 set shell := ["bash", "-cu"]
 
-default: run
+default: all
 
-run:
-  stow -t ~ zsh tmux
+all: tmux nvim 
+
+tmux:
+  stow -t ~ tmux
+
+nvim:
   mkdir -p ~/.config/nvim
   stow -t ~/.config/nvim nvim
+  
