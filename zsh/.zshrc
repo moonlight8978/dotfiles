@@ -73,3 +73,11 @@ complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
 # Ctrl+W delete word by word
 autoload -U select-word-style
 select-word-style bash
+
+# fzf
+source <(fzf --zsh)
+
+# Source ~/.env if it exists
+if [ -f ~/.env ]; then
+  source ~/.env
+fi

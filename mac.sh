@@ -1,3 +1,3 @@
 #! /bin/bash
 
-brew install stow just
+brew install stow just fzf
