@@ -9,5 +9,6 @@ vim.cmd("source " .. vim.fs.joinpath(config_dir, "vimrc/plugins.vim"))
 
 require("globals")
 require("config.keymap")
+require("config.filetype")
 
 require("config.lazy")
