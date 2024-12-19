@@ -12,7 +12,7 @@ return {{
         filesystem = {
             filtered_items = {
                 hide_dotfiles = false
-            }
+            },
         }
     },
     dependencies = {"nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -24,7 +24,16 @@ return {{
                 action = "focus"
             })
         end)
+
         -- toggle explorer
-        set("n", "<C-\\>", ":Neotree<CR>")
+        set("n", "<C-\\>", ":Neotree toggle<CR>")
+
+        --- open on startup
+        vim.api.nvim_create_autocmd("VimEnter", {
+          callback = function()
+            vim.cmd("Neotree")
+            vim.cmd("wincmd p")
+          end,
+        })
     end
 }}
