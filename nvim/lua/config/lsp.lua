@@ -17,6 +17,12 @@ if utils.executable("vtsls") then
 	})
 end
 
+if utils.executable("terraform-ls") then
+	lspconfig.terraformls.setup({
+		capabilities = capabilities,
+	})
+end
+
 if utils.executable("lua-language-server") then
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
