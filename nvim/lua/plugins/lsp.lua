@@ -14,4 +14,9 @@ return {{
         require("config.lsp")
         -- require("config.terraformls")
     end
-}, {"neoclide/coc.nvim"}}
+}, 
+-- custom LSP
+  {"neoclide/coc.nvim"},
+  { "sbdchd/neoformat" }
+}
+

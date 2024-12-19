@@ -1,1 +1,1 @@
-return {"NoahTheDuke/vim-just"}
+return { "NoahTheDuke/vim-just" }

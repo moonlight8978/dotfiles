@@ -1,7 +1,7 @@
 local fn = vim.fn
 local api = vim.api
 
-local utils = require('utils')
+local utils = require("utils")
 
 ------------------------------------------------------------------------
 --                          custom variables                          --
@@ -34,13 +34,13 @@ vim.opt.termguicolors = true
 -- end
 
 -- Custom mapping <leader> (see `:h mapleader` for more info)
-vim.g.mapleader = ','
+vim.g.mapleader = ","
 
 -- -- Enable highlighting for lua HERE doc inside vim script
 -- vim.g.vimsyn_embed = 'l'
 
 -- Use English as main language
-vim.cmd [[language en_US.UTF-8]]
+vim.cmd([[language en_US.UTF-8]])
 
 -- -- Disable loading certain plugins
 
