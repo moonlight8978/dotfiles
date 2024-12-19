@@ -1,15 +1,21 @@
 return {{
-    "chriskempson/base16-vim",
+    "RRethy/nvim-base16",
+  priority = 1000,
     config = function()
-        vim.cmd [[colorscheme base16-chalk]]
+       vim.cmd [[colorscheme base16-chalk]]
     end
-}, {
+}, 
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {}
-}, {
+    opts = {
+      exclude = {
+        filetypes = { "help", "git", "markdown", "snippets", "text", "gitconfig" },
+        buftypes = { "terminal" },
+      },
+
+    },
+    }, {
     'akinsho/bufferline.nvim',
     opts = {
         options = {
@@ -24,4 +30,21 @@ return {{
     config = function()
         require("config.lualine")
     end
-}}
+},
+{ 
+  "echasnovski/mini.animate", 
+  opts = {}, 
+  config = function()
+    require('mini.animate').setup()
+  end
+},
+{
+  "sphamba/smear-cursor.nvim",
+  opts = {},
+},
+  'andymass/vim-matchup',
+  opts = {},
+  config = function() 
+    vim.g.matchup_matchparen_offscreen = { method = "popup" }
+  end
+}

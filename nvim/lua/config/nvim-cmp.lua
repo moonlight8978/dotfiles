@@ -27,7 +27,15 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.abort(),
         ["<Esc>"] = cmp.mapping.close(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4)
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-g>'] = function()
+          if cmp.visible_docs() then
+            cmp.close_docs()
+          else
+            cmp.open_docs()
+          end
+        end,
     }),
     sources = cmp.config.sources({{
         name = "nvim_lsp"
