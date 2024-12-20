@@ -41,4 +41,15 @@ return {
 			})
 		end,
 	},
+
+	-- quick finder
+	{
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+		config = function()
+			set("n", "<leader>ff", ":FzfLua files<CR>")
+			set("n", "<leader>fb", ":FzfLua buffers<CR>")
+		end,
+	},
 }

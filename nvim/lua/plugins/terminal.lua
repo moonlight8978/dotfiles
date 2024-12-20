@@ -41,7 +41,7 @@ return {
 					direction = "float",
 					shade_terminals = true,
 					close_on_exit = true,
-					shell = vim.o.shell,
+					start_in_insert = true,
 				})
 
 				instance:toggle()

@@ -6,6 +6,7 @@ set("n", "<leader>r", ":so $MYVIMRC<CR>")
 -- Save, quit
 set("n", "<leader>w", ":w<CR>")
 set("n", "<leader>q", ":q<CR>")
+set("n", "<leader>qf", ":q!<CR>")
 set("n", "<leader>qa", ":qa<CR>")
 
 -- jump between buffers

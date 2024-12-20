@@ -49,5 +49,8 @@ return {
 				},
 			})
 		end,
+		dependencies = {
+			"andymass/vim-matchup",
+		},
 	},
 }

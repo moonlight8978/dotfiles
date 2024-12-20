@@ -45,3 +45,9 @@ set ignorecase smartcase
 " File and script encoding settings for vim
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+" Disable showing current mode on command line since statusline plugins can show it.
+" TODO: float terminal does not show TERMINAL mode
+" set noshowmode
+
+
