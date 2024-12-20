@@ -9,19 +9,20 @@ set("n", "<leader>k", "<C-w>k")
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		opts = {
-			filesystem = {
-				filtered_items = {
-					hide_dotfiles = false,
-				},
-			},
-		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
+			require("neo-tree").setup({
+				filesystem = {
+					filtered_items = {
+						hide_gitignored = true,
+						hide_dotfiles = false,
+					},
+				},
+			})
 			-- reveal file in explorer
 			set("n", "<leader>\\", function()
 				require("neo-tree.command").execute({
@@ -31,6 +32,9 @@ return {
 
 			-- toggle explorer
 			set("n", "<C-\\>", ":Neotree toggle<CR>")
+
+			-- reveal current buffer in explorer
+			set("n", "\\", ":Neotree reveal<CR>")
 
 			--- open on startup
 			vim.api.nvim_create_autocmd("VimEnter", {

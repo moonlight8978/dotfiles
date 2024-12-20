@@ -35,9 +35,6 @@ return {
 	{
 		"echasnovski/mini.animate",
 		opts = {},
-		config = function()
-			require("mini.animate").setup()
-		end,
 	},
 	{
 		"sphamba/smear-cursor.nvim",
@@ -45,7 +42,6 @@ return {
 	},
 	{
 		"andymass/vim-matchup",
-		opts = {},
 		config = function()
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
