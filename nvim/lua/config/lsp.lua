@@ -3,7 +3,11 @@ local utils = require("utils")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local set = vim.keymap.set
 
+
 set("n", "<leader>f", ":Neoformat<CR>")
+set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "varialbe rename" })
+
 
 if utils.executable("bash-language-server") then
 	lspconfig.bashls.setup({

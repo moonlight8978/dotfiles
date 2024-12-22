@@ -50,4 +50,8 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 " TODO: float terminal does not show TERMINAL mode
 " set noshowmode
 
+" Mouse behaviour
+set mousemodel=popup
+set mousescroll=ver:1,hor:0
+
 
