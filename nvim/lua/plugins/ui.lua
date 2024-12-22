@@ -1,9 +1,9 @@
 return {
 	{
-		"RRethy/nvim-base16",
+		"RRethy/base16-nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme base16-chalk]])
+			require("config.base16-nvim")
 		end,
 	},
 	{
@@ -28,9 +28,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("config.lualine")
-		end,
+		opts = true,
 	},
 	{
 		"echasnovski/mini.animate",
@@ -43,7 +41,7 @@ return {
 	{
 		"andymass/vim-matchup",
 		config = function()
-			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+			require("config.vim-matchup")
 		end,
 	},
 }

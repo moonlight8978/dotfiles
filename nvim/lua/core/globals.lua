@@ -14,6 +14,11 @@ vim.g.logging_level = "info"
 
 vim.opt.termguicolors = true
 
+-- Disable built-in diagnostic feedbacks
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
 ------------------------------------------------------------------------
 --                         builtin variables                          --
 ------------------------------------------------------------------------

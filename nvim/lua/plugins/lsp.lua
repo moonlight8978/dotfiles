@@ -1,7 +1,3 @@
-vim.diagnostic.config({
-	virtual_text = false,
-})
-
 return {
 	{
 		"hrsh7th/nvim-cmp",
@@ -23,7 +19,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("config.lsp")
+			require("config.nvim-lspconfig")
 		end,
 	},
 	{ "sbdchd/neoformat" },
@@ -31,27 +27,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"lua",
-					"vim",
-					"javascript",
-					"typescript",
-					"tsx",
-					"markdown",
-					"markdown_inline",
-					"ruby",
-					"python",
-					"dockerfile",
-					"yaml",
-					"json",
-				},
-				highlight = { enable = true },
-				indent = { enable = true },
-				matchup = {
-					enable = true,
-				},
-			})
+			require("config.nvim-treesitter")
 		end,
 		dependencies = {
 			"andymass/vim-matchup",

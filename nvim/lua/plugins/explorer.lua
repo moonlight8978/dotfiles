@@ -15,34 +15,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			require("neo-tree").setup({
-				filesystem = {
-					filtered_items = {
-						hide_gitignored = true,
-						hide_dotfiles = false,
-					},
-				},
-			})
-			-- reveal file in explorer
-			set("n", "<leader>\\", function()
-				require("neo-tree.command").execute({
-					action = "focus",
-				})
-			end)
-
-			-- toggle explorer
-			set("n", "<C-\\>", ":Neotree toggle<CR>")
-
-			-- reveal current buffer in explorer
-			set("n", "\\", ":Neotree reveal<CR>")
-
-			--- open on startup
-			vim.api.nvim_create_autocmd("VimEnter", {
-				callback = function()
-					vim.cmd("Neotree")
-					vim.cmd("wincmd p")
-				end,
-			})
+			require("config.neo-tree")
 		end,
 	},
 
@@ -50,10 +23,8 @@ return {
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
 		config = function()
-			set("n", "<leader>ff", ":FzfLua files<CR>")
-			set("n", "<leader>fb", ":FzfLua buffers<CR>")
+			require("config.fzf-lua")
 		end,
 	},
 }
