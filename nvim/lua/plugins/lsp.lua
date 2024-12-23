@@ -21,16 +21,12 @@ return {
 		config = function()
 			require("config.nvim-lspconfig")
 		end,
-	},
-	{ "sbdchd/neoformat" },
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function()
-			require("config.nvim-treesitter")
-		end,
 		dependencies = {
-			"andymass/vim-matchup",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"stevearc/conform.nvim",
+			{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", dependencies = { "andymass/vim-matchup" } },
 		},
 	},
 	{
