@@ -17,6 +17,11 @@ require("mason-lspconfig").setup({
 		"vtsls",
 		"graphql",
 
+    --- HTML
+    "htmx",
+    "html",
+    "glint",
+
 		--- Lua
 		"lua_ls",
 
@@ -43,11 +48,16 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"vim",
 
-    "bash",
+		"bash",
 
 		"javascript",
 		"typescript",
 		"tsx",
+
+    --- HTML, HBS (Glimmer)
+		"html",
+		"css",
+    "glimmer",
 
 		"markdown",
 		"markdown_inline",
@@ -61,9 +71,9 @@ require("nvim-treesitter.configs").setup({
 		"yaml",
 		"json",
 
-    --- Terraform, HCL
-    "terraform",
-    "hcl"
+		--- Terraform, HCL
+		"terraform",
+		"hcl",
 	},
 	highlight = { enable = true },
 	indent = { enable = true },
@@ -96,6 +106,9 @@ require("conform").setup({
 		typescriptreact = { "prettier" },
 		javascriptreact = { "prettier" },
 
+    html = { "prettier" },
+    handlebars = { "prettier" },
+
 		json = { "prettier" },
 
 		bash = { "shfmt" },
@@ -123,7 +136,19 @@ lspconfig.graphql.setup({
 
 lspconfig.terraformls.setup({
 	capabilities = capabilities,
-  filetypes = { "terraform" , "hcl" },
+	filetypes = { "terraform", "hcl" },
+})
+
+lspconfig.html.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.htmx.setup({
+  capabilities = capabilities,
+})
+
+lspconfig.glint.setup({
+  capabilities = capabilities,
 })
 
 lspconfig.lua_ls.setup({
