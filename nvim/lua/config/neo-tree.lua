@@ -5,8 +5,20 @@ require("neo-tree").setup({
 
 	filesystem = {
 		filtered_items = {
-			hide_gitignored = true,
+			hide_gitignored = false,
 			hide_dotfiles = false,
+			hide_by_name = {
+        -- Mac
+				".DS_Store",
+        -- NodeJS
+				"node_modules",
+        -- Build, log, misc...
+        "build",
+        "dist",
+        "log",
+        -- Git
+				".git",
+			},
 		},
 	},
 })
