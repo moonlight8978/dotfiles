@@ -1,7 +1,7 @@
 local set = vim.keymap.set
 
 -- Source vim file
-set("n", "<leader>r", ":so $MYVIMRC<CR>")
+set("n", "<leader>so", ":so ~/.config/nvim/vimrc/options.vim<CR>")
 
 -- Save, quit
 set("n", "<leader>w", ":w<CR>")

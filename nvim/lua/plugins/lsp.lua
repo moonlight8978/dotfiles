@@ -27,6 +27,7 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"stevearc/conform.nvim",
 			{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", dependencies = { "andymass/vim-matchup" } },
+			{ "b0o/schemastore.nvim" },
 		},
 	},
 	{
@@ -69,7 +70,7 @@ return {
 	-- show LSP diagnostics, feedbacks as separate lines
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    enabled = false,
+		enabled = false,
 		opts = true,
 	},
 }

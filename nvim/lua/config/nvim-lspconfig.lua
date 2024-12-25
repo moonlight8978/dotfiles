@@ -1,6 +1,6 @@
 local lspconfig = require("lspconfig")
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local schemastore = require("schemastore")
 local set = vim.keymap.set
 
 require("mason").setup()
@@ -157,6 +157,29 @@ lspconfig.htmx.setup({
 lspconfig.glint.setup({
 	capabilities = capabilities,
 	filetypes = { "handlebars" },
+})
+
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = schemastore.json.schemas(),
+			validate = { enable = true },
+		},
+	},
+})
+
+lspconfig.yamlls.setup({
+	capabilities = capabilities,
+	settings = {
+		yaml = {
+			schemaStore = {
+				enable = false,
+				url = "",
+			},
+			schemas = schemastore.yaml.schemas(),
+		},
+	},
 })
 
 lspconfig.lua_ls.setup({
