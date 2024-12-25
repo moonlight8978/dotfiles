@@ -3,7 +3,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local schemastore = require("schemastore")
 local set = vim.keymap.set
 
-require("mason").setup()
+require("mason").setup({})
 
 require("mason-lspconfig").setup({
 	ensure_installed = {

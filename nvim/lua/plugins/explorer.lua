@@ -27,4 +27,12 @@ return {
 			require("config.fzf-lua")
 		end,
 	},
+
+	-- session persistence
+	{
+		"folke/persistence.nvim",
+		config = function()
+			require("config.persistence")
+		end,
+	},
 }

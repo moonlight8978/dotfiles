@@ -29,9 +29,9 @@ set termguicolors
 
 " Set up cursor color and shape in various mode, ref:
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
-hi Cursor guifg=white guibg=white
-hi Cursor2 guifg=#ddb26f guibg=#ddb26f
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:block-blinkon100-Cursor2/lCursor2,r-cr:hor20,o:hor50
+hi Cursor guifg=#e0e0e0 guibg=#e0e0e0
+hi Cursor2 guifg=#ddb26f guibg=#ddb26f
 
 " Use built-in filetype plugin
 filetype plugin indent on
@@ -60,4 +60,4 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set mousemodel=popup
 set mousescroll=ver:1,hor:0
 
-
+set nohidden

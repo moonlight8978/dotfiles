@@ -70,7 +70,6 @@ return {
 	-- show LSP diagnostics, feedbacks as separate lines
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		enabled = false,
 		opts = true,
 	},
 }

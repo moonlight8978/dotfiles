@@ -1,6 +1,6 @@
 local set = vim.keymap.set
 
-require("toggleterm").setup()
+require("toggleterm").setup({})
 
 local Terminal = require("toggleterm.terminal").Terminal
 
@@ -15,6 +15,7 @@ end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
+-- t stands for terminal
 set("n", "<leader>ts", ":TermSelect<CR>")
 
 set("n", "<leader>t", function()
