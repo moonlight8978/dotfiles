@@ -49,6 +49,7 @@ cmp.setup({
 		}, -- for path completion
 		{
 			name = "buffer",
+			keyword_length = 1,
 		}, -- for buffer word completion
 	}),
 })

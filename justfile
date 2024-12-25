@@ -2,7 +2,7 @@ set shell := ["bash", "-cu"]
 
 default: all
 
-all: tmux nvim 
+all: tmux nvim kitty
 
 tmux:
   stow -t ~ tmux
@@ -10,4 +10,8 @@ tmux:
 nvim:
   mkdir -p ~/.config/nvim
   stow -t ~/.config/nvim nvim
+
+kitty:
+  mkdir -p ~/.config/kitty
+  stow -t ~/.config/kitty kitty
   

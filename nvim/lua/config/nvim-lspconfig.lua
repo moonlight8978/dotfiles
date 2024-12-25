@@ -17,10 +17,10 @@ require("mason-lspconfig").setup({
 		"vtsls",
 		"graphql",
 
-    --- HTML
-    "htmx",
-    "html",
-    "glint",
+		--- HTML
+		"htmx",
+		"html",
+		"glint",
 
 		--- Lua
 		"lua_ls",
@@ -54,10 +54,10 @@ require("nvim-treesitter.configs").setup({
 		"typescript",
 		"tsx",
 
-    --- HTML, HBS (Glimmer)
+		--- HTML, HBS (Glimmer)
 		"html",
 		"css",
-    "glimmer",
+		"glimmer",
 
 		"markdown",
 		"markdown_inline",
@@ -71,7 +71,7 @@ require("nvim-treesitter.configs").setup({
 		"yaml",
 		"json",
 
-    "graphql",
+		"graphql",
 
 		--- Terraform, HCL
 		"terraform",
@@ -108,10 +108,10 @@ require("conform").setup({
 		typescriptreact = { "prettier" },
 		javascriptreact = { "prettier" },
 
-    graphql = { "prettier" },
+		graphql = { "prettier" },
 
-    html = { "prettier" },
-    handlebars = { "prettier" },
+		html = { "prettier" },
+		handlebars = { "prettier" },
 
 		json = { "prettier" },
 
@@ -136,6 +136,7 @@ lspconfig.vtsls.setup({
 
 lspconfig.graphql.setup({
 	capabilities = capabilities,
+	filetypes = { "graphql" },
 })
 
 lspconfig.terraformls.setup({
@@ -145,14 +146,17 @@ lspconfig.terraformls.setup({
 
 lspconfig.html.setup({
 	capabilities = capabilities,
+	filetypes = { "html" },
 })
 
 lspconfig.htmx.setup({
-  capabilities = capabilities,
+	capabilities = capabilities,
+	filetypes = { "edge", "handlebars" },
 })
 
 lspconfig.glint.setup({
-  capabilities = capabilities,
+	capabilities = capabilities,
+	filetypes = { "handlebars" },
 })
 
 lspconfig.lua_ls.setup({
