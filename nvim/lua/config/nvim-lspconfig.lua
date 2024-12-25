@@ -71,6 +71,8 @@ require("nvim-treesitter.configs").setup({
 		"yaml",
 		"json",
 
+    "graphql",
+
 		--- Terraform, HCL
 		"terraform",
 		"hcl",
@@ -105,6 +107,8 @@ require("conform").setup({
 		typescript = { "prettier" },
 		typescriptreact = { "prettier" },
 		javascriptreact = { "prettier" },
+
+    graphql = { "prettier" },
 
     html = { "prettier" },
     handlebars = { "prettier" },

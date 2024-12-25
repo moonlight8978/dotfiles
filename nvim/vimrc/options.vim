@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " Turn on line numbers
-set number
+set number relativenumber
 
 " Use , as <leader>
 let mapleader = ","
