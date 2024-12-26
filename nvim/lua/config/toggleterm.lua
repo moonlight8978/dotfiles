@@ -18,27 +18,36 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 -- t stands for terminal
 set("n", "<leader>ts", ":TermSelect<CR>")
 
-set("n", "<leader>t", function()
-	local instance = Terminal:new({
-		float_opts = {
-			width = function()
-				return math.floor(vim.o.columns * 0.6)
-			end,
-			height = function()
-				return math.floor(vim.o.lines * 0.5)
-			end,
-			winblend = 0, -- transparency 0-100
-			highlights = {
-				border = "Normal",
-				background = "Normal",
-			},
+-- float terminal
+local float = Terminal:new({
+	float_opts = {
+		width = function()
+			return math.floor(vim.o.columns * 0.6)
+		end,
+		height = function()
+			return math.floor(vim.o.lines * 0.5)
+		end,
+		winblend = 0, -- transparency 0-100
+		highlights = {
+			border = "Normal",
+			background = "Normal",
 		},
-		-- Terminal settings
-		direction = "float",
-		shade_terminals = true,
-		close_on_exit = true,
-		start_in_insert = true,
-	})
+	},
+	-- Terminal settings
+	direction = "float",
+	shade_terminals = true,
+	close_on_exit = true,
+	start_in_insert = true,
+	hidden = true,
+})
 
-	instance:toggle()
+set("n", "<leader>t", function()
+	float:toggle()
 end)
+
+-- lazygit
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+vim.keymap.set("n", "<leader>g", function()
+	lazygit:toggle()
+end, { noremap = true, silent = true })
