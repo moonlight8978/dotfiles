@@ -26,12 +26,11 @@ set showbreak=↪
 set scrolloff=5
 
 set termguicolors
+set notermsync
 
 " Set up cursor color and shape in various mode, ref:
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
 set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:block-blinkon100-Cursor2/lCursor2,r-cr:hor20,o:hor50
-hi Cursor guifg=#e0e0e0 guibg=#e0e0e0
-hi Cursor2 guifg=#ddb26f guibg=#ddb26f
 
 " Use built-in filetype plugin
 filetype plugin indent on

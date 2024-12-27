@@ -114,6 +114,7 @@ require("conform").setup({
 		handlebars = { "prettier" },
 
 		json = { "prettier" },
+    yaml = { "prettier" },
 
 		bash = { "shfmt" },
 		sh = { "shfmt" },
