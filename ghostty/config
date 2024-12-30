@@ -27,7 +27,7 @@ window-vsync = true
 
 # Shell
 shell-integration = zsh
-shell-integration-features = no-cursor,sudo,title 
+shell-integration-features = no-cursor,sudo,no-title 
 
 # Workspace
 focus-follows-mouse = true
