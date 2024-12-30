@@ -4,7 +4,7 @@ require("toggleterm").setup({})
 
 local Terminal = require("toggleterm.terminal").Terminal
 
--- vim.keymap.set("n", "<S-Esc>", ":lua print('EXTENDED KEYS WORKED')<CR>")
+ vim.keymap.set("n", "<S-Esc>", ":lua print('EXTENDED KEYS WORKED')<CR>")
 
 function _G.set_terminal_keymaps()
 	local opts = { buffer = 0 }

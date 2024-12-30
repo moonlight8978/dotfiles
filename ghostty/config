@@ -1,0 +1,48 @@
+# Font
+font-family = Monaco
+font-family = Hurmit Nerd Font Mono
+
+font-style-bold = false
+font-style-italic = false
+font-style-bold-italic = false
+
+font-size = 16
+
+# neovim indent blankline
+adjust-underline-thickness = 1
+adjust-underline-position = 2
+
+# Feels
+theme = chalk
+background = #151515
+palette = 0=#202020
+
+macos-titlebar-style = tabs
+mouse-hide-while-typing = true
+
+# Utils
+clipboard-trim-trailing-spaces = true
+link-url = true
+window-vsync = true
+
+# Shell
+shell-integration = zsh
+shell-integration-features = no-cursor,sudo,title 
+
+# Workspace
+focus-follows-mouse = true
+unfocused-split-opacity = 0.1
+window-save-state = always
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
+keybind = ctrl+shift+x=close_window
+keybind = ctrl+shift+left=resize_split:left,20
+keybind = ctrl+shift+down=resize_split:down,20
+keybind = ctrl+shift+up=resize_split:up,20
+keybind = ctrl+shift+right=resize_split:right,20
