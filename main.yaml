@@ -1,0 +1,21 @@
+- name: Setup Mac machine
+  hosts: all
+  vars_files:
+    - values.yaml
+  roles:
+    - role: geerlingguy.mac.homebrew
+      tags:
+        - homebrew
+    - role: osx_provisioner.collection.asdf
+      tags:
+        - asdf
+  tasks:
+    - name: Install pip packages
+      tags: 
+        - python
+      loop: "{{ pip_packages }}"
+      ansible.builtin.pip:
+        name: "{{ item.name | default(item) }}"
+        state: "{{ item.state | default('present') }}"
+        version: "{{ item.version | default(omit) }}"
+        executable: "{{ item.executable | default('pip3') }}"

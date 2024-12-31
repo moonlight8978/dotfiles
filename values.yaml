@@ -1,0 +1,26 @@
+homebrew_installed_packages:
+  - git
+  - neovim
+  - libyaml
+  - coreutils
+  - curl
+  - fzf
+  - luarocks
+  - stow
+  - just
+  - docker
+  - lazygit
+  - colima
+  - smartmontools
+homebrew_cask_apps:
+  - google-chrome
+  - ghostty
+  - font-hurmit-nerd-font
+  - font-fira-code
+asdf_plugins:
+  - name: dotnet
+  - name: ruby
+  - name: nodejs
+  - name: python
+pip_packages:
+  - pynvim
