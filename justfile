@@ -2,10 +2,16 @@ set shell := ["bash", "-cu"]
 
 default: all
 
-all: tmux nvim kitty ghostty
+all: zsh tmux asdf nvim kitty ghostty
+
+zsh:
+  stow -t ~ zsh
 
 tmux:
   stow -t ~ tmux
+
+asdf:
+  stow -t ~ asdf
 
 nvim:
   mkdir -p ~/.config/nvim

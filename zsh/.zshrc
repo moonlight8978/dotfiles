@@ -18,6 +18,7 @@ zcomet load ohmyzsh plugins/docker-compose
 alias dco="docker compose"
 zcomet load ohmyzsh plugins/kubectl
 zcomet load ohmyzsh plugins/helm
+zcomet load ohmyzsh plugins/asdf
 
 # Auto completion
 zcomet load zsh-users/zsh-completions
@@ -43,29 +44,14 @@ zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
 # Binary
 export PATH="/usr/local/bin:$PATH"
 
-# Volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-export VOLTA_FEATURE_PNPM=1
-
 # pnpm
 export PNPM_HOME="/Users/moonlight/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-# pyenv
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # sql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # terraform
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
