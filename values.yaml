@@ -12,15 +12,24 @@ homebrew_installed_packages:
   - lazygit
   - colima
   - smartmontools
+  - tmux
+  - ripgrep
 homebrew_cask_apps:
   - google-chrome
   - ghostty
   - font-hurmit-nerd-font
   - font-fira-code
+  - postman
+  - bruno
+  - medis
+  - tableplus
+  - openvpn-connect
+  - figma
+asdf_version: v0.15.0
 asdf_plugins:
-  - name: dotnet
-  - name: ruby
-  - name: nodejs
-  - name: python
+  - dotnet
+  - ruby
+  - nodejs
+  - python
 pip_packages:
   - pynvim

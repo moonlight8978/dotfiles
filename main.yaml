@@ -6,9 +6,6 @@
     - role: geerlingguy.mac.homebrew
       tags:
         - homebrew
-    - role: osx_provisioner.collection.asdf
-      tags:
-        - asdf
   tasks:
     - name: Install pip packages
       tags: 
@@ -19,3 +16,57 @@
         state: "{{ item.state | default('present') }}"
         version: "{{ item.version | default(omit) }}"
         executable: "{{ item.executable | default('pip3') }}"
+
+    - name: Check asdf installation
+      tags:
+        - asdf
+      ansible.builtin.git:
+        repo: https://github.com/asdf-vm/asdf.git
+        version: "{{ asdf_version }}"
+        dest: "{{ lookup('env', 'HOME') }}/.asdf"
+        clone: no
+      register: asdf_git_results
+
+    - name: Install asdf
+      tags:
+        - asdf
+      ansible.builtin.git:
+        repo: https://github.com/asdf-vm/asdf.git
+        version: "{{ asdf_version }}"
+        dest: "{{ lookup('env', 'HOME') }}/.asdf"
+      when: not asdf_git_results.before
+
+    - name: Install asdf plugins
+      tags:
+        - asdf
+      loop: "{{ asdf_plugins }}"
+      ansible.builtin.shell: "asdf plugin list | grep {{ item.name | default(item) }} || (asdf plugin add {{ item.name | default(item) }} && exit 100)" 
+      register: asdf_install_plugin
+      changed_when: asdf_install_plugin.rc == 100
+      failed_when: asdf_install_plugin.rc > 0
+
+    - name: Install asdf default tools
+      tags:
+        - asdf
+      ansible.builtin.command: asdf install
+
+    - name: Check tmux tpm installation
+      tags:
+        - tmux
+      ansible.builtin.git:
+        repo: https://github.com/tmux-plugins/tpm.git
+        version: master
+        dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+        clone: no
+      register: tpm_git_results
+
+    - name: Install tmux tpm
+      tags:
+        - tmux
+      ansible.builtin.git:
+        repo: https://github.com/tmux-plugins/tpm.git
+        version: master
+        dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+      when: not tpm_git_results.before
+
+
