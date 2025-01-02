@@ -17,24 +17,13 @@
         version: "{{ item.version | default(omit) }}"
         executable: "{{ item.executable | default('pip3') }}"
 
-    - name: Check asdf installation
-      tags:
+    - import_tasks: ansible/tasks/git_clone.yaml
+      tags: 
         - asdf
-      ansible.builtin.git:
+      vars:
         repo: https://github.com/asdf-vm/asdf.git
         version: "{{ asdf_version }}"
         dest: "{{ lookup('env', 'HOME') }}/.asdf"
-        clone: no
-      register: asdf_git_results
-
-    - name: Install asdf
-      tags:
-        - asdf
-      ansible.builtin.git:
-        repo: https://github.com/asdf-vm/asdf.git
-        version: "{{ asdf_version }}"
-        dest: "{{ lookup('env', 'HOME') }}/.asdf"
-      when: not asdf_git_results.before
 
     - name: Install asdf plugins
       tags:
@@ -50,23 +39,10 @@
         - asdf
       ansible.builtin.command: asdf install
 
-    - name: Check tmux tpm installation
+    - import_tasks: ansible/tasks/git_clone.yaml
       tags:
         - tmux
-      ansible.builtin.git:
+      vars:
         repo: https://github.com/tmux-plugins/tpm.git
         version: master
         dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
-        clone: no
-      register: tpm_git_results
-
-    - name: Install tmux tpm
-      tags:
-        - tmux
-      ansible.builtin.git:
-        repo: https://github.com/tmux-plugins/tpm.git
-        version: master
-        dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
-      when: not tpm_git_results.before
-
-

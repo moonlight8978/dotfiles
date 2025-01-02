@@ -1,0 +1,15 @@
+- name: Check installation
+  ansible.builtin.git:
+    repo: "{{ repo }}"
+    version: "{{ version | default(omit) }}"
+    dest: "{{ dest }}"
+    clone: no
+  register: check
+
+- name: Install
+  ansible.builtin.git:
+    repo: "{{ repo }}"
+    version: "{{ version | default(omit) }}"
+    dest: "{{ dest }}"
+  when: not check.before
+
