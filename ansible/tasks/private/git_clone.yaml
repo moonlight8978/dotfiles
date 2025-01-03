@@ -1,6 +1,0 @@
-- import_tasks: ../git_clone.yaml
-  vars:
-    repo: "{{ user | default('https://github.com/') }}{{ owner }} / {{ repo }}.git"
-    dest: "{{ dest | default(lookup('env', 'HOME') + '/Workspace/' + owner + repo) }}"
-    version: "{{ branch | default(omit) }}"
-
