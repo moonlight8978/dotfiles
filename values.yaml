@@ -33,6 +33,7 @@ asdf_plugins:
   - ruby
   - nodejs
   - python
+  - pnpm
 pip_packages:
   - pynvim
   - ansible
