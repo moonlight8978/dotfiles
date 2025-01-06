@@ -44,11 +44,6 @@ zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
 # Binary
 export PATH="/usr/local/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/moonlight/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-
 # sql
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
@@ -64,6 +59,16 @@ select-word-style bash
 source <(fzf --zsh)
 
 # Source ~/.env if it exists
-if [ -f ~/.env ]; then
-  source ~/.env
+if [ -f $HOME/.env ]; then
+  source $HOME/.env
 fi
+
+# Load Alias
+if [[ ! -e $HOME/.alias ]]; then
+  mkdir -p $HOME/.alias
+fi
+
+setopt nullglob # Prevent errors if no files are found
+for file in ~/.alias/*; do
+  source $file
+done
