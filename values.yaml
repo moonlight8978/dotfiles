@@ -15,6 +15,9 @@ homebrew_installed_packages:
   - tmux
   - ripgrep
   - mas
+  - terragrunt
+  - terraform
+  - awscli
 homebrew_cask_apps:
   - google-chrome
   - ghostty
@@ -27,6 +30,7 @@ homebrew_cask_apps:
   - openvpn-connect
   - figma
   - joplin
+  - anydesk
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet
