@@ -35,3 +35,4 @@ asdf_plugins:
   - python
 pip_packages:
   - pynvim
+  - ansible
