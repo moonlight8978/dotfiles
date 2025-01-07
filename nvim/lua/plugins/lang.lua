@@ -19,15 +19,17 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("config.nvim-lspconfig")
+			require("config.lang")
 		end,
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+      "jay-babu/mason-nvim-dap.nvim",
 			"stevearc/conform.nvim",
 			{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", dependencies = { "andymass/vim-matchup" } },
 			{ "b0o/schemastore.nvim" },
+      { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
 		},
 	},
 	{

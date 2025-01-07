@@ -3,86 +3,8 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local schemastore = require("schemastore")
 local set = vim.keymap.set
 
-require("mason").setup({})
-
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		--- Terraform, HCL
-		"terraformls",
-
-		--- Shell
-		"bashls",
-
-		--- Typescript
-		"vtsls",
-		"graphql",
-
-		--- HTML
-		"htmx",
-		"html",
-		"glint",
-
-		--- Lua
-		"lua_ls",
-
-		"jsonls",
-		"yamlls",
-	},
-})
-
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		-- Lua
-		"stylua",
-
-		-- Javascript
-		"prettier",
-
-		-- Shell
-		"shfmt",
-	},
-})
-
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"lua",
-		"vim",
-
-		"bash",
-
-		"javascript",
-		"typescript",
-		"tsx",
-
-		--- HTML, HBS (Glimmer)
-		"html",
-		"css",
-		"glimmer",
-
-		"markdown",
-		"markdown_inline",
-
-		"ruby",
-
-		"python",
-
-		"dockerfile",
-
-		"yaml",
-		"json",
-
-		"graphql",
-
-		--- Terraform, HCL
-		"terraform",
-		"hcl",
-	},
-	highlight = { enable = true },
-	indent = { enable = true },
-	matchup = {
-		enable = true,
-	},
-})
+require("config.syntax")
+require("config.nvim-dap")
 
 vim.keymap.set("", "<leader>f", function()
 	require("conform").format({ async = true }, function(err)
@@ -114,7 +36,7 @@ require("conform").setup({
 		handlebars = { "prettier" },
 
 		json = { "prettier" },
-    yaml = { "prettier" },
+		yaml = { "prettier" },
 
 		bash = { "shfmt" },
 		sh = { "shfmt" },

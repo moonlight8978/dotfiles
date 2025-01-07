@@ -8,7 +8,7 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSi
 
 require("neo-tree").setup({
 	filesystem = {
-		hijack_netrw_behavior = "open_current",
+		hijack_netrw_behavior = "disabled",
 		filtered_items = {
 			hide_gitignored = false,
 			hide_dotfiles = false,
