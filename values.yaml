@@ -18,6 +18,8 @@ homebrew_installed_packages:
   - terragrunt
   - terraform
   - awscli
+homebrew_taps:
+  - moonlight8978/tap
 homebrew_cask_apps:
   - google-chrome
   - ghostty
@@ -31,6 +33,9 @@ homebrew_cask_apps:
   - figma
   - joplin
   - anydesk
+  - evkey
+  - bluestacks-air
+  - cloudflare-warp
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet
