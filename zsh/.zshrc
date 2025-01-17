@@ -15,7 +15,6 @@ zcomet load ohmyzsh plugins/gitfast
 zcomet load ohmyzsh plugins/git
 zcomet load ohmyzsh plugins/docker
 zcomet load ohmyzsh plugins/docker-compose
-alias dco="docker compose"
 zcomet load ohmyzsh plugins/kubectl
 zcomet load ohmyzsh plugins/helm
 zcomet load ohmyzsh plugins/asdf

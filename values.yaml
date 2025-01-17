@@ -9,6 +9,7 @@ homebrew_installed_packages:
   - stow
   - just
   - docker
+  - docker-compose
   - lazygit
   - colima
   - smartmontools
