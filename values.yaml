@@ -27,6 +27,7 @@ homebrew_cask_apps:
   - google-chrome
   - ghostty
   - font-hurmit-nerd-font
+  - font-recursive-mono-nerd-font
   - font-fira-code
   - postman
   - bruno

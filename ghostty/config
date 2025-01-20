@@ -1,10 +1,10 @@
 # Font
-font-family = Monaco
+font-family = RecMonoCasual Nerd Font Mono
 font-family = Hurmit Nerd Font Mono
 
-font-style-bold = false
-font-style-italic = false
-font-style-bold-italic = false
+# font-style-bold = false
+# font-style-italic = false
+# font-style-bold-italic = false
 
 font-size = 16
 
