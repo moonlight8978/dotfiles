@@ -20,12 +20,15 @@ zcomet load ohmyzsh plugins/helm
 zcomet load ohmyzsh plugins/asdf
 
 # Auto completion
+#zcomet load marlonrichert/zsh-autocomplete
 zcomet load zsh-users/zsh-completions
-zcomet load agkozak/zsh-z
-zcomet load zsh-users/zsh-autosuggestions
+#zcomet load agkozak/zsh-z
+#zcomet load zsh-users/zsh-autosuggestions
 
 zcomet compinit
 autoload -U +X bashcompinit && bashcompinit
+
+eval "$(zoxide init zsh)"
 
 # History
 setopt hist_find_no_dups hist_reduce_blanks
@@ -71,3 +74,4 @@ setopt nullglob # Prevent errors if no files are found
 for file in ~/.alias/*; do
   source $file
 done
+

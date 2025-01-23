@@ -21,6 +21,8 @@ homebrew_installed_packages:
   - awscli
   - cri-tools
   - libpq
+  - zoxide
+  - sesh
 homebrew_taps:
   - moonlight8978/tap
 homebrew_cask_apps:
