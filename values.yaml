@@ -23,6 +23,8 @@ homebrew_installed_packages:
   - libpq
   - zoxide
   - laio
+  - fastfetch
+  - git-filter-repo
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
