@@ -27,12 +27,12 @@ window-vsync = true
 
 # Shell
 shell-integration = zsh
-shell-integration-features = no-cursor,sudo,no-title 
+shell-integration-features = no-cursor,sudo,no-title
 
 # Workspace
 focus-follows-mouse = true
 unfocused-split-opacity = 0.1
-window-save-state = always
+window-save-state = never
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
