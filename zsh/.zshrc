@@ -23,7 +23,7 @@ zcomet load ohmyzsh plugins/asdf
 #zcomet load marlonrichert/zsh-autocomplete
 zcomet load zsh-users/zsh-completions
 #zcomet load agkozak/zsh-z
-#zcomet load zsh-users/zsh-autosuggestions
+zcomet load zsh-users/zsh-autosuggestions
 
 zcomet compinit
 autoload -U +X bashcompinit && bashcompinit

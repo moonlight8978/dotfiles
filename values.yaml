@@ -22,9 +22,11 @@ homebrew_installed_packages:
   - cri-tools
   - libpq
   - zoxide
-  - sesh
+  - laio
 homebrew_taps:
   - moonlight8978/tap
+  - name: ck3mp3r/laio-cli
+    url: https://github.com/ck3mp3r/laio-cli/
 homebrew_cask_apps:
   - google-chrome
   - ghostty

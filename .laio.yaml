@@ -1,0 +1,9 @@
+name: dotfiles
+
+windows:
+  - name: code
+    panes:
+      - flex: 100
+        commands:
+          - command: $EDITOR .
+      - flex: 45
