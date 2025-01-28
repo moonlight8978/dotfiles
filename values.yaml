@@ -46,7 +46,6 @@ homebrew_cask_apps:
   - evkey
   - bluestacks-air
   - cloudflare-warp
-  - samsung-magician
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet

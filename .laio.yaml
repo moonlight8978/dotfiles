@@ -6,4 +6,5 @@ windows:
       - flex: 100
         commands:
           - command: $EDITOR .
+        focus: true
       - flex: 45
