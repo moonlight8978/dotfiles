@@ -15,7 +15,14 @@
         name: "{{ item.name | default(item) }}"
         state: "{{ item.state | default('present') }}"
         version: "{{ item.version | default(omit) }}"
-        executable: "{{ item.executable | default('pip3') }}"
+        executable: pip
+
+    - name: Download huggingface models
+      tags:
+        - hf
+      loop: "{{ hf_models }}"
+      ansible.builtin.shell: "huggingface-cli download {{ item }} --local-dir .models --local-dir-use-symlinks False"
+
 
     - import_tasks: ansible/tasks/git_clone.yaml
       tags: 
