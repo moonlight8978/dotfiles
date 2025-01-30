@@ -26,6 +26,7 @@ homebrew_installed_packages:
   - fastfetch
   - git-filter-repo
   - ollama
+  - cmake
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
