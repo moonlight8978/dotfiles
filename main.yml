@@ -23,15 +23,6 @@
       loop: "{{ hf_models }}"
       ansible.builtin.shell: "huggingface-cli download {{ item }} --local-dir .models --local-dir-use-symlinks False"
 
-
-    - import_tasks: ansible/tasks/git_clone.yaml
-      tags: 
-        - asdf
-      vars:
-        repo: https://github.com/asdf-vm/asdf.git
-        version: "{{ asdf_version }}"
-        dest: "{{ lookup('env', 'HOME') }}/.asdf"
-
     - name: Install asdf plugins
       tags:
         - asdf

@@ -21,12 +21,13 @@ homebrew_installed_packages:
   - awscli
   - cri-tools
   - libpq
-  - zoxide
+  # - zoxide
   - laio
   - fastfetch
   - git-filter-repo
   - ollama
   - cmake
+  - asdf
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
