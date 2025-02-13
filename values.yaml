@@ -50,6 +50,7 @@ homebrew_cask_apps:
   - bluestacks-air
   - cloudflare-warp
   - visual-studio-code
+  - balenaetcher
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet

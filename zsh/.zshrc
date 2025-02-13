@@ -20,7 +20,6 @@ zcomet load ohmyzsh plugins/helm
 zcomet load ohmyzsh plugins/asdf
 
 # Auto completion
-#zcomet load marlonrichert/zsh-autocomplete
 zcomet load zsh-users/zsh-completions
 zcomet load agkozak/zsh-z
 zcomet load zsh-users/zsh-autosuggestions
