@@ -24,3 +24,6 @@ kitty:
 ghostty:
   mkdir -p ~/.config/ghostty
   stow -t ~/.config/ghostty ghostty
+
+tldr:
+  stow -t ~ tldr
