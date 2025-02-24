@@ -20,6 +20,9 @@ require("mason-lspconfig").setup({
 		--- Lua
 		"lua_ls",
 
+		--- python
+		"pyright",
+
 		"jsonls",
 		"yamlls",
 	},
@@ -33,6 +36,9 @@ require("mason-tool-installer").setup({
 		-- Javascript
 		"prettier",
 		"js-debug-adapter",
+
+    --- Python
+    "yapf",
 
 		-- Shell
 		"shfmt",

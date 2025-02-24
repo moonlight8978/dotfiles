@@ -41,6 +41,8 @@ require("conform").setup({
 		bash = { "shfmt" },
 		sh = { "shfmt" },
 
+		python = { "yapf" },
+
 		terraform = { "terraform_fmt" },
 		hcl = { "terragrunt_hclfmt" },
 
@@ -103,6 +105,10 @@ lspconfig.yamlls.setup({
 			schemas = schemastore.yaml.schemas(),
 		},
 	},
+})
+
+lspconfig.pyright.setup({
+	capabilities = capabilities,
 })
 
 lspconfig.lua_ls.setup({
