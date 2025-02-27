@@ -29,6 +29,7 @@ homebrew_installed_packages:
   - cmake
   - asdf
   - wireguard-tools
+  - kubernetes-cli
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
