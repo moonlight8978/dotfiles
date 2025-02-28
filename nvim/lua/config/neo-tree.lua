@@ -23,6 +23,8 @@ require("neo-tree").setup({
 				"log",
 				-- Git
 				".git",
+        -- Python
+        "__pycache__",
 			},
 		},
 	},

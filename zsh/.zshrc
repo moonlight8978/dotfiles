@@ -10,14 +10,19 @@ source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
 zcomet load ohmyzsh
 
-# Alias
 zcomet load ohmyzsh plugins/gitfast
 zcomet load ohmyzsh plugins/git
 zcomet load ohmyzsh plugins/docker
 zcomet load ohmyzsh plugins/docker-compose
 zcomet load ohmyzsh plugins/kubectl
 zcomet load ohmyzsh plugins/helm
-zcomet load ohmyzsh plugins/asdf
+
+if [[ ! ":$PATH:" == *":asdf:"* ]]; then
+  zcomet load ohmyzsh plugins/asdf
+fi
+
+export PYTHON_AUTO_VRUN=true
+zcomet load ohmyzsh plugins/python
 
 # Auto completion
 zcomet load zsh-users/zsh-completions
@@ -26,8 +31,6 @@ zcomet load zsh-users/zsh-autosuggestions
 
 zcomet compinit
 autoload -U +X bashcompinit && bashcompinit
-
-# eval "$(zoxide init zsh)"
 
 # History
 setopt hist_find_no_dups hist_reduce_blanks
@@ -43,11 +46,7 @@ zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Binary
-export PATH="/usr/local/bin:$PATH"
-
-# sql
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+# export PATH="$PATH:/usr/local/bin"
 
 # terraform
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
@@ -73,4 +72,3 @@ setopt nullglob # Prevent errors if no files are found
 for file in ~/.alias/*; do
   source $file
 done
-
