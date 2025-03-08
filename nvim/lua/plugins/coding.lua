@@ -1,6 +1,13 @@
 return {
 	{ "NoahTheDuke/vim-just" },
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {
+			file_types = { "markdown", "Avante" },
+		},
+		ft = { "markdown", "Avante" },
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = "VeryLazy",
 		dependencies = {
@@ -24,24 +31,13 @@ return {
 	{ --- LSP Installer
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = {
-				--- Terraform, HCL
-				"terraformls",
-
-				--- Shell
-				"bashls",
-
-				--- Typescript
+			ensure_installed = { --- Terraform, HCL
+				"terraformls", --- Shell
+				"bashls", --- Typescript
 				"vtsls",
-				"graphql",
-
-				--- Lua
-				"lua_ls",
-
-				--- python
-				"pyright",
-
-				--- Miscs
+				"graphql", --- Lua
+				"lua_ls", --- python
+				"pyright", --- Miscs
 				"jsonls",
 				"yamlls",
 			},
