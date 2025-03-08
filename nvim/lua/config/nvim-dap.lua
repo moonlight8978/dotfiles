@@ -4,12 +4,14 @@ local dap_adapters = require("config.dap.adapters")
 -- local dap_configurations = require("config.dap.configurations")
 local set = vim.keymap.set
 
+require("mason-nvim-dap").setup({})
+
 --- Configure adapters
 local function load_dap(lang)
-  dap.adapters[lang] = dap_adapters[lang].options
-  -- for _, ft in ipairs(dap_adapters[lang].ft) do
-  --   dap.configurations[ft] = dap_configurations[lang]
-  -- end
+	dap.adapters[lang] = dap_adapters[lang].options
+	-- for _, ft in ipairs(dap_adapters[lang].ft) do
+	--   dap.configurations[ft] = dap_configurations[lang]
+	-- end
 end
 
 load_dap("pwa-node")
@@ -27,14 +29,14 @@ set("n", "<space>o", dap.step_out) -- out
 dapui.setup({})
 
 dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
+	dapui.open()
 end
 dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
+	dapui.open()
 end
 dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
+	dapui.close()
 end
 dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
+	dapui.close()
 end

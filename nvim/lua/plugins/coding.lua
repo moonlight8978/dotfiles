@@ -1,22 +1,220 @@
 return {
-  -- fast comment code generator
-	{ "numToStr/Comment.nvim", opts = {} },
+	{ "NoahTheDuke/vim-just" },
 	{
-		"folke/ts-comments.nvim",
-		opts = {},
+		"hrsh7th/nvim-cmp",
 		event = "VeryLazy",
-	},
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
 
-  -- github copilot
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
+			-- Snippets
+			"SirVer/ultisnips",
+			"quangnguyen30192/cmp-nvim-ultisnips",
+		},
 		config = function()
-			require("config.copilot")
+			require("config.nvim-cmp")
 		end,
 	},
+	{
+		"williamboman/mason.nvim",
+		opts = true,
+	},
+	{ --- LSP Installer
+		"williamboman/mason-lspconfig.nvim",
+		opts = {
+			ensure_installed = {
+				--- Terraform, HCL
+				"terraformls",
 
-	-- auto close tag with treesitter
-	{ "windwp/nvim-ts-autotag", opts = true },
+				--- Shell
+				"bashls",
+
+				--- Typescript
+				"vtsls",
+				"graphql",
+
+				--- Lua
+				"lua_ls",
+
+				--- python
+				"pyright",
+
+				--- Miscs
+				"jsonls",
+				"yamlls",
+			},
+		},
+		dependencies = { "williamboman/mason.nvim" },
+	},
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = { "williamboman/mason-lspconfig.nvim", "hrsh7th/cmp-nvim-lsp", "b0o/schemastore.nvim" },
+		opts = {
+			servers = {
+				bashls = {},
+				vtsls = {},
+				graphql = {
+					filetypes = { "graphql" },
+				},
+				terraformls = {
+					filetypes = { "terraform", "hcl" },
+				},
+				html = {
+					filetypes = { "html" },
+				},
+				jsonls = {},
+				yamlls = {},
+				pyright = {},
+				lua_ls = {},
+			},
+		},
+		config = function(_, opts)
+			require("config.lsp").setup(opts)
+		end,
+	},
+	{ --- Tools installer
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			ensure_installed = {
+				"stylua", -- Javascript
+				"prettier",
+				"js-debug-adapter", --- Python
+				"yapf", -- Shell
+				"shfmt",
+				"codespell",
+			},
+		},
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			og_level = vim.log.levels.ERROR,
+			formatters_by_ft = {
+				lua = { "stylua" },
+
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascriptreact = { "prettier" },
+
+				graphql = { "prettier" },
+
+				html = { "prettier" },
+				handlebars = { "prettier" },
+
+				json = { "prettier" },
+				jsonc = { "prettier" },
+				yaml = { "prettier" },
+
+				bash = { "shfmt" },
+				sh = { "shfmt" },
+
+				python = { "yapf" },
+
+				terraform = { "terraform_fmt" },
+				hcl = { "terragrunt_hclfmt" },
+
+				-- ["*"] = {"codespell"},
+				["_"] = { "trim_whitespace" },
+			},
+		},
+	},
+	{ --- Improve syntax highlighting
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			local configs = require("nvim-treesitter.configs")
+
+			configs.setup({
+				ensure_installed = {
+					"lua",
+					"vim",
+					"bash",
+					"javascript",
+					"typescript",
+					"tsx",
+					"html",
+					"css",
+					"markdown",
+					"markdown_inline",
+					"ruby",
+					"python",
+					"go",
+					"dockerfile",
+					"yaml",
+					"json",
+					"jsonc",
+					"graphql",
+					"terraform",
+					"hcl",
+				},
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+				},
+				matchup = {
+					enable = true,
+				},
+			})
+		end,
+	},
+	{ --- Diagnostics
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			}, -- {
+			-- 	"<leader>xX",
+			-- 	"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			-- 	desc = "Buffer Diagnostics (Trouble)",
+			-- },
+			-- {
+			-- 	"<leader>cs",
+			-- 	"<cmd>Trouble symbols toggle focus=false<cr>",
+			-- 	desc = "Symbols (Trouble)",
+			-- },
+			-- {
+			-- 	"<leader>cl",
+			-- 	"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			-- 	desc = "LSP Definitions / references / ... (Trouble)",
+			-- },
+			-- {
+			-- 	"<leader>xL",
+			-- 	"<cmd>Trouble loclist toggle<cr>",
+			-- 	desc = "Location List (Trouble)",
+			-- },
+			{
+				"<leader>xp",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		opts = true,
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {},
+	},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+
+			-- Disable built-in diagnostic feedbacks
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+		end,
+	},
 }

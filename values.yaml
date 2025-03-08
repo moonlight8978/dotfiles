@@ -30,6 +30,7 @@ homebrew_installed_packages:
   - asdf
   - wireguard-tools
   - kubernetes-cli
+  - gh
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
@@ -54,6 +55,8 @@ homebrew_cask_apps:
   - cloudflare-warp
   - visual-studio-code
   - balenaetcher
+  - spotube
+  - cursor
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet

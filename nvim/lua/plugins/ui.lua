@@ -3,7 +3,9 @@ return {
 		"RRethy/base16-nvim",
 		priority = 1000,
 		config = function()
-			require("config.base16-nvim")
+			require("base16-colorscheme").with_config({})
+
+			vim.cmd([[colorscheme base16-chalk]])
 		end,
 	},
 	{
@@ -32,7 +34,7 @@ return {
 	},
 	{
 		"echasnovski/mini.animate",
-    enabled = false,
+		enabled = false,
 		opts = {},
 	},
 	{
@@ -42,6 +44,7 @@ return {
 	{
 		"andymass/vim-matchup",
 		config = function()
+			-- TODO: Configure before plugin load
 			require("config.vim-matchup")
 		end,
 	},
