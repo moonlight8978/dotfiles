@@ -31,13 +31,24 @@ return {
 	{ --- LSP Installer
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { --- Terraform, HCL
-				"terraformls", --- Shell
-				"bashls", --- Typescript
+			ensure_installed = {
+				--- Terraform, HCL
+				"terraformls",
+
+				--- Shell
+				"bashls",
+
+				--- Typescript
 				"vtsls",
-				"graphql", --- Lua
-				"lua_ls", --- python
-				"pyright", --- Miscs
+				"graphql",
+
+				--- Lua
+				"lua_ls",
+
+				--- python
+				"pyright",
+
+				--- Miscs
 				"jsonls",
 				"yamlls",
 			},
@@ -74,10 +85,16 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
 			ensure_installed = {
-				"stylua", -- Javascript
+				"stylua",
+
+				-- Javascript
 				"prettier",
-				"js-debug-adapter", --- Python
-				"yapf", -- Shell
+				"js-debug-adapter",
+
+				--- Python
+				"yapf",
+
+				-- Shell
 				"shfmt",
 				"codespell",
 			},
@@ -112,7 +129,7 @@ return {
 				terraform = { "terraform_fmt" },
 				hcl = { "terragrunt_hclfmt" },
 
-				-- ["*"] = {"codespell"},
+				["*"] = { "codespell" },
 				["_"] = { "trim_whitespace" },
 			},
 		},
@@ -213,4 +230,54 @@ return {
 			})
 		end,
 	},
+	{
+		"akinsho/git-conflict.nvim",
+		version = "*",
+		opts = {
+			default_mappings = {
+				ours = "o",
+				theirs = "t",
+				none = "0",
+				both = "b",
+				next = "n",
+				prev = "p",
+			},
+		},
+	},
+
+	--- AI code suggestion
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("config.copilot")
+		end,
+	},
+
+	-- {
+	--     "yetone/avante.nvim",
+	--     event = "VeryLazy",
+	--     version = "*",
+	--     build = "make",
+	--     dependencies = {"nvim-treesitter/nvim-treesitter", "stevearc/dressing.nvim", "nvim-lua/plenary.nvim",
+	--                     "MunifTanjim/nui.nvim", "hrsh7th/nvim-cmp", "ibhagwan/fzf-lua", "nvim-tree/nvim-web-devicons",
+	--                     "zbirenbaum/copilot.lua", {
+	--         -- support for image pasting
+	--         "HakonHarnes/img-clip.nvim",
+	--         event = "VeryLazy",
+	--         opts = {
+	--             -- recommended settings
+	--             default = {
+	--                 embed_image_as_base64 = false,
+	--                 prompt_for_file_name = false,
+	--                 drag_and_drop = {
+	--                     insert_mode = true
+	--                 },
+	--                 -- required for Windows users
+	--                 use_absolute_path = true
+	--             }
+	--         }
+	--     }}
+	-- }
 }

@@ -30,6 +30,17 @@ local M = {}
 function M.setup(opts)
 	local servers = opts.servers
 
+	servers.pyright = vim.tbl_deep_extend("force", servers.pyright or {}, {
+		settings = {
+			python = {
+				analysis = {
+					diagnosticMode = "workspace",
+          typeCheckingMode = "off"
+				},
+			},
+		},
+	})
+
 	servers.jsonls = vim.tbl_deep_extend("force", servers.jsonls or {}, {
 		settings = {
 			json = {
