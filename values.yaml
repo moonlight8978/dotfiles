@@ -32,6 +32,7 @@ homebrew_installed_packages:
   - kubernetes-cli
   - gh
   - gnupg
+  - helmfile
 homebrew_taps:
   - moonlight8978/tap
   - name: ck3mp3r/laio-cli
