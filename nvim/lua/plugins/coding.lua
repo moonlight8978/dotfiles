@@ -46,6 +46,7 @@ return {
 				"lua_ls",
 
 				--- python
+				"ruff",
 				"pyright",
 
 				--- Miscs
@@ -73,6 +74,7 @@ return {
 				},
 				jsonls = {},
 				yamlls = {},
+				ruff = {},
 				pyright = {},
 				lua_ls = {},
 			},
@@ -90,9 +92,6 @@ return {
 				-- Javascript
 				"prettier",
 				"js-debug-adapter",
-
-				--- Python
-				"yapf",
 
 				-- Shell
 				"shfmt",
@@ -124,7 +123,7 @@ return {
 				bash = { "shfmt" },
 				sh = { "shfmt" },
 
-				python = { "yapf" },
+				python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
 
 				terraform = { "terraform_fmt" },
 				hcl = { "terragrunt_hclfmt" },

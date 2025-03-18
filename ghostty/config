@@ -16,6 +16,7 @@ adjust-underline-position = 2
 theme = chalk
 background = #151515
 palette = 0=#202020
+cursor-color=#f0f0f0
 
 macos-titlebar-style = tabs
 mouse-hide-while-typing = true

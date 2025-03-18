@@ -22,7 +22,7 @@ set("n", "<leader>ca", vim.lsp.buf.code_action, {
 	desc = "LSP code action",
 })
 set("n", "<leader>rn", vim.lsp.buf.rename, {
-	desc = "varialbe rename",
+	desc = "variable rename",
 })
 
 local M = {}
@@ -34,9 +34,19 @@ function M.setup(opts)
 		settings = {
 			python = {
 				analysis = {
+					autoSearchPaths = true,
+					useLibraryCodeForTypes = true,
 					diagnosticMode = "workspace",
-          typeCheckingMode = "off"
+					typeCheckingMode = "off",
 				},
+			},
+		},
+	})
+
+	servers.ruff = vim.tbl_deep_extend("force", servers.ruff or {}, {
+		init_options = {
+			settings = {
+				-- Server settings should go here
 			},
 		},
 	})

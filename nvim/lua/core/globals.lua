@@ -78,6 +78,7 @@ vim.scriptencoding = "utf-8"
 -- Turn on line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 -- Enable syntax highlighting
 vim.cmd("syntax enable")
@@ -97,22 +98,6 @@ vim.opt.showbreak = "↪"
 
 -- Always show 5 lines when scrolling off screen
 vim.opt.scrolloff = 5
-
--- Cursor settings
-vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:block-blinkon100-Cursor2/lCursor2,r-cr:hor20,o:hor50"
-api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		api.nvim_set_hl(0, "Cursor", {
-			fg = "#e0e0e0",
-			bg = "#e0e0e0",
-		})
-		api.nvim_set_hl(0, "Cursor2", {
-			fg = "#ddb26f",
-			bg = "#ddb26f",
-		})
-	end,
-})
 
 -- Use built-in filetype plugin
 vim.cmd("filetype plugin indent on")
@@ -140,3 +125,20 @@ vim.opt.mousescroll = "ver:1,hor:0"
 -- Note: 'noshowmode' is commented out in the original, so I've left it out
 -- You can uncomment and add it as:
 -- vim.opt.showmode = false
+
+-- Cursor settings
+vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:block-blinkon100-Cursor2/lCursor2,r-cr:hor20,o:hor50"
+
+api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		api.nvim_set_hl(0, "Cursor", {
+			fg = "#e0e0e0",
+			bg = "#e0e0e0",
+		})
+		api.nvim_set_hl(0, "Cursor2", {
+			fg = "#ddb26f",
+			bg = "#ddb26f",
+		})
+	end,
+})

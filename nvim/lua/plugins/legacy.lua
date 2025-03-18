@@ -9,16 +9,8 @@ return {{
     opts = {},
     event = "VeryLazy",
     enabled = false
-}, -- github copilot
+},
 {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-        require("config.copilot")
-    end,
-    enabled = false
-}, {
     "akinsho/toggleterm.nvim",
     version = "*",
     config = function()
