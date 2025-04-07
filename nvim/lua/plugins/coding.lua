@@ -49,6 +49,9 @@ return {
 				"ruff",
 				"pyright",
 
+				--- Golang
+				"gopls",
+
 				--- Miscs
 				"jsonls",
 				"yamlls",
@@ -77,6 +80,7 @@ return {
 				ruff = {},
 				pyright = {},
 				lua_ls = {},
+				gopls = {},
 			},
 		},
 		config = function(_, opts)
@@ -92,6 +96,9 @@ return {
 				-- Javascript
 				"prettier",
 				"js-debug-adapter",
+
+        --- Golang
+				"gofumpt",
 
 				-- Shell
 				"shfmt",
@@ -127,6 +134,8 @@ return {
 
 				terraform = { "terraform_fmt" },
 				hcl = { "terragrunt_hclfmt" },
+
+				go = { "gofumports", "gofumpt" },
 
 				["*"] = { "codespell" },
 				["_"] = { "trim_whitespace" },

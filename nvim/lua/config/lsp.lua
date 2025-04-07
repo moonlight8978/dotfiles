@@ -30,6 +30,14 @@ local M = {}
 function M.setup(opts)
 	local servers = opts.servers
 
+	servers.gopls = vim.tbl_deep_extend("force", servers.gopls or {}, {
+		settings = {
+			gopls = {
+				gofumpt = true,
+			},
+		},
+	})
+
 	servers.pyright = vim.tbl_deep_extend("force", servers.pyright or {}, {
 		settings = {
 			python = {
