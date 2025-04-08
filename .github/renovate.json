@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "rebaseWhen": "behind-base-branch",
+  "dependencyDashboard": true,
+  "labels": ["dependencies", "no-stale"],
+  "asdf": {
+    "fileMatch": ["asdf/.tool-versions"]
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["python"],
+      "enabled": false
+    }
+  ]
+}
