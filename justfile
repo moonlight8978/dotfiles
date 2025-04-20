@@ -31,3 +31,8 @@ tldr:
 nix:
   mkdir -p ~/.config/home-manager
   stow -t ~/.config/home-manager nix-home-manager
+
+nix-darwin:
+  sudo mkdir -p /etc/nix-darwin
+  sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
+  stow -t /etc/nix-darwin nix
