@@ -27,3 +27,7 @@ ghostty:
 
 tldr:
   stow -t ~ tldr
+
+nix:
+  mkdir -p ~/.config/home-manager
+  stow -t ~/.config/home-manager nix-home-manager
