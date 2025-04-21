@@ -1,13 +1,8 @@
 homebrew_installed_packages:
-  - git
   - libyaml
   - coreutils
-  - curl
   - luarocks
   - stow
-  - just
-  - docker
-  - docker-compose
   - lazygit
   - colima
   - smartmontools
@@ -58,6 +53,7 @@ homebrew_cask_apps:
   - balenaetcher
   - spotube
   - cursor
+  - podman-desktop
 asdf_version: v0.15.0
 asdf_plugins:
   - dotnet
@@ -77,3 +73,4 @@ hf_models:
 apt_packages:
   - podman
   - zsh
+  - stow

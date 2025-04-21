@@ -17,9 +17,9 @@ zcomet load ohmyzsh plugins/docker-compose
 zcomet load ohmyzsh plugins/kubectl
 zcomet load ohmyzsh plugins/helm
 
-# if [[ ! ":$PATH:" == *":asdf:"* ]]; then
-#   zcomet load ohmyzsh plugins/asdf
-# fi
+if [[ ! ":$PATH:" == *":asdf:"* ]]; then
+  zcomet load ohmyzsh plugins/asdf
+fi
 
 export PYTHON_AUTO_VRUN=true
 zcomet load ohmyzsh plugins/python
