@@ -3,9 +3,8 @@
   home.stateVersion = "24.11";
 
   home.packages = [
-    pkgs.neovim
     pkgs.home-manager
-  ];
+  ] ++ (import ./home-pkgs.nix { inherit pkgs; });
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -18,7 +18,7 @@
 
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
-      modules = [ ./home-debian.nix ./home.nix ./fonts.nix ];
+      modules = [ ./home-debian.nix ./fonts.nix ];
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
@@ -42,7 +42,7 @@
               home = "/Users/moonlight";
             };
 
-            home-manager.users.moonlight = ./home.nix;
+            home-manager.users.moonlight = ./home-darwin.nix;
           }
       ];
       specialArgs = { inherit inputs; };
