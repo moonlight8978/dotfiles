@@ -8,7 +8,7 @@
         - homebrew
   tasks:
     - name: Install pip packages
-      tags: 
+      tags:
         - python
       loop: "{{ pip_packages }}"
       ansible.builtin.pip:
@@ -27,7 +27,7 @@
       tags:
         - asdf
       loop: "{{ asdf_plugins }}"
-      ansible.builtin.shell: "asdf plugin list | grep {{ item.name | default(item) }} || (asdf plugin add {{ item.name | default(item) }} && exit 100)" 
+      ansible.builtin.shell: "asdf plugin list | grep {{ item.name | default(item) }} || (asdf plugin add {{ item.name | default(item) }} && exit 100)"
       register: asdf_install_plugin
       changed_when: asdf_install_plugin.rc == 100
       failed_when: asdf_install_plugin.rc > 0
@@ -44,3 +44,9 @@
         repo: https://github.com/tmux-plugins/tpm.git
         version: master
         dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+
+    - import_tasks: ansible/tasks/debian.yml
+      tags:
+        - debian
+      vars:
+        packages: "{{ apt_packages }}"

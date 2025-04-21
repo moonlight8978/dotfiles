@@ -75,3 +75,8 @@ pip_packages:
   - huggingface_cli
 hf_models:
   - TheBloke/deepseek-coder-6.7B-instruct-GGUF deepseek-coder-6.7b-instruct.Q4_K_M.gguf
+
+# Linux
+apt_packages:
+  - podman
+  - zsh
