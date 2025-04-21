@@ -1,10 +1,8 @@
 homebrew_installed_packages:
   - git
-  - neovim
   - libyaml
   - coreutils
   - curl
-  - fzf
   - luarocks
   - stow
   - just
@@ -27,7 +25,6 @@ homebrew_installed_packages:
   - git-filter-repo
   - ollama
   - cmake
-  - asdf
   - wireguard-tools
   - kubernetes-cli
   - gh

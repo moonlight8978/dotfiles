@@ -30,7 +30,7 @@ tldr:
 
 nix:
   mkdir -p ~/.config/home-manager
-  stow -t ~/.config/home-manager nix-home-manager
+  stow -t ~/.config/home-manager nix
 
 nix-darwin:
   sudo mkdir -p /etc/nix-darwin
