@@ -74,3 +74,4 @@ apt_packages:
   - podman
   - zsh
   - stow
+  - open-iscsi
