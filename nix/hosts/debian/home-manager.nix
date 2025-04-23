@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "moonlight";
@@ -25,7 +18,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ] ++ (import ./home-pkgs.nix { inherit pkgs; });
+  ] ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
   home.sessionVariables = {
     EDITOR = "nvim";
