@@ -25,6 +25,7 @@ with pkgs; [
   gh
   helmfile
   sops
+  kubernetes-helm
 
   # Encryption and security tools
   gnupg
