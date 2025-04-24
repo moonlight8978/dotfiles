@@ -63,23 +63,24 @@
   {
     devShells = forAllSystems devShell;
     
-    homeConfigurations."moonlight" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
-
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-      modules = [ ./hosts/debian ];
-
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
+    homeConfigurations = import ./hosts/debian rec {
+      inherit home-manager;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+        };
+      };
     };
 
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."IBM-5100-mini-5" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."IBM-5100-mini-5" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
-        system = "aarch64-darwin";
+        inherit system;
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
