@@ -2,7 +2,7 @@ set shell := ["bash", "-cu"]
 
 default: all
 
-all: zsh tmux asdf nvim ghostty
+all: zsh tmux asdf nvim ghostty tldr
 
 zsh:
   stow -t ~ zsh
