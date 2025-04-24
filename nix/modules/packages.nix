@@ -27,7 +27,7 @@ with pkgs; [
   kubernetes-helm
   foreman
   ngrok
-  ansible
+  # ansible
 
   # Encryption and security tools
   gnupg
