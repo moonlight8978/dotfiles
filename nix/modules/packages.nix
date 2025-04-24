@@ -13,12 +13,11 @@ with pkgs; [
   jq
   yq
   stow
-  ngrok
   tmux
   ripgrep
   neovim
 
-  # Cloud
+  # Cloud, Devtools
   awscli2
   cri-tools
   kubectl
@@ -26,6 +25,8 @@ with pkgs; [
   helmfile
   sops
   kubernetes-helm
+  foreman
+  ngrok
 
   # Encryption and security tools
   gnupg
