@@ -62,7 +62,7 @@
   in
   {
     devShells = forAllSystems devShell;
-    
+
     homeConfigurations = import ./hosts/debian rec {
       inherit home-manager;
       system = "x86_64-linux";
@@ -75,9 +75,24 @@
       };
     };
 
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."IBM-5100-mini-5" = nix-darwin.lib.darwinSystem rec {
+      system = "aarch64-darwin";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = (_: true);
+        };
+      };
+      modules = [
+        home-manager.darwinModules.home-manager
+        nix-homebrew.darwinModules.nix-homebrew
+        ./hosts/darwin
+      ];
+      specialArgs = inputs;
+    };
+
+    darwinConfigurations."May-tinh-Casio-13-M1-9" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
