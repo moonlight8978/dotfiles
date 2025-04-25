@@ -9,6 +9,7 @@
 
     packages = with pkgs; [
       vim
+      vscode
     ] ++ (import ../../modules/packages.nix { inherit pkgs; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
     file = {};
@@ -25,9 +26,19 @@
 
       packages = [
         "com.google.Chrome"
-        "com.visualstudio.code"
         "io.podman_desktop.PodmanDesktop"
       ];
+
+      overrides = {
+        "com.visualstudio.code".Context = {
+          filesystems = [
+            "xdg-config/git:ro"
+            "/home/moonlight/.nix-profile/bin:ro"
+            "/home/moonlight/.nix-profile/sbin:ro"
+          ];
+        };
+
+      };
     };
   };
 
