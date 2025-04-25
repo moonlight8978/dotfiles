@@ -43,9 +43,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/main";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nix-flatpak, ... }:
   let
     linuxSystems = [ "x86_64-linux" ];
     darwinSystems = [ "aarch64-darwin" ];
@@ -63,16 +67,19 @@
   {
     devShells = forAllSystems devShell;
 
-    homeConfigurations = import ./hosts/debian rec {
-      inherit home-manager;
-      system = "x86_64-linux";
+    homeConfigurations."moonlight" = home-manager.lib.homeManagerConfiguration rec {
       pkgs = import nixpkgs {
-        inherit system;
+        system = "x86_64-linux";
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
       };
+      modules = [
+        nix-flatpak.homeManagerModules.nix-flatpak
+        ./hosts/debian
+      ];
+      extraSpecialArgs = inputs;
     };
 
     darwinConfigurations."IBM-5100-mini-5" = nix-darwin.lib.darwinSystem rec {

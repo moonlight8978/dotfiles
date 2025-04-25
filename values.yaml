@@ -74,3 +74,5 @@ apt_packages:
   - podman
   - zsh
   - open-iscsi
+  - flatpak
+  - plasma-discover-backend-flatpak
