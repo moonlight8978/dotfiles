@@ -10,6 +10,8 @@
     packages = with pkgs; [
       vim
       vscode
+      podman
+      podman-compose
     ] ++ (import ../../modules/packages.nix { inherit pkgs; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
     file = {};
