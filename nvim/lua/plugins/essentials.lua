@@ -18,4 +18,6 @@ return {
 			require("config.fzf")
 		end,
 	},
+
+	"mg979/vim-visual-multi", -- multi cursor
 }

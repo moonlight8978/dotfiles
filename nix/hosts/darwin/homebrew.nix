@@ -22,6 +22,27 @@
     onActivation = {
       autoUpdate = true;
     };
+
+    casks = [
+      "google-chrome"
+      "ghostty"
+      "postman"
+      "bruno"
+      "medis"
+      "tableplus"
+      "openvpn-connect"
+      "figma"
+      "joplin"
+      "anydesk"
+      "evkey"
+      "bluestacks-air"
+      "cloudflare-warp"
+      "visual-studio-code"
+      "balenaetcher"
+      "cursor"
+      "podman-desktop"
+    ];
+
     brews = [
       # General purpose
       "libyaml"
