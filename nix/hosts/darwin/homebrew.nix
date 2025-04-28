@@ -25,24 +25,29 @@
     };
 
     casks = [
-      "google-chrome"
+      # Development
       "ghostty"
       "postman"
       "bruno"
       "medis"
       "tableplus"
-      "openvpn-connect"
       "figma"
-      "joplin"
-      "anydesk"
-      "evkey"
-      "bluestacks-air"
-      "cloudflare-warp"
       "visual-studio-code"
-      "balenaetcher"
       "cursor"
       "podman-desktop"
+
+      # General purpose
+      "google-chrome"
+      "joplin"
+      "evkey"
+      "bluestacks-air"
+      "balenaetcher"
       "youtube-music"
+
+      # VPN, Remote
+      "openvpn-connect"
+      "anydesk"
+      "cloudflare-warp"
     ];
 
     brews = [
