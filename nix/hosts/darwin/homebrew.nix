@@ -1,4 +1,4 @@
-{ homebrew-core, homebrew-cask, homebrew-moonlight, homebrew-laio, homebrew-services, homebrew-hashicorp, ... }:
+{ homebrew-core, homebrew-cask, homebrew-moonlight, homebrew-laio, homebrew-services, homebrew-hashicorp, homebrew-youtube-music, ... }:
 {
   nix-homebrew = {
     enable = true;
@@ -13,6 +13,7 @@
       "ck3mp3r/laio-cli" = homebrew-laio;
       "homebrew/homebrew-services" = homebrew-services;
       "hashicorp/tap" = homebrew-hashicorp;
+      "th-ch/youtube-music" = homebrew-youtube-music;
     };
     mutableTaps = false;
   };
@@ -41,6 +42,7 @@
       "balenaetcher"
       "cursor"
       "podman-desktop"
+      "youtube-music"
     ];
 
     brews = [

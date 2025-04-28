@@ -38,6 +38,10 @@
       url = "github:hashicorp/homebrew-tap";
       flake = false;
     };
+    homebrew-youtube-music = {
+      url = "github:th-ch/homebrew-youtube-music";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
