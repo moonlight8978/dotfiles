@@ -35,9 +35,6 @@ homebrew_taps:
 homebrew_cask_apps:
   - google-chrome
   - ghostty
-  - font-hurmit-nerd-font
-  - font-recursive-mono-nerd-font
-  - font-fira-code
   - postman
   - bruno
   - medis
@@ -51,7 +48,6 @@ homebrew_cask_apps:
   - cloudflare-warp
   - visual-studio-code
   - balenaetcher
-  - spotube
   - cursor
   - podman-desktop
 asdf_version: v0.15.0
