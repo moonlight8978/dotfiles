@@ -38,6 +38,7 @@
 
       # General purpose
       "google-chrome"
+      "opera"
       "joplin"
       "evkey"
       "bluestacks-air"
