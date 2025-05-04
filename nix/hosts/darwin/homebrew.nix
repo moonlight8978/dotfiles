@@ -7,11 +7,11 @@
     autoMigrate = true;
 
     taps = {
-      "homebrew/homebrew-core" = homebrew-core;
-      "homebrew/homebrew-cask" = homebrew-cask;
+      "homebrew/core" = homebrew-core;
+      "homebrew/cask" = homebrew-cask;
       "moonlight8978/tap" = homebrew-moonlight;
       "ck3mp3r/laio-cli" = homebrew-laio;
-      "homebrew/homebrew-services" = homebrew-services;
+      "homebrew/services" = homebrew-services;
       "hashicorp/tap" = homebrew-hashicorp;
       "th-ch/youtube-music" = homebrew-youtube-music;
     };
@@ -22,6 +22,8 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
     };
 
     casks = [
@@ -64,11 +66,12 @@
       "terraform"
       "asdf"
       "zsh"
+      "direnv"
 
       # Container tools
       "podman"
-      "podman-compose"
-      "docker"
+      # "podman-compose"
+      # "docker"
       "docker-compose"
     ];
   };
