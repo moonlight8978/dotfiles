@@ -54,9 +54,14 @@
     ];
 
     brews = [
-      # General purpose
+      # Deps
       "libyaml"
       "coreutils"
+      "libb2"
+      "gettext"
+      "openssl"
+
+      # General purpose
       "smartmontools"
       "mas"
 
@@ -66,7 +71,6 @@
       "terraform"
       "asdf"
       "zsh"
-      "direnv"
 
       # Container tools
       "podman"

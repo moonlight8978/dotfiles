@@ -16,6 +16,9 @@ with pkgs; [
   tmux
   ripgrep
   neovim
+  direnv
+  gettext
+  openssl
 
   # Cloud, Devtools
   awscli2
