@@ -30,6 +30,7 @@ with pkgs; [
   kubernetes-helm
   foreman
   ngrok
+  argocd
   # ansible
 
   # Encryption and security tools
