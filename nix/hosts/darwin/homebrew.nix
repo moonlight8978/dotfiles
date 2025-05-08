@@ -78,6 +78,9 @@
       # "podman-compose"
       # "docker"
       "docker-compose"
+
+      # Security
+      "age"
     ];
   };
 }
