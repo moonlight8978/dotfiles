@@ -71,6 +71,7 @@
       "terraform"
       "asdf"
       "zsh"
+      "pdm"
 
       # Container tools
       "podman"
