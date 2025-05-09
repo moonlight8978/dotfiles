@@ -72,6 +72,7 @@
       "asdf"
       "zsh"
       "pdm"
+      "libpq"
 
       # Container tools
       "podman"
