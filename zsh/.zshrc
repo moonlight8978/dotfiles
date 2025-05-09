@@ -71,3 +71,5 @@ setopt nullglob # Prevent errors if no files are found
 for file in ~/.alias/*; do
   source $file
 done
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
