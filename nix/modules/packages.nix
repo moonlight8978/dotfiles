@@ -11,7 +11,7 @@ with pkgs; [
   fzf
   just
   jq
-  yq
+  yq-go
   stow
   tmux
   ripgrep
