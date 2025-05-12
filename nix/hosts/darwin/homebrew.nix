@@ -73,6 +73,7 @@
       "zsh"
       "pdm"
       "libpq"
+      "act"
 
       # Container tools
       "podman"
