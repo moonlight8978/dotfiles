@@ -23,6 +23,7 @@ with pkgs; [
   # Cloud, Devtools
   awscli2
   cri-tools
+  k9s
   kubectl
   gh
   helmfile
