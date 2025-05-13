@@ -7,12 +7,12 @@
     autoMigrate = true;
 
     taps = {
-      "homebrew/core" = homebrew-core;
-      "homebrew/cask" = homebrew-cask;
-      "moonlight8978/tap" = homebrew-moonlight;
-      "homebrew/services" = homebrew-services;
-      "hashicorp/tap" = homebrew-hashicorp;
-      "th-ch/youtube-music" = homebrew-youtube-music;
+      "homebrew/homebrew-core" = homebrew-core;
+      "homebrew/homebrew-cask" = homebrew-cask;
+      "moonlight8978/homebrew-tap" = homebrew-moonlight;
+      "homebrew/homebrew-services" = homebrew-services;
+      "hashicorp/homebrew-tap" = homebrew-hashicorp;
+      "th-ch/homebrew-youtube-music" = homebrew-youtube-music;
     };
     mutableTaps = false;
   };
