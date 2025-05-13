@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, laio, ... }:
 
 {
   home = {
@@ -12,7 +12,7 @@
       vscode
       podman
       podman-compose
-    ] ++ (import ../../modules/packages.nix { inherit pkgs; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
+    ] ++ (import ../../modules/packages.nix { inherit pkgs laio; system = "x86_64-linux"; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
     file = {};
   };

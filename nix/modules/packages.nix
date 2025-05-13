@@ -1,5 +1,5 @@
 # ref: https://github.com/dustinlyons/nixos-config/blob/main/modules/shared/packages.nix
-{ pkgs }:
+inputs@{ pkgs, laio, system }:
 with pkgs; [
   # General purpose
   git
@@ -32,6 +32,7 @@ with pkgs; [
   ngrok
   argocd
   # ansible
+  laio.packages.${system}.default
 
   # Encryption and security tools
   gnupg

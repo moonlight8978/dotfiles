@@ -13,6 +13,10 @@
       url = "github:zhaofengli/nix-homebrew";
     };
 
+    laio = {
+      url = "github:ck3mp3r/laio-cli";
+    };
+
     # Homebrew taps
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -24,10 +28,6 @@
     };
     homebrew-moonlight = {
       url = "github:moonlight8978/homebrew-tap";
-      flake = false;
-    };
-    homebrew-laio = {
-      url = "github:ck3mp3r/laio-cli";
       flake = false;
     };
     homebrew-services = {
