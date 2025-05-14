@@ -84,3 +84,7 @@ apt_packages:
   - libsqlite3-dev
   - tk-dev
   - uuid-dev
+
+  # Ruby deps
+  - libyaml-dev
+

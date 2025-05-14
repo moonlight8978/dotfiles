@@ -29,6 +29,7 @@ with pkgs; [
   helmfile
   sops
   kubernetes-helm
+  docker-compose
   foreman
   ngrok
   argocd
