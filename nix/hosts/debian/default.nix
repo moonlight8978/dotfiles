@@ -12,6 +12,7 @@
       vscode
       podman
       podman-compose
+      asdf-vm
     ] ++ (import ../../modules/packages.nix { inherit pkgs laio; system = "x86_64-linux"; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
     file = {};
