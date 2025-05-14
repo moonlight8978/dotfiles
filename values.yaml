@@ -65,7 +65,6 @@ hf_models:
 
 # Linux
 apt_packages:
-  - podman
   - zsh
   - open-iscsi
   - flatpak
