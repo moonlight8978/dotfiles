@@ -72,3 +72,17 @@ apt_packages:
   - open-iscsi
   - flatpak
   - plasma-discover-backend-flatpak
+  # Python deps
+  - build-essential
+  - zlib1g-dev
+  - libncurses5-dev
+  - libgdbm-dev
+  - libnss3-dev
+  - libssl-dev
+  - libreadline-dev
+  - libffi-dev
+  - libbz2-dev
+  - liblzma-dev
+  - libsqlite3-dev
+  - tk-dev
+  - uuid-dev
