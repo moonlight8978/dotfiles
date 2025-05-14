@@ -32,7 +32,7 @@ with pkgs; [
   foreman
   ngrok
   argocd
-  # ansible
+  ansible
   laio.packages.${system}.default
 
   # Encryption and security tools
