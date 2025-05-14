@@ -59,9 +59,7 @@ asdf_plugins:
   - pnpm
 pip_packages:
   - pynvim
-  - ansible
-  - vllm
-  - huggingface_cli
+  - paramiko
 hf_models:
   - TheBloke/deepseek-coder-6.7B-instruct-GGUF deepseek-coder-6.7b-instruct.Q4_K_M.gguf
 
