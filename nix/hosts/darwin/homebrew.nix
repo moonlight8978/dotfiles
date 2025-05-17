@@ -42,7 +42,7 @@
       "opera"
       "joplin"
       "evkey"
-      "bluestacks-air"
+      # "bluestacks-air"
       "balenaetcher"
       "youtube-music"
 
@@ -73,6 +73,8 @@
       "pdm"
       "libpq"
       "act"
+      "hashicorp/tap/vault"
+      "ansible"
 
       # Container tools
       "podman"

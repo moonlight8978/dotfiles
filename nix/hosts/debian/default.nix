@@ -12,6 +12,7 @@
       vim
       vscode
       asdf-vm
+      ansible
     ] ++ (import ../../modules/packages.nix { inherit pkgs laio; system = "x86_64-linux"; }) ++ (import ../../modules/fonts.nix { inherit pkgs; });
 
     file = {};
