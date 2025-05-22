@@ -50,13 +50,6 @@ homebrew_cask_apps:
   - balenaetcher
   - cursor
   - podman-desktop
-asdf_version: v0.15.0
-asdf_plugins:
-  - dotnet
-  - ruby
-  - nodejs
-  - python
-  - pnpm
 pip_packages:
   - pynvim
   - paramiko
