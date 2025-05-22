@@ -1,4 +1,4 @@
-{ homebrew-core, homebrew-cask, homebrew-moonlight, homebrew-services, homebrew-hashicorp, homebrew-youtube-music, ... }:
+{ homebrew-core, homebrew-cask, homebrew-moonlight, homebrew-services, homebrew-hashicorp, homebrew-youtube-music, config, homebrew-bundle, ... }:
 {
   nix-homebrew = {
     enable = true;
@@ -9,6 +9,7 @@
     taps = {
       "homebrew/homebrew-core" = homebrew-core;
       "homebrew/homebrew-cask" = homebrew-cask;
+      "homebrew/homebrew-bundle" = homebrew-bundle;
       "moonlight8978/homebrew-tap" = homebrew-moonlight;
       "homebrew/homebrew-services" = homebrew-services;
       "hashicorp/homebrew-tap" = homebrew-hashicorp;
@@ -24,6 +25,8 @@
       upgrade = true;
       cleanup = "uninstall";
     };
+
+    taps = builtins.attrNames config.nix-homebrew.taps;
 
     casks = [
       # Development
