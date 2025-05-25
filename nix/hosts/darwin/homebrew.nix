@@ -66,6 +66,7 @@
       # General purpose
       "smartmontools"
       "mas"
+      "wpsoffice"
 
       # Dev tools
       "lazygit"
