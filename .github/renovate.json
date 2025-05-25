@@ -5,8 +5,8 @@
     "github>moonlight8978/renovate-config"
   ],
   "asdf": {
-    "fileMatch": [
-      "asdf/.tool-versions"
+    "managerFilePatterns": [
+      "/asdf/.tool-versions/"
     ]
   },
   "packageRules": [
