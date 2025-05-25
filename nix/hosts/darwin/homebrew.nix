@@ -45,9 +45,10 @@
       "opera"
       "joplin"
       "evkey"
-      # "bluestacks-air"
+      "bluestacks-air"
       "balenaetcher"
       "youtube-music"
+      "wpsoffice"
 
       # VPN, Remote
       "openvpn-connect"
@@ -66,7 +67,6 @@
       # General purpose
       "smartmontools"
       "mas"
-      "wpsoffice"
 
       # Dev tools
       "lazygit"
