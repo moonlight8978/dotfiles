@@ -49,6 +49,7 @@
       "balenaetcher"
       "youtube-music"
       "wpsoffice"
+      "discord"
 
       # VPN, Remote
       "openvpn-connect"
