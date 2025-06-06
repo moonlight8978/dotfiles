@@ -3,4 +3,4 @@ ruby 3.4.4
 python 3.13.4
 dotnet 8.0.404
 pnpm 10.11.1
-golang 1.24.3
+golang 1.24.4
