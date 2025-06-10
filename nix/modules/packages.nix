@@ -35,6 +35,7 @@ with pkgs; [
   argocd
   laio.packages.${system}.default
   s3cmd
+  minio-client
 
   # Encryption and security tools
   gnupg
