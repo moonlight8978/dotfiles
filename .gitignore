@@ -7,3 +7,6 @@ nvim/lazy-lock.json
 .models/
 
 **/.DS_Store
+
+# Supports multiple environment
+inventory.ini
