@@ -34,6 +34,7 @@ with pkgs; [
   ngrok
   argocd
   laio.packages.${system}.default
+  s3cmd
 
   # Encryption and security tools
   gnupg
