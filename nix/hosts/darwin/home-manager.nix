@@ -5,6 +5,8 @@
     home = "/Users/moonlight";
   };
 
+  system.primaryUser = "moonlight";
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
