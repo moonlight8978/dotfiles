@@ -29,6 +29,7 @@ with pkgs; [
   helmfile
   sops
   kubernetes-helm
+  kustomize
   docker-compose
   foreman
   ngrok
@@ -41,6 +42,7 @@ with pkgs; [
   gnupg
   wireguard-tools
   duplicity
+  wgcf
 
   # Compressions
   zip
