@@ -44,7 +44,7 @@
       "google-chrome"
       "opera"
       "joplin"
-      "evkey"
+      "openkey"
       "bluestacks-air"
       "balenaetcher"
       "youtube-music"
