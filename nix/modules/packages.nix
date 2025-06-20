@@ -37,6 +37,7 @@ with pkgs; [
   laio.packages.${system}.default
   s3cmd
   minio-client
+  vagrant
 
   # Encryption and security tools
   gnupg
