@@ -8,7 +8,6 @@
     homeDirectory = "/home/moonlight";
 
     packages = with pkgs; [
-      podman
       vim
       vscode
       asdf-vm

@@ -65,6 +65,7 @@ apt_packages:
 
   # Podman
   - uidmap
+  - podman
   # Python deps
   - build-essential
   - zlib1g-dev
