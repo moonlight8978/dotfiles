@@ -38,7 +38,8 @@
       "figma"
       "visual-studio-code"
       "cursor"
-      "podman-desktop"
+      # "podman-desktop"
+      "orbstack"
 
       # General purpose
       "google-chrome"
@@ -82,10 +83,10 @@
       "ansible"
 
       # Container tools
-      "podman"
+      # "podman"
       # "podman-compose"
       # "docker"
-      "docker-compose"
+      # "docker-compose"
 
       # Security
       "age"
