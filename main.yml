@@ -7,16 +7,6 @@
       tags:
         - mac
   tasks:
-    - name: Install pip packages
-      tags:
-        - python
-      loop: "{{ pip_packages }}"
-      ansible.builtin.pip:
-        name: "{{ item.name | default(item) }}"
-        state: "{{ item.state | default('present') }}"
-        version: "{{ item.version | default(omit) }}"
-        executable: ~/.asdf/shims/pip
-
     - name: Download huggingface models
       tags:
         - hf
@@ -53,6 +43,15 @@
         - asdf
       loop: "{{ asdf_plugins }}"
       ansible.builtin.shell: "asdf install {{ item.name }} {{ item.version }}"
+
+    # TODO: Remove old versions
+
+    - name: Install pip packages
+      tags:
+        - python
+        - asdf
+      loop: "{{ pip_packages }}"
+      shell: pip install {{ item }}
 
     - import_tasks: ansible/tasks/git_clone.yaml
       tags:
