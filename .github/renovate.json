@@ -6,13 +6,16 @@
   ],
   "asdf": {
     "managerFilePatterns": [
-      "/asdf/.tool-versions/"
+      "/asdf/.tool-versions"
     ]
   },
   "packageRules": [
     {
-      "matchPackageNames": [
-        "python"
+      "matchManagers": [
+        "asdf"
+      ],
+      "matchUpdateTypes": [
+        "patch"
       ],
       "enabled": false
     },
