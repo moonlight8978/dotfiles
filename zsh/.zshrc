@@ -15,6 +15,8 @@ zcomet load ohmyzsh plugins/git
 zcomet load ohmyzsh plugins/kubectl
 zcomet load ohmyzsh plugins/helm
 zcomet load ohmyzsh plugins/direnv
+zcomet load ohmyzsh plugins/docker-compose
+zcomet load ohmyzsh plugins/docker
 
 if [[ ! ":$PATH:" == *":asdf:"* ]]; then
   zcomet load ohmyzsh plugins/asdf
