@@ -19,6 +19,7 @@ with pkgs; [
   direnv
   gettext
   openssl
+  pre-commit
 
   # Cloud, Devtools
   awscli2
