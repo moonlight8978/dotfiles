@@ -40,6 +40,7 @@
       "cursor"
       # "podman-desktop"
       "orbstack"
+      "dbeaver-community"
 
       # General purpose
       "google-chrome"
