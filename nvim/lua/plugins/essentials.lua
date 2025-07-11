@@ -19,5 +19,5 @@ return {
 		end,
 	},
 
-	"mg979/vim-visual-multi", -- multi cursor
+	-- "mg979/vim-visual-multi", -- multi cursor
 }
