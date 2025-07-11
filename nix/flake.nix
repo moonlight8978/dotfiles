@@ -107,7 +107,7 @@
       specialArgs = inputs;
     };
 
-    darwinConfigurations."May-tinh-Casio-13-M1-9" = nix-darwin.lib.darwinSystem rec {
+    darwinConfigurations."May-tinh-Casio-13-M1" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
