@@ -15,6 +15,9 @@
 
         show-process-indicators = true;
         show-recents = false;
+        
+        # Lock screen
+        wvous-tr-corner = 13;
 
         persistent-apps = [
           {
@@ -29,14 +32,12 @@
           {
             app = "/System/Applications/Calendar.app";
           }
-
           {
             app = "/Applications/Telegram.app";
           }
           {
             app = "/Applications/Google Chrome.app";
           }
-
           {
             app = "/Applications/Ghostty.app";
           }
