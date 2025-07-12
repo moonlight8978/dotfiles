@@ -3,6 +3,7 @@
   imports = [
     ./home-manager.nix
     ./homebrew.nix
+    ./dock.nix
   ];
 
   environment.systemPackages = with pkgs; [

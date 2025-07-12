@@ -6,7 +6,7 @@ font-family = Hurmit Nerd Font Mono
 # font-style-italic = false
 # font-style-bold-italic = false
 
-font-size = 20
+font-size = 16
 
 # neovim indent blankline
 adjust-underline-thickness = 1
@@ -15,6 +15,7 @@ adjust-underline-position = 2
 # Feels
 theme = chalk
 background = #151515
+background-opacity = 0.95
 palette = 0=#202020
 cursor-color=#f0f0f0
 

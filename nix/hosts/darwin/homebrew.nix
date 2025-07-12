@@ -52,6 +52,7 @@
       "youtube-music"
       "wpsoffice"
       "discord"
+      "telegram"
 
       # VPN, Remote
       "openvpn-connect"
