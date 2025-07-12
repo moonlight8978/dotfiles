@@ -1,14 +1,25 @@
-{ pkgs, lib, self, home-manager, laio, ... }:
 {
+  pkgs,
+  lib,
+  self,
+  home-manager,
+  laio,
+  ...
+}: {
   imports = [
     ./home-manager.nix
     ./homebrew.nix
     ./dock.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ] ++ (import ../../modules/packages.nix { inherit pkgs laio; system = "aarch64-darwin"; });
+  environment.systemPackages = with pkgs;
+    [
+      vim
+    ]
+    ++ (import ../../modules/packages.nix {
+      inherit pkgs laio;
+      system = "aarch64-darwin";
+    });
 
   nix = {
     enable = false;

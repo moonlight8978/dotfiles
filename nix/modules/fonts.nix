@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 with pkgs; [
   nerd-fonts.recursive-mono
   nerd-fonts.hurmit

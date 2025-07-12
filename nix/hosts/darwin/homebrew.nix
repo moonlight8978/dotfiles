@@ -1,5 +1,14 @@
-{ homebrew-core, homebrew-cask, homebrew-moonlight, homebrew-services, homebrew-hashicorp, homebrew-youtube-music, config, homebrew-bundle, ... }:
 {
+  homebrew-core,
+  homebrew-cask,
+  homebrew-moonlight,
+  homebrew-services,
+  homebrew-hashicorp,
+  homebrew-youtube-music,
+  config,
+  homebrew-bundle,
+  ...
+}: {
   nix-homebrew = {
     enable = true;
     enableRosetta = false;

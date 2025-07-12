@@ -1,5 +1,9 @@
 # ref: https://github.com/dustinlyons/nixos-config/blob/main/modules/shared/packages.nix
-inputs@{ pkgs, laio, system }:
+inputs @ {
+  pkgs,
+  laio,
+  system,
+}:
 with pkgs; [
   # General purpose
   git

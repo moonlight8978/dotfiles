@@ -57,22 +57,31 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, nix-flatpak, ... }:
-  let
-    linuxSystems = [ "x86_64-linux" ];
-    darwinSystems = [ "aarch64-darwin" ];
+  outputs = inputs @ {
+    self,
+    nix-darwin,
+    nixpkgs,
+    home-manager,
+    nix-homebrew,
+    nix-flatpak,
+    ...
+  }: let
+    linuxSystems = ["x86_64-linux"];
+    darwinSystems = ["aarch64-darwin"];
     forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-    devShell = system: let pkgs = nixpkgs.legacyPackages.${system}; in {
-      default = with pkgs; mkShell {
-        nativeBuildInputs = with pkgs; [ git ];
+    devShell = system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      default = with pkgs;
+        mkShell {
+          nativeBuildInputs = with pkgs; [git];
 
-        shellHook = with pkgs; ''
-          export EDITOR=nvim
-        '';
-      };
+          shellHook = with pkgs; ''
+            export EDITOR=nvim
+          '';
+        };
     };
-  in
-  {
+  in {
     devShells = forAllSystems devShell;
 
     homeConfigurations."moonlight" = home-manager.lib.homeManagerConfiguration rec {
@@ -80,7 +89,7 @@
         system = "x86_64-linux";
         config = {
           allowUnfree = true;
-          allowUnfreePredicate = (_: true);
+          allowUnfreePredicate = _: true;
         };
       };
       modules = [
@@ -96,7 +105,7 @@
         inherit system;
         config = {
           allowUnfree = true;
-          allowUnfreePredicate = (_: true);
+          allowUnfreePredicate = _: true;
         };
       };
       modules = [
@@ -113,7 +122,7 @@
         inherit system;
         config = {
           allowUnfree = true;
-          allowUnfreePredicate = (_: true);
+          allowUnfreePredicate = _: true;
         };
       };
       modules = [
