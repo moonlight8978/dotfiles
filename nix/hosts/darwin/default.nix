@@ -10,6 +10,7 @@
     ./home-manager.nix
     ./homebrew.nix
     ./dock.nix
+    ./settings.nix
   ];
 
   environment.systemPackages = with pkgs;

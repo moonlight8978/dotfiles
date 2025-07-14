@@ -15,7 +15,7 @@ adjust-underline-position = 2
 # Feels
 theme = chalk
 background = #151515
-background-opacity = 0.95
+background-opacity = 0.92
 palette = 0=#202020
 cursor-color=#f0f0f0
 
