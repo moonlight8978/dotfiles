@@ -94,6 +94,7 @@
       "ansible"
       "k3sup"
       "goreleaser"
+      "go-task"
 
       # Container tools
       # "podman"
