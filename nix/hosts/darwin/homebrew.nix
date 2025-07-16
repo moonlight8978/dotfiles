@@ -92,6 +92,8 @@
       "act"
       "hashicorp/tap/vault"
       "ansible"
+      "k3sup"
+      "goreleaser"
 
       # Container tools
       # "podman"
