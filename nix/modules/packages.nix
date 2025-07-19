@@ -43,12 +43,14 @@ with pkgs; [
   s3cmd
   minio-client
   # vagrant
+  yamlfmt
 
   # Encryption and security tools
   gnupg
   wireguard-tools
   duplicity
   wgcf
+  cfssl
 
   # Compressions
   zip
