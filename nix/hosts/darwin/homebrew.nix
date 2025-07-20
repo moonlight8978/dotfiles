@@ -54,6 +54,7 @@
       # General purpose
       "google-chrome"
       "opera"
+      "firefox"
       "joplin"
       "openkey"
       "bluestacks-air"
