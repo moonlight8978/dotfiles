@@ -51,6 +51,7 @@ with pkgs; [
   duplicity
   wgcf
   cfssl
+  mkpasswd
 
   # Compressions
   zip
