@@ -50,6 +50,7 @@
       # "podman-desktop"
       "orbstack"
       "dbeaver-community"
+      "lens"
 
       # General purpose
       "google-chrome"
