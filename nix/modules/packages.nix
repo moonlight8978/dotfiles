@@ -44,6 +44,7 @@ with pkgs; [
   minio-client
   # vagrant
   yamlfmt
+  rclone
 
   # Encryption and security tools
   gnupg
