@@ -1,10 +1,26 @@
 name: dotfiles
 
+path: /Users/moonlight/Workspace/moonlight8978
+
 windows:
-  - name: code
+  - name: &ws1 ./dotfiles
     panes:
       - flex: 100
         commands:
           - command: $EDITOR .
+        path: *ws1
         focus: true
       - flex: 45
+        path: *ws1
+
+  - name: &ws2 ./toktok
+    panes:
+      - flex: 100
+        commands:
+          - command: $EDITOR .
+        path: *ws2
+      - flex: 45
+        path: *ws2
+
+
+
