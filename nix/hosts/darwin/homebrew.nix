@@ -51,6 +51,7 @@
       "orbstack"
       "dbeaver-community"
       "lens"
+      "clickhouse"
 
       # General purpose
       "google-chrome"
