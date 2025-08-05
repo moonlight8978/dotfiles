@@ -7,6 +7,7 @@
   homebrew-youtube-music,
   config,
   homebrew-bundle,
+  homebrew-mongodb,
   ...
 }: {
   nix-homebrew = {
@@ -23,6 +24,7 @@
       "homebrew/homebrew-services" = homebrew-services;
       "hashicorp/homebrew-tap" = homebrew-hashicorp;
       "th-ch/homebrew-youtube-music" = homebrew-youtube-music;
+      "mongodb/homebrew-brew" = homebrew-mongodb;
     };
     mutableTaps = false;
   };
@@ -98,6 +100,7 @@
       "k3sup"
       "goreleaser"
       "go-task"
+      "mongodb-database-tools"
 
       # Container tools
       # "podman"

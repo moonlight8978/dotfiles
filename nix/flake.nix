@@ -46,6 +46,10 @@
       url = "github:th-ch/homebrew-youtube-music";
       flake = false;
     };
+    homebrew-mongodb = {
+      url = "github:mongodb/homebrew-brew";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

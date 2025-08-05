@@ -160,6 +160,22 @@
         "type": "github"
       }
     },
+    "homebrew-mongodb": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1752874489,
+        "narHash": "sha256-M9hGTTXa03KGvLtIvlRjxB9TWrd2m8i+0VRQC6eTgU8=",
+        "owner": "mongodb",
+        "repo": "homebrew-brew",
+        "rev": "c8ed310f2d445b7029463e8aab7ac72c6cbb7949",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mongodb",
+        "repo": "homebrew-brew",
+        "type": "github"
+      }
+    },
     "homebrew-moonlight": {
       "flake": false,
       "locked": {
@@ -338,6 +354,7 @@
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "homebrew-hashicorp": "homebrew-hashicorp",
+        "homebrew-mongodb": "homebrew-mongodb",
         "homebrew-moonlight": "homebrew-moonlight",
         "homebrew-services": "homebrew-services",
         "homebrew-youtube-music": "homebrew-youtube-music",
