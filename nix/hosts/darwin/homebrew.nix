@@ -101,6 +101,7 @@
       "goreleaser"
       "go-task"
       "mongodb-database-tools"
+      "velero"
 
       # Container tools
       # "podman"
