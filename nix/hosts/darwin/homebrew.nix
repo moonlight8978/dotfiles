@@ -8,6 +8,7 @@
   config,
   homebrew-bundle,
   homebrew-mongodb,
+  homebrew-telepresence,
   ...
 }: {
   nix-homebrew = {
@@ -25,6 +26,7 @@
       "hashicorp/homebrew-tap" = homebrew-hashicorp;
       "th-ch/homebrew-youtube-music" = homebrew-youtube-music;
       "mongodb/homebrew-brew" = homebrew-mongodb;
+      "telepresenceio/homebrew-telepresence" = homebrew-telepresence;
     };
     mutableTaps = false;
   };
@@ -102,6 +104,7 @@
       "go-task"
       "mongodb-database-tools"
       "velero"
+      "telepresenceio/telepresence/telepresence-oss"
 
       # Container tools
       # "podman"

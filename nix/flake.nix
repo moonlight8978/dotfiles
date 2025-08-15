@@ -50,6 +50,10 @@
       url = "github:mongodb/homebrew-brew";
       flake = false;
     };
+    homebrew-telepresence = {
+      url = "github:telepresenceio/homebrew-telepresence";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

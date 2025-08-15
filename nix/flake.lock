@@ -208,6 +208,22 @@
         "type": "github"
       }
     },
+    "homebrew-telepresence": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753252006,
+        "narHash": "sha256-D5+CbpurDcaqEwpf1F9TF1AFdsxaBif8FlYc040ZNYU=",
+        "owner": "telepresenceio",
+        "repo": "homebrew-telepresence",
+        "rev": "8cb4339fb9d00ab743cf324f10a02a0dc8e71b85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "telepresenceio",
+        "repo": "homebrew-telepresence",
+        "type": "github"
+      }
+    },
     "homebrew-youtube-music": {
       "flake": false,
       "locked": {
@@ -357,6 +373,7 @@
         "homebrew-mongodb": "homebrew-mongodb",
         "homebrew-moonlight": "homebrew-moonlight",
         "homebrew-services": "homebrew-services",
+        "homebrew-telepresence": "homebrew-telepresence",
         "homebrew-youtube-music": "homebrew-youtube-music",
         "laio": "laio",
         "nix-darwin": "nix-darwin",
