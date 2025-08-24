@@ -8,7 +8,10 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = function(fallback)
-			if cmp.visible() then
+			local suggestion = require("supermaven-nvim.completion_preview")
+			if suggestion.has_suggestion() then
+				suggestion.on_accept_suggestion()
+			elseif cmp.visible() then
 				cmp.select_next_item()
 			else
 				fallback()

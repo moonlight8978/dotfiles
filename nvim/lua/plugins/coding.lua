@@ -84,7 +84,7 @@ return {
 				"gofumpt", -- Shell
 				"shfmt",
 				"codespell",
-        "alejandra" --- Nix
+				"alejandra", --- Nix
 			},
 		},
 	},
@@ -237,14 +237,10 @@ return {
 			},
 		},
 	}, --- AI code suggestion
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("config.copilot")
-	-- 	end,
-	-- },
+	{
+		"supermaven-inc/supermaven-nvim",
+		opts = true,
+	},
 	-- {
 	--     "yetone/avante.nvim",
 	--     event = "VeryLazy",
