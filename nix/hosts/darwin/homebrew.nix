@@ -72,7 +72,7 @@
 
       # VPN, Remote
       "openvpn-connect"
-      "anydesk"
+      "rustdesk"
       "cloudflare-warp"
     ];
 
