@@ -69,6 +69,7 @@
       "wpsoffice"
       "discord"
       "telegram"
+      "mark-text"
 
       # VPN, Remote
       "openvpn-connect"
@@ -105,6 +106,7 @@
       "mongodb-database-tools"
       "velero"
       "telepresenceio/telepresence/telepresence-oss"
+      "ggshield"
 
       # Container tools
       # "podman"
