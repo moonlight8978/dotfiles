@@ -45,6 +45,7 @@ with pkgs; [
   # vagrant
   yamlfmt
   rclone
+  talosctl
 
   # Encryption and security tools
   gnupg
