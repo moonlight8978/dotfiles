@@ -54,6 +54,7 @@ with pkgs; [
   wgcf
   cfssl
   mkpasswd
+  gomplate
 
   # Compressions
   zip
