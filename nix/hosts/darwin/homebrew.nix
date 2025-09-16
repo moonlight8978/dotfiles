@@ -88,6 +88,7 @@
       # General purpose
       "smartmontools"
       "mas"
+      "bitwarden-cli"
 
       # Dev tools
       "lazygit"
