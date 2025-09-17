@@ -89,6 +89,7 @@
       "smartmontools"
       "mas"
       "bitwarden-cli"
+      "bitwarden-sm-cli"
 
       # Dev tools
       "lazygit"
@@ -108,6 +109,7 @@
       "velero"
       "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
+      "kubernetes-schema-store"
 
       # Container tools
       # "podman"
