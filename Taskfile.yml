@@ -1,0 +1,16 @@
+version: 3
+tasks:
+  nix:repair:
+    cmd: sudo nix-store --verify --check-contents --repair
+
+  nix:update:
+    dir: nix
+    cmd: nix flake update
+
+  nix:copy:
+    dir: nix
+    cmd: sudo cp -R * /etc/nix-darwin
+
+  nix:rebuild:
+    dir: nix
+    cmd: sudo darwin-rebuild switch
