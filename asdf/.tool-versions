@@ -4,4 +4,4 @@ python 3.13.5
 dotnet 8.0.404
 pnpm 10.17.0
 golang 1.25.0
-rust 1.89.0
+rust 1.90.0
