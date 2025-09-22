@@ -52,6 +52,10 @@
     };
     homebrew-telepresence = {
       url = "github:telepresenceio/homebrew-telepresence";
+      flake = false;  
+    };
+    homebrew-k0s = {
+      url = "github:k0sproject/homebrew-tap";
       flake = false;
     };
 

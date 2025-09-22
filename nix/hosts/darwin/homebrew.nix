@@ -9,6 +9,7 @@
   homebrew-bundle,
   homebrew-mongodb,
   homebrew-telepresence,
+  homebrew-k0s,
   ...
 }: {
   nix-homebrew = {
@@ -27,6 +28,7 @@
       "th-ch/homebrew-youtube-music" = homebrew-youtube-music;
       "mongodb/homebrew-brew" = homebrew-mongodb;
       "telepresenceio/homebrew-telepresence" = homebrew-telepresence;
+      "k0sproject/homebrew-tap" = homebrew-k0s;
     };
     mutableTaps = false;
   };
@@ -110,6 +112,7 @@
       "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
       "kubernetes-schema-store"
+      "k0sctl"
 
       # Container tools
       # "podman"
