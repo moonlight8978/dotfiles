@@ -72,6 +72,7 @@
       "discord"
       "telegram"
       "mark-text"
+      "syncthing-app"
 
       # VPN, Remote
       "openvpn-connect"
