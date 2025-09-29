@@ -1,5 +1,5 @@
 - name: Setup Mac machine
-  hosts: all
+  hosts: localhost
   vars_files:
     - values.yaml
   roles:
