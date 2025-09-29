@@ -76,3 +76,4 @@ for file in ~/.alias/*; do
 done
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
