@@ -1,58 +1,10 @@
-homebrew_installed_packages:
-  - libyaml
-  - coreutils
-  - luarocks
-  - stow
-  - lazygit
-  - colima
-  - smartmontools
-  - tmux
-  - ripgrep
-  - mas
-  - terragrunt
-  - terraform
-  - awscli
-  - cri-tools
-  - libpq
-  # - zoxide
-  - laio
-  - fastfetch
-  - git-filter-repo
-  - ollama
-  - cmake
-  - wireguard-tools
-  - kubernetes-cli
-  - gh
-  - gnupg
-  - helmfile
-  - sops
-  - duplicity
-  - ngrok
-homebrew_taps:
-  - moonlight8978/tap
-  - name: ck3mp3r/laio-cli
-    url: https://github.com/ck3mp3r/laio-cli/
-homebrew_cask_apps:
-  - google-chrome
-  - ghostty
-  - postman
-  - bruno
-  - medis
-  - tableplus
-  - openvpn-connect
-  - figma
-  - joplin
-  - anydesk
-  - evkey
-  - bluestacks-air
-  - cloudflare-warp
-  - visual-studio-code
-  - balenaetcher
-  - cursor
-  - podman-desktop
 pip_packages:
   - pynvim
   - paramiko
+
+npm_packages:
+  - mcp-chrome-bridge
+
 hf_models:
   - TheBloke/deepseek-coder-6.7B-instruct-GGUF deepseek-coder-6.7b-instruct.Q4_K_M.gguf
 
@@ -83,4 +35,3 @@ apt_packages:
 
   # Ruby deps
   - libyaml-dev
-

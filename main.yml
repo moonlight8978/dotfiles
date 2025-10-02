@@ -53,6 +53,15 @@
       loop: "{{ pip_packages }}"
       shell: pip install {{ item }}
 
+    - name: Install npm packages
+      tags:
+        - asdf
+        - nodejs
+      loop: "{{ npm_packages }}"
+      community.general.npm:
+        name: "{{ item }}"
+        global: true
+
     - import_tasks: ansible/tasks/git_clone.yaml
       tags:
         - tmux

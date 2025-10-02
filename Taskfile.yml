@@ -16,4 +16,4 @@ tasks:
     cmd: sudo darwin-rebuild switch
 
   asdf:
-    cmd: ansible-playbook main.yml --tag asdf
+    cmd: ansible-playbook main.yml --tag asdf {{.CLI_ARGS}}
