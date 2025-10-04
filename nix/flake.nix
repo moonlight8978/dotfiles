@@ -111,7 +111,7 @@
       extraSpecialArgs = inputs;
     };
 
-    darwinConfigurations."IBM-5100-mini-5" = nix-darwin.lib.darwinSystem rec {
+    darwinConfigurations."IBM-5100-mini" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
