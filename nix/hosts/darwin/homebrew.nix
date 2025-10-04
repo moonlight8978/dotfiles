@@ -105,15 +105,17 @@
       "act"
       "hashicorp/tap/vault"
       "ansible"
-      "k3sup"
       "goreleaser"
       "go-task"
       "mongodb-database-tools"
       "velero"
       "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
+      "k3sup"
       "kubernetes-schema-store"
       "k0sctl"
+      "krew"
+
 
       # Container tools
       # "podman"
