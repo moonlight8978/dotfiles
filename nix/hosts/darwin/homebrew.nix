@@ -61,8 +61,8 @@
 
       # General purpose
       "google-chrome"
-      "opera"
       "firefox"
+      "arc"
       "joplin"
       "openkey"
       "bluestacks-air"
