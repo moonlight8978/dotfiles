@@ -115,7 +115,7 @@
       "kubernetes-schema-store"
       "k0sctl"
       "krew"
-
+      "cloudflared"
 
       # Container tools
       # "podman"
