@@ -46,6 +46,7 @@ with pkgs; [
   yamlfmt
   rclone
   talosctl
+  atuin
 
   # Encryption and security tools
   gnupg

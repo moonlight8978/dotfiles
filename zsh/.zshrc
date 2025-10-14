@@ -58,7 +58,10 @@ autoload -U select-word-style
 select-word-style bash
 
 # fzf
-source <(fzf --zsh)
+# source <(fzf --zsh)
+
+# atuin
+eval "$(atuin init zsh)"
 
 # Source ~/.env if it exists
 if [ -f $HOME/.env ]; then
