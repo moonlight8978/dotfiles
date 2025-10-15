@@ -1,0 +1,17 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    "github>moonlight8978/renovate-config",
+    "local>moonlight8978/dotfiles//.renovate/asdf.json5"
+  ],
+  packageRules: [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ]
+}
