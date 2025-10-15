@@ -3,75 +3,21 @@
   vars_files:
     - values.yaml
   roles:
-    - role: geerlingguy.mac.homebrew
-      tags:
-        - mac
-  tasks:
-    - name: Download huggingface models
-      tags:
-        - hf
-      loop: "{{ hf_models }}"
-      ansible.builtin.shell: "huggingface-cli download {{ item }} --local-dir .models --local-dir-use-symlinks False"
-
-    - name: Parse .tool-versions and save as variables
+    - role: ansible/roles/asdf
       tags:
         - asdf
-      ansible.builtin.shell: "cat asdf/.tool-versions | awk '{print $1, $2}'"
-      register: tool_versions_output
-
-    - name: Convert tool-versions output to structured data
-      tags:
-        - asdf
-      set_fact:
-        asdf_plugins: "{{ tool_versions_output.stdout_lines | map('split', ' ') | map('zip', ['name', 'version']) | map('map', 'reverse') | map('community.general.dict') }}"
-
-    - name: Install asdf plugins
-      tags:
-        - asdf
-      loop: "{{ asdf_plugins }}"
-      ansible.builtin.shell: "asdf plugin add {{ item.name }}"
-      ignore_errors: yes
-
-    - name: Update asdf tools
-      tags:
-        - asdf
-      loop: "{{ asdf_plugins }}"
-      ansible.builtin.shell: "asdf plugin update {{ item.name }}"
-
-    - name: Install specific asdf tool versions
-      tags:
-        - asdf
-      loop: "{{ asdf_plugins }}"
-      ansible.builtin.shell: "asdf install {{ item.name }} {{ item.version }}"
-
-    # TODO: Remove old versions
-
-    - name: Install pip packages
-      tags:
-        - python
-        - asdf
-      loop: "{{ pip_packages }}"
-      shell: pip install {{ item }}
-
-    - name: Install npm packages
-      tags:
-        - asdf
-        - nodejs
-      loop: "{{ npm_packages }}"
-      community.general.npm:
-        name: "{{ item }}"
-        global: true
-
-    - import_tasks: ansible/tasks/git_clone.yaml
+    - role: ansible/roles/tmux
       tags:
         - tmux
-      vars:
-        repo: https://github.com/tmux-plugins/tpm.git
-        version: master
-        dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+  # tasks:
+  #   - name: Download huggingface models
+  #     tags:
+  #       - hf
+  #     loop: "{{ hf_models }}"
+  #     ansible.builtin.shell: "huggingface-cli download {{ item }} --local-dir .models --local-dir-use-symlinks False"
 
-    - import_tasks: ansible/tasks/debian.yml
-      tags:
-        - debian
-      vars:
-        packages: "{{ apt_packages }}"
+  #   - import_tasks: ansible/tasks/debian.yml
+  #     tags:
+  #       - debian
+  #     vars:
+  #       packages: "{{ apt_packages }}"

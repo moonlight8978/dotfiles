@@ -1,0 +1,7 @@
+- import_tasks: ../../tasks/git_clone.yaml
+  tags:
+    - tmux
+  vars:
+    repo: https://github.com/tmux-plugins/tpm.git
+    version: master
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"

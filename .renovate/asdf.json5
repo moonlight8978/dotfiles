@@ -19,11 +19,7 @@
       matchManagers: [
         "asdf"
       ],
-      matchUpdateTypes: [
-        "minor",
-        "major"
-      ],
-      matchCurrentAge: "> 14 days"
+      minimumReleaseAge: "14 days"
     }
   ]
 }

@@ -1,0 +1,30 @@
+- name: Parse .tool-versions and save as variables
+  ansible.builtin.shell: "cat asdf/.tool-versions | awk '{print $1, $2}'"
+  register: tool_versions_output
+
+- name: Convert tool-versions output to structured data
+  set_fact:
+    asdf_plugins: "{{ tool_versions_output.stdout_lines | map('split', ' ') | map('zip', ['name', 'version']) | map('map', 'reverse') | map('community.general.dict') }}"
+
+- name: Install asdf plugins
+  loop: "{{ asdf_plugins }}"
+  ansible.builtin.shell: "asdf plugin add {{ item.name }}"
+  ignore_errors: true
+
+- name: Update asdf tools
+  loop: "{{ asdf_plugins }}"
+  ansible.builtin.shell: "asdf plugin update {{ item.name }}"
+
+- name: Install specific asdf tool versions
+  loop: "{{ asdf_plugins }}"
+  ansible.builtin.shell: "asdf install {{ item.name }} {{ item.version }}"
+
+- name: Install pip packages
+  loop: "{{ pip_packages }}"
+  shell: pip install {{ item }}
+
+- name: Install npm packages
+  loop: "{{ npm_packages }}"
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
