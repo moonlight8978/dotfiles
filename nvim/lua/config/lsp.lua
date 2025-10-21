@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local schemastore = require("schemastore")
 local set = vim.keymap.set
@@ -118,7 +117,7 @@ function M.setup(opts)
 	for server, config in pairs(servers) do
 		config.capabilities = default_capabilities
 
-		lspconfig[server].setup(config)
+		vim.lsp.config(server, config)
 	end
 end
 
