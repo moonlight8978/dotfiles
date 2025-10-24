@@ -114,6 +114,7 @@
       "k0sctl"
       "krew"
       "cloudflared"
+      "yaak"
 
       # Container tools
       # "podman"
