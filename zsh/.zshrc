@@ -19,10 +19,6 @@ zcomet load ohmyzsh plugins/docker-compose
 zcomet load ohmyzsh plugins/docker
 zcomet load ohmyzsh plugins/golang
 
-if [[ ! ":$PATH:" == *":asdf:"* ]]; then
-  zcomet load ohmyzsh plugins/asdf
-fi
-
 export PYTHON_AUTO_VRUN=true
 zcomet load ohmyzsh plugins/python
 
@@ -80,3 +76,9 @@ done
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+else
+  echo "warning: mise not found"
+fi

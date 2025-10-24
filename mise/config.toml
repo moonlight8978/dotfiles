@@ -1,0 +1,10 @@
+[tools]
+node = "22.20.0"
+ruby = "3.4.4"
+python = "3.14.0"
+golang = "1.25.0"
+rust = "1.90.0"
+pnpm = "10.18.0"
+
+[settings]
+python.default_packages_file = "$HOME/.config/mise/.default-python-packages"

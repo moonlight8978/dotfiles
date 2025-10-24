@@ -17,3 +17,14 @@ tasks:
 
   asdf:
     cmd: ansible-playbook main.yml --tag asdf {{.CLI_ARGS}}
+
+  config:*:
+    vars:
+      TARGET: "{{index .MATCH 0}}"
+    cmds:
+      - mkdir -p ~/.config/{{.TARGET}}
+      - stow -t ~/.config/{{.TARGET}} {{.TARGET}}
+
+  mise:
+    cmds:
+      - mise install

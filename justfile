@@ -5,7 +5,7 @@ default: all
 prepare:
   sed "s|\$HOME|${HOME}|g" inventory.example.ini > inventory.ini
 
-all: zsh tmux asdf nvim ghostty tldr
+all: zsh tmux asdf nvim ghostty tldr mise
 
 zsh:
   stow -t ~ zsh
@@ -31,11 +31,6 @@ ghostty:
 tldr:
   stow -t ~ tldr
 
-nix:
-  mkdir -p ~/.config/home-manager
-  stow -t ~/.config/home-manager nix
-
-nix-darwin:
-  sudo mkdir -p /etc/nix-darwin
-  sudo chown $(id -nu):$(id -ng) /etc/nix-darwin
-  stow -t /etc/nix-darwin nix
+mise:
+  mkdir -p ~/.config/mise
+  stow -t ~/.config/mise mise
