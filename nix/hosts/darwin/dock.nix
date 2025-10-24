@@ -15,7 +15,7 @@
 
         show-process-indicators = true;
         show-recents = false;
-        
+
         # Lock screen
         wvous-tr-corner = 13;
 
@@ -36,7 +36,7 @@
             app = "/Applications/Telegram.app";
           }
           {
-            app = "/Applications/Google Chrome.app";
+            app = "/Applications/Microsoft Edge.app";
           }
           {
             app = "/Applications/Ghostty.app";
@@ -48,16 +48,22 @@
             app = "/Applications/Cursor.app";
           }
           {
+            app = "/Applications/MarkText.app";
+          }
+          {
             app = "/Applications/Medis.app";
           }
           {
             app = "/Applications/TablePlus.app";
           }
           {
-            app = "/Applications/Postman.app";
+            app = "/Applications/Yakk.app";
           }
           {
             app = "/Applications/OpenVPN Connect/OpenVPN Connect.app";
+          }
+          {
+            app = "/Applications/RustDesk.app";
           }
         ];
       };
