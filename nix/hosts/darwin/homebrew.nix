@@ -71,6 +71,7 @@
       "telegram"
       "mark-text"
       "syncthing-app"
+      "yaak"
 
       # VPN, Remote
       "openvpn-connect"
@@ -114,7 +115,6 @@
       "k0sctl"
       "krew"
       "cloudflared"
-      "yaak"
 
       # Container tools
       # "podman"

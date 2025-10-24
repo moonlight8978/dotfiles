@@ -57,7 +57,7 @@
             app = "/Applications/TablePlus.app";
           }
           {
-            app = "/Applications/Yakk.app";
+            app = "/Applications/Yaak.app";
           }
           {
             app = "/Applications/OpenVPN Connect/OpenVPN Connect.app";
