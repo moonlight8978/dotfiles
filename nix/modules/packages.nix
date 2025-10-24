@@ -47,6 +47,8 @@ with pkgs; [
   rclone
   talosctl
   atuin
+  mise
+  starship
 
   # Encryption and security tools
   gnupg
