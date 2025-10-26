@@ -115,6 +115,7 @@
       "k0sctl"
       "krew"
       "cloudflared"
+      "iproute2mac"
 
       # Container tools
       # "podman"
