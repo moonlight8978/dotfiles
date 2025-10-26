@@ -53,10 +53,11 @@
       "figma"
       "visual-studio-code"
       "cursor"
-      # "podman-desktop"
+      "zed"
       "orbstack"
       "lens"
       "clickhouse"
+      "yaak"
 
       # General purpose
       "google-chrome"
@@ -71,7 +72,6 @@
       "telegram"
       "mark-text"
       "syncthing-app"
-      "yaak"
 
       # VPN, Remote
       "openvpn-connect"
