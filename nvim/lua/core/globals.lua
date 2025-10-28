@@ -126,6 +126,9 @@ vim.opt.mousescroll = "ver:1,hor:0"
 -- You can uncomment and add it as:
 -- vim.opt.showmode = false
 
+-- Hide cmd line
+vim.opt.cmdheight = 0
+
 -- Cursor settings
 vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:block-blinkon100-Cursor2/lCursor2,r-cr:hor20,o:hor50"
 

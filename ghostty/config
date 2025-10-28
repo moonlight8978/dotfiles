@@ -6,7 +6,7 @@ font-family = Hurmit Nerd Font Mono
 # font-style-italic = false
 # font-style-bold-italic = false
 
-font-size = 18
+font-size = 16
 
 # neovim indent blankline
 adjust-underline-thickness = 1

@@ -248,7 +248,7 @@ return {
 		config = function()
 			require("config.toggleterm")
 		end,
-		enabled = true,
+		enabled = false,
 	},
 	-- {
 	--     "yetone/avante.nvim",
