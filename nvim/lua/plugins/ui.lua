@@ -9,6 +9,14 @@ return {
 		end,
 	},
 	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		opts = {
+			flavour = "mocha",
+		},
+	},
+	{
 		"mawkler/modicator.nvim",
 		dependencies = "RRethy/base16-nvim",
 		init = function()
@@ -44,7 +52,11 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = true,
+		opts = {
+			options = {
+				theme = "catppuccin",
+			},
+		},
 	},
 	{
 		"echasnovski/mini.animate",

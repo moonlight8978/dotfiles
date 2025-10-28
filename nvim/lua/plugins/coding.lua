@@ -241,6 +241,15 @@ return {
 		"supermaven-inc/supermaven-nvim",
 		opts = true,
 	},
+	--- Terminal
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = function()
+			require("config.toggleterm")
+		end,
+		enabled = true,
+	},
 	-- {
 	--     "yetone/avante.nvim",
 	--     event = "VeryLazy",
