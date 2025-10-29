@@ -11,6 +11,7 @@
     ./homebrew.nix
     ./dock.nix
     ./settings.nix
+    ./hotkeys.nix
   ];
 
   environment.systemPackages = with pkgs;

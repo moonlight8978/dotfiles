@@ -3,7 +3,7 @@
   extends: [
     "config:recommended",
     "github>moonlight8978/renovate-config",
-    "local>moonlight8978/dotfiles//.renovate/asdf.json5"
+    "local>moonlight8978/dotfiles//.renovate/tools.json5"
   ],
   packageRules: [
     {
