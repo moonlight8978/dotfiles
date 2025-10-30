@@ -53,6 +53,7 @@
       "figma"
       "visual-studio-code"
       "cursor"
+      "cursor-cli"
       "zed"
       "orbstack"
       "lens"
@@ -72,6 +73,7 @@
       "telegram"
       "mark-text"
       "syncthing-app"
+      "lobehub"
 
       # VPN, Remote
       "openvpn-connect"
