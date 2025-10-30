@@ -5,7 +5,7 @@ default: all
 prepare:
   sed "s|\$HOME|${HOME}|g" inventory.example.ini > inventory.ini
 
-all: zsh tmux asdf nvim ghostty tldr mise
+all: zsh tmux nvim ghostty tldr mise starship
 
 zsh:
   stow -t ~ zsh
@@ -13,8 +13,9 @@ zsh:
 tmux:
   stow -t ~ tmux
 
-asdf:
-  stow -t ~ asdf
+starship:
+  mkdir -p ~/.config/starship
+  stow -t ~/.config/starship starship
 
 nvim:
   mkdir -p ~/.config/nvim

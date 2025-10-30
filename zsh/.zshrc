@@ -38,10 +38,14 @@ setopt hist_find_no_dups hist_reduce_blanks
 
 # Themes
 zcomet load zsh-users/zsh-syntax-highlighting
-zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# starship prompt
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+# Powerlevel10k prompt
+# zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Binary
 # export PATH="$PATH:/usr/local/bin"
