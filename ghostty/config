@@ -48,3 +48,4 @@ keybind = ctrl+shift+left=resize_split:left,20
 keybind = ctrl+shift+down=resize_split:down,20
 keybind = ctrl+shift+up=resize_split:up,20
 keybind = ctrl+shift+right=resize_split:right,20
+keybind = shift+enter=text:\x1b\r
