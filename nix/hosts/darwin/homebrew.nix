@@ -59,6 +59,7 @@
       "lens"
       "clickhouse"
       "yaak"
+      "claude-code"
 
       # General purpose
       "google-chrome"
