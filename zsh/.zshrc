@@ -6,6 +6,10 @@ if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
   command git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
 fi
 
+if [[ ! -f ${HOME}/.tmux/plugins/tpm/tpm ]]; then
+  command git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
+fi
+
 source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
 zcomet load ohmyzsh
