@@ -117,6 +117,7 @@
       "kubernetes-schema-store"
       "k0sctl"
       "krew"
+      "minikube"
       "cloudflared"
       "iproute2mac"
 
