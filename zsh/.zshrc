@@ -90,3 +90,6 @@ if command -v mise &> /dev/null; then
 else
   echo "warning: mise not found"
 fi
+
+# Added by Antigravity
+export PATH="/Users/moonlight/.antigravity/antigravity/bin:$PATH"

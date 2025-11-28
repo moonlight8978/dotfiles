@@ -120,6 +120,7 @@
       "minikube"
       "cloudflared"
       "iproute2mac"
+      "gemini-cli"
 
       # Container tools
       # "podman"
