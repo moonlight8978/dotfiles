@@ -13,7 +13,7 @@ adjust-underline-thickness = 1
 adjust-underline-position = 2
 
 # Feels
-theme = chalk
+theme = Catppuccin Mocha
 background = #151515
 background-opacity = 0.92
 palette = 0=#202020

@@ -35,3 +35,7 @@ tldr:
 mise:
   mkdir -p ~/.config/mise
   stow -t ~/.config/mise mise
+
+nix:
+  mkdir -p /etc/nix-darwin
+  stow -t /etc/nix-darwin nix

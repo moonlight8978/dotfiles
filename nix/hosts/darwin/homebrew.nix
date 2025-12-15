@@ -4,7 +4,6 @@
   homebrew-moonlight,
   homebrew-services,
   homebrew-hashicorp,
-  homebrew-youtube-music,
   config,
   homebrew-bundle,
   homebrew-mongodb,
@@ -25,7 +24,6 @@
       "moonlight8978/homebrew-tap" = homebrew-moonlight;
       "homebrew/homebrew-services" = homebrew-services;
       "hashicorp/homebrew-tap" = homebrew-hashicorp;
-      "th-ch/homebrew-youtube-music" = homebrew-youtube-music;
       "mongodb/homebrew-brew" = homebrew-mongodb;
       "telepresenceio/homebrew-telepresence" = homebrew-telepresence;
       "k0sproject/homebrew-tap" = homebrew-k0s;

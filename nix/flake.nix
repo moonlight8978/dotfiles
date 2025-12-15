@@ -52,7 +52,7 @@
     };
     homebrew-telepresence = {
       url = "github:telepresenceio/homebrew-telepresence";
-      flake = false;  
+      flake = false;
     };
     homebrew-k0s = {
       url = "github:k0sproject/homebrew-tap";
@@ -112,6 +112,23 @@
     };
 
     darwinConfigurations."IBM-5100-mini" = nix-darwin.lib.darwinSystem rec {
+      system = "aarch64-darwin";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = _: true;
+        };
+      };
+      modules = [
+        home-manager.darwinModules.home-manager
+        nix-homebrew.darwinModules.nix-homebrew
+        ./hosts/darwin
+      ];
+      specialArgs = inputs;
+    };
+
+    darwinConfigurations."P23023-Mini" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
