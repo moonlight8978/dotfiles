@@ -230,11 +230,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765682243,
-        "narHash": "sha256-yeCxFV/905Wr91yKt5zrVvK6O2CVXWRMSrxqlAZnLp0=",
+        "lastModified": 1765860045,
+        "narHash": "sha256-7Lxp/PfOy4h3QIDtmWG/EgycaswqRSkDX4DGtet14NE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "58bf3ecb2d0bba7bdf363fc8a6c4d49b4d509d03",
+        "rev": "09de9577d47d8bffb11c449b6a3d24e32ac16c99",
         "type": "github"
       },
       "original": {
@@ -263,11 +263,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1765698105,
-        "narHash": "sha256-N8zW+9waSQSPVeo92A9dycvJs1NXAE9lRIWLL/nRBV0=",
+        "lastModified": 1765935533,
+        "narHash": "sha256-c6PIXMP93CQPi8p0TJZL0yq8oDYCTVU0iPYZurxeo+Y=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "413752295f56ebc070708a0ae731c990d08ce169",
+        "rev": "3310fa76de928b4a04f3bf1c20bac53132d5dedd",
         "type": "github"
       },
       "original": {
@@ -279,11 +279,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1765694475,
-        "narHash": "sha256-v9HrU5fO7JFpBQupcnJ0Px5+Jct34B6t/Y/VqAIe23c=",
+        "lastModified": 1765935855,
+        "narHash": "sha256-/wERn0yazwWYDCuYHUntQOcSkU6tTAqDWu3aeSxA8u8=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "049b41acc3db2e52fe74e2aba69042430d451ffb",
+        "rev": "0547a18d28d82b124f71a1caeb1ea9d59b01ff52",
         "type": "github"
       },
       "original": {
@@ -295,11 +295,11 @@
     "homebrew-hashicorp": {
       "flake": false,
       "locked": {
-        "lastModified": 1765516286,
-        "narHash": "sha256-7ISFUNFePaZovHLtUjs7yVLdbfL4aWXG3/IZZrDJe5I=",
+        "lastModified": 1765817692,
+        "narHash": "sha256-LZXBjznDFH4tMIrQjiRZGKFsJRCL4GNEF0BGXw3kHnQ=",
         "owner": "hashicorp",
         "repo": "homebrew-tap",
-        "rev": "46d4da88df319534fe4a7688b008874502e8b009",
+        "rev": "c7693330f7c8e69d19c7c28b4c21e5e8264509c7",
         "type": "github"
       },
       "original": {
@@ -311,11 +311,11 @@
     "homebrew-k0s": {
       "flake": false,
       "locked": {
-        "lastModified": 1765289189,
-        "narHash": "sha256-fET2ro/acxiAnCoj3FoEhTJnHDueTLKvSeMerPDR/KM=",
+        "lastModified": 1765888136,
+        "narHash": "sha256-DR1qJdQlPrFa4oIVpG1nHq8aFYBfwNEO+VDz0thOYvg=",
         "owner": "k0sproject",
         "repo": "homebrew-tap",
-        "rev": "4b1e373ee9c3bf358a2de74d234a17157cfa1958",
+        "rev": "f84f458346f619cf3cb9a7cc9513b93668989d3d",
         "type": "github"
       },
       "original": {
@@ -385,22 +385,6 @@
       "original": {
         "owner": "telepresenceio",
         "repo": "homebrew-telepresence",
-        "type": "github"
-      }
-    },
-    "homebrew-youtube-music": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1758483973,
-        "narHash": "sha256-7rcUremYRB9JsqaY6SyRfXk1GnrTfyJjYUi0fDiI5Sk=",
-        "owner": "th-ch",
-        "repo": "homebrew-youtube-music",
-        "rev": "b87d9c3dfa2ec58c182b6bfda182ccbdc58beb5c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "th-ch",
-        "repo": "homebrew-youtube-music",
         "type": "github"
       }
     },
@@ -591,11 +575,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1765457389,
-        "narHash": "sha256-ddhDtNYvleZeYF7g7TRFSmuQuZh7HCgqstg5YBGwo5s=",
+        "lastModified": 1765903799,
+        "narHash": "sha256-1wbl0y7U8TvSHxDWME7o92bIspfuhjVaTOs27r54uc4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f997fa0f94fb1ce55bccb97f60d41412ae8fde4c",
+        "rev": "e8d16d2186d6ed9f047eb30948e97e7e01886d10",
         "type": "github"
       },
       "original": {
@@ -617,7 +601,6 @@
         "homebrew-moonlight": "homebrew-moonlight",
         "homebrew-services": "homebrew-services",
         "homebrew-telepresence": "homebrew-telepresence",
-        "homebrew-youtube-music": "homebrew-youtube-music",
         "laio": "laio",
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",

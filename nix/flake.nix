@@ -42,10 +42,6 @@
       url = "github:hashicorp/homebrew-tap";
       flake = false;
     };
-    homebrew-youtube-music = {
-      url = "github:th-ch/homebrew-youtube-music";
-      flake = false;
-    };
     homebrew-mongodb = {
       url = "github:mongodb/homebrew-brew";
       flake = false;
