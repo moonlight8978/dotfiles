@@ -57,6 +57,7 @@
       "clickhouse"
       "yaak"
       "claude-code"
+      "gcloud-cli"
 
       # General purpose
       "google-chrome"
