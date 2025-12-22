@@ -24,6 +24,17 @@ disks:
         volume: rustup
       - path: /Users/moonlight/.vscode
         volume: vscode
+  azmb:
+    disk: disk3
+    mounts:
+      - path: /opt
+        volume: opt
+      - path: /Users/moonlight/Workspace
+        volume: Workspace
+      - path: /Users/moonlight/.ssh
+        volume: ssh
+      - path: /Users/moonlight/.config
+        volume: config
 
 # Linux
 apt_packages:

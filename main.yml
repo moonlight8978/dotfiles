@@ -20,6 +20,19 @@
         mounts: "{{disks.mini.mounts}}"
         disk: "{{disks.mini.disk}}"
 
+- name: Setup az macbook
+  hosts: localhost
+  tags:
+    - azmb
+  vars_files:
+    - values.yaml
+  become: true
+  roles:
+    - role: ansible/roles/disks
+      vars:
+        mounts: "{{disks.azmb.mounts}}"
+        disk: "{{disks.azmb.disk}}"
+
   # tasks:
   #   - name: Download huggingface models
   #     tags:

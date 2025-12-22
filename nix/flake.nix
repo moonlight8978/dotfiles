@@ -124,7 +124,7 @@
       specialArgs = inputs;
     };
 
-    darwinConfigurations."P23023-Mini" = nix-darwin.lib.darwinSystem rec {
+    darwinConfigurations."AZmb-M4" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
