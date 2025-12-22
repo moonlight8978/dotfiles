@@ -45,6 +45,9 @@
             app = "/Applications/Visual Studio Code.app";
           }
           {
+            app = "/Applications/Zed.app";
+          }
+          {
             app = "/Applications/Cursor.app";
           }
           {
@@ -57,10 +60,10 @@
             app = "/Applications/TablePlus.app";
           }
           {
-            app = "/Applications/Yaak.app";
+            app = "/Applications/OrbStack.app";
           }
           {
-            app = "/Applications/OpenVPN Connect/OpenVPN Connect.app";
+            app = "/Applications/Yaak.app";
           }
           {
             app = "/Applications/RustDesk.app";
