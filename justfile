@@ -2,9 +2,6 @@ set shell := ["bash", "-cu"]
 
 default: all
 
-prepare:
-  sed "s|\$HOME|${HOME}|g" inventory.example.ini > inventory.ini
-
 all: zsh tmux nvim ghostty tldr mise starship
 
 zsh:
