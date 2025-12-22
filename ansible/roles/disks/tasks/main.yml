@@ -1,0 +1,5 @@
+- include_tasks: ./volume.yml
+  loop: "{{mounts}}"
+  vars:
+    volume: "{{item.volume}}"
+    path: "{{item.path}}"

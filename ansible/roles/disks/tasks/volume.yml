@@ -1,0 +1,35 @@
+- name: Get volume disk
+  ansible.builtin.shell: |
+    diskutil list /dev/{{disk}} | grep {{volume}} | awk -F ' ' '{print $7}'
+  ignore_errors: true
+  register: get_volume
+
+- set_fact:
+    volume_disk: "{{get_volume.stdout}}"
+
+- name: Create volume if not exist
+  ansible.builtin.shell: |
+    echo "create volume"
+
+- name: Get volume UUID
+  ansible.builtin.shell: |
+    diskutil info /dev/{{volume_disk}} | grep UUID | head -n 1 | awk -F ' ' '{print $3}'
+  register: get_uuid
+
+- set_fact:
+    uuid: "{{get_uuid.stdout}}"
+
+- name: Ensure mount point exist
+  ansible.builtin.file:
+    path: "{{ path }}"
+    state: directory
+
+- name: Mount disks
+  ansible.posix.mount:
+    path: "{{ path }}"
+    src: "UUID={{ uuid }}"
+    fstype: apfs
+    opts: rw,auto,nobrowse
+    state: present
+    boot: true
+    backup: false

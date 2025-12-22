@@ -28,3 +28,11 @@ tasks:
   mise:
     cmds:
       - mise install
+
+  disk:uuid:
+    vars:
+      DISK: "{{index .CLI_ARGS_LIST 0}}"
+    cmd: |
+      UUID=$(diskutil info /dev/{{.DISK}} | grep UUID | head -n 1 | awk -F ':' '{print $2}' | tr -s ' ')
+      echo $UUID
+      echo $UUID | pbcopy

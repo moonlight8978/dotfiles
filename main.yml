@@ -3,12 +3,23 @@
   vars_files:
     - values.yaml
   roles:
-    - role: ansible/roles/asdf
-      tags:
-        - asdf
     - role: ansible/roles/tmux
       tags:
         - tmux
+
+- name: Setup mac mini
+  hosts: localhost
+  tags:
+    - mini
+  vars_files:
+    - values.yaml
+  become: true
+  roles:
+    - role: ansible/roles/disks
+      vars:
+        mounts: "{{disks.mini.mounts}}"
+        disk: "{{disks.mini.disk}}"
+
   # tasks:
   #   - name: Download huggingface models
   #     tags:

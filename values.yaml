@@ -1,12 +1,29 @@
-pip_packages:
-  - pynvim
-  - paramiko
-
-npm_packages:
-  - mcp-chrome-bridge
-
-hf_models:
-  - TheBloke/deepseek-coder-6.7B-instruct-GGUF deepseek-coder-6.7b-instruct.Q4_K_M.gguf
+disks:
+  mini:
+    disk: disk7
+    mounts:
+      - path: /opt
+        volume: opt
+      - path: /Users/moonlight/Workspace
+        volume: Workspace
+      - path: /Users/moonlight/.ssh
+        volume: ssh
+      - path: /Users/moonlight/.config
+        volume: config
+      - path: /Users/moonlight/.aws
+        volume: aws
+      - path: /Users/moonlight/.gnupg
+        volume: gnupg
+      - path: /Users/moonlight/.kube
+        volume: kube
+      - path: /Users/moonlight/.cargo
+        volume: cargo
+      - path: /Users/moonlight/.npm
+        volume: npm
+      - path: /Users/moonlight/.rustup
+        volume: rustup
+      - path: /Users/moonlight/.vscode
+        volume: vscode
 
 # Linux
 apt_packages:
