@@ -33,6 +33,19 @@
         mounts: "{{disks.azmb.mounts}}"
         disk: "{{disks.azmb.disk}}"
 
+- name: Setup casio M1
+  hosts: localhost
+  tags:
+    - casiom1
+  vars_files:
+    - values.yaml
+  become: true
+  roles:
+    - role: ansible/roles/disks
+      vars:
+        mounts: "{{disks.casiom1.mounts}}"
+        disk: "{{disks.casiom1.disk}}"
+
   # tasks:
   #   - name: Download huggingface models
   #     tags:

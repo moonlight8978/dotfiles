@@ -35,6 +35,19 @@ disks:
         volume: ssh
       - path: /Users/moonlight/.config
         volume: config
+  casiom1:
+    disk: disk3
+    mounts:
+      - path: /opt
+        volume: opt
+      - path: /Users/moonlight/Workspace
+        volume: Workspace
+      - path: /Users/moonlight/.ssh
+        volume: ssh
+      - path: /Users/moonlight/.config
+        volume: config
+      - path: /Users/moonlight/.gnupg
+        volume: gnupg
 
 # Linux
 apt_packages:
