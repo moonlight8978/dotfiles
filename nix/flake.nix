@@ -54,6 +54,10 @@
       url = "github:k0sproject/homebrew-tap";
       flake = false;
     };
+    homebrew-auth0 = {
+      url = "github:auth0/homebrew-auth0-cli";
+      flake = false;
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

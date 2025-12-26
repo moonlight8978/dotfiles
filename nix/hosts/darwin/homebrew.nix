@@ -9,6 +9,7 @@
   homebrew-mongodb,
   homebrew-telepresence,
   homebrew-k0s,
+  homebrew-auth0,
   ...
 }: {
   nix-homebrew = {
@@ -27,6 +28,7 @@
       "mongodb/homebrew-brew" = homebrew-mongodb;
       "telepresenceio/homebrew-telepresence" = homebrew-telepresence;
       "k0sproject/homebrew-tap" = homebrew-k0s;
+      "auth0/homebrew-auth0-cli" = homebrew-auth0;
     };
     mutableTaps = false;
   };
@@ -114,6 +116,8 @@
       "cloudflared"
       "iproute2mac"
       "gemini-cli"
+      "devcontainer"
+      "auth0/auth0-cli/auth0"
 
       # Container tools
       # "podman"

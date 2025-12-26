@@ -230,17 +230,33 @@
         ]
       },
       "locked": {
-        "lastModified": 1766387499,
-        "narHash": "sha256-AjK3/UKDzeXFeYNLVBaJ3+HLE9he1g5UrlNd4/BM3eA=",
+        "lastModified": 1766553851,
+        "narHash": "sha256-hHKQhHkXxuPJwLkI8wdu826GLV5AcuW9/HVdc9eBnTU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "527ad07e6625302b648ed3b28c34b62a79bd103e",
+        "rev": "7eca7f7081036a7b740090994c9ec543927f89a7",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "ref": "master",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "homebrew-auth0": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766473067,
+        "narHash": "sha256-LSoxrMfCsoqsDGTYmjZkOk7jA9hmQcUg94XsuaZtkaY=",
+        "owner": "auth0",
+        "repo": "homebrew-auth0-cli",
+        "rev": "87e961ca05a6330c045ec27971019299e96fda19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "auth0",
+        "repo": "homebrew-auth0-cli",
         "type": "github"
       }
     },
@@ -263,11 +279,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1766454173,
-        "narHash": "sha256-nAsxpNzS2D9m75o/wIdO6lve4/YKabYwSCgCTiOqjSA=",
+        "lastModified": 1766625288,
+        "narHash": "sha256-ZlnP/iuXPpnK8sBpqgQKt/MK1gwb9DakXcPErK6MQlc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "1bf9525691c3cc0d923e878afc3bc3c9c23a92e8",
+        "rev": "50a5f9b5cc4f969bbc42aca8ebaff3edd44a97d8",
         "type": "github"
       },
       "original": {
@@ -279,11 +295,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1766453199,
-        "narHash": "sha256-xk3XqR58gEgW+qOgdvvkaXgXY8mdlmCnfjoRtZRAJzg=",
+        "lastModified": 1766630320,
+        "narHash": "sha256-MmkETv+NSAI4il1F5Qp8IKixaVwhE/4MPcoeaPbpcdw=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "c0752408459ecb58ad68eca762d3eca7a35aec30",
+        "rev": "f20c6eba50ab734b58c97c65d789b74d83a24e12",
         "type": "github"
       },
       "original": {
@@ -295,11 +311,11 @@
     "homebrew-hashicorp": {
       "flake": false,
       "locked": {
-        "lastModified": 1766426580,
-        "narHash": "sha256-D8q1Y7gSkEUA8lIDOeEGkr1XmBpWu3sI1POWBXbtzlM=",
+        "lastModified": 1766573048,
+        "narHash": "sha256-H7Mv4OlD6/cybUoSQmACH4z1LokTn19F4Jbem5lE91c=",
         "owner": "hashicorp",
         "repo": "homebrew-tap",
-        "rev": "5dd3513d99ce08243ff6bbfe3189af33dd3dca7f",
+        "rev": "588cf7cdc852b0f5e25d7e44d396aafef126948e",
         "type": "github"
       },
       "original": {
@@ -463,11 +479,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766038392,
-        "narHash": "sha256-ht/GuKaw5NT3M12xM+mkUtkSBVtzjJ8IHIy6R/ncv9g=",
+        "lastModified": 1766524813,
+        "narHash": "sha256-N/sxS27+t9nGvGWqwwAceSMW/Y5ddcypS/aiTnZ7ScA=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "5fb45ece6129bd7ad8f7310df0ae9c00bae7c562",
+        "rev": "c2b36207f2c396c79dbed9d40536db221bd4e363",
         "type": "github"
       },
       "original": {
@@ -575,11 +591,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1766314097,
-        "narHash": "sha256-laJftWbghBehazn/zxVJ8NdENVgjccsWAdAqKXhErrM=",
+        "lastModified": 1766532406,
+        "narHash": "sha256-acLU/ag9VEoKkzOD202QASX25nG1eArXg5A0mHjKgxM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "306ea70f9eb0fb4e040f8540e2deab32ed7e2055",
+        "rev": "8142186f001295e5a3239f485c8a49bf2de2695a",
         "type": "github"
       },
       "original": {
@@ -592,6 +608,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "homebrew-auth0": "homebrew-auth0",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
