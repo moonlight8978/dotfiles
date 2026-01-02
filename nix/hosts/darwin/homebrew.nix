@@ -60,6 +60,7 @@
       "yaak"
       "claude-code"
       "gcloud-cli"
+      "antigravity"
 
       # General purpose
       "google-chrome"
