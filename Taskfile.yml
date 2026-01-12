@@ -14,7 +14,7 @@ tasks:
   nix:rebuild:
     dir: nix
     cmds:
-      - sudo ulimit -S -n 2048
+      - sudo ulimit -n 65536
       - sudo darwin-rebuild switch
 
   asdf:
