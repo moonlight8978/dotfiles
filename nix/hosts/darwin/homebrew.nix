@@ -119,6 +119,7 @@
       "gemini-cli"
       "devcontainer"
       "auth0/auth0-cli/auth0"
+      "cloud-sql-proxy"
 
       # Container tools
       # "podman"
