@@ -14,4 +14,16 @@
       };
     };
   };
+
+  launchd = {
+    daemon = {
+      limit-maxfiles = {
+        serviceConfig = {
+          Label = "limit.maxfiles";
+          ProgramArguments = ["/bin/launchctl", "limit", "maxfiles", "65536", "200000"];
+          RunAtLoad = true;
+        };
+      };
+    };
+  };
 }
