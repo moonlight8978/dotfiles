@@ -91,5 +91,4 @@ else
   echo "warning: mise not found"
 fi
 
-# Added by Antigravity
-export PATH="/Users/moonlight/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
