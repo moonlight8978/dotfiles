@@ -1,0 +1,26 @@
+version: 3
+
+tasks:
+  gb:
+    dir: "{{.USER_WORKING_DIR}}"
+    vars:
+      branchName: "{{index .CLI_ARGS_LIST 0}}"
+      command: '{{slice .CLI_ARGS_LIST 1 | join " "}}'
+    shopt: [expand_aliases]
+    cmd: |
+      USERNAME=$(git config user.username)
+      if [ -z "$USERNAME" ]; then
+        echo "Username not found"
+        exit 1
+      fi
+
+      {{.command}} $USERNAME/{{.branchName}}
+
+  gco:
+    shopt: [expand_aliases]
+    cmds:
+      - task: gb
+        vars:
+          CLI_ARGS_LIST:
+            - "{{index .CLI_ARGS_LIST 0}}"
+            - git checkout -b

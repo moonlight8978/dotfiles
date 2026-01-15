@@ -36,3 +36,6 @@ mise:
 nix:
   mkdir -p /etc/nix-darwin
   stow -t /etc/nix-darwin nix
+
+taskfile:
+  stow -t ~ taskfile

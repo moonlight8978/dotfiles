@@ -20,6 +20,12 @@ tasks:
   asdf:
     cmd: ansible-playbook main.yml --tag asdf {{.CLI_ARGS}}
 
+  home:*:
+    vars:
+      TARGET: "{{index .MATCH 0}}"
+    cmds:
+      - stow -t ~ {{.TARGET}}
+
   config:*:
     vars:
       TARGET: "{{index .MATCH 0}}"
