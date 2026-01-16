@@ -49,6 +49,8 @@ with pkgs; [
   atuin
   mise
   starship
+  # Load testing
+  k6
 
   # Encryption and security tools
   gnupg
