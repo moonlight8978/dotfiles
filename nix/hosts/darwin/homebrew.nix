@@ -96,8 +96,6 @@
 
       # Dev tools
       "lazygit"
-      "terragrunt"
-      "terraform"
       "zsh"
       "pdm"
       "libpq"

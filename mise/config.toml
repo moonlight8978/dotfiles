@@ -5,6 +5,9 @@ python = "3.14.0"
 golang = "1.25.0"
 rust = "1.90.0"
 pnpm = "10.18.0"
+opentofu = "1.11.3"
+terraform = "1.14.3"
+terragrunt = "0.97.2"
 
 [settings]
 python.default_packages_file = "$HOME/.config/mise/.default-python-packages"

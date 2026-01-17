@@ -1,27 +1,14 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  asdf: {
-    managerFilePatterns: [
-      "/asdf/.tool-versions"
-    ]
-  },
   packageRules: [
     {
-      matchManagers: [
-        "asdf",
-        "mise"
-      ],
-      matchUpdateTypes: [
-        "patch"
-      ],
-      enabled: false
+      matchManagers: ["mise"],
+      matchUpdateTypes: ["patch"],
+      enabled: false,
     },
     {
-      matchManagers: [
-        "asdf",
-        "mise"
-      ],
-      minimumReleaseAge: "14 days"
-    }
-  ]
+      matchManagers: ["mise"],
+      minimumReleaseAge: "14 days",
+    },
+  ],
 }
