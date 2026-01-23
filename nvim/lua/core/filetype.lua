@@ -9,3 +9,12 @@ vim.filetype.add({
 		thor = "ruby",
 	},
 })
+
+vim.filetype.add({
+	extension = {
+		gotmpl = "gotmpl",
+	},
+	pattern = {
+		[".*%.ya?ml%.gotmpl"] = "yaml",
+	},
+})

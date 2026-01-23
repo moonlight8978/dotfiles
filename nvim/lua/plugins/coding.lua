@@ -137,24 +137,33 @@ return {
 					"lua",
 					"vim",
 					"bash",
+					"nix",
+
 					"javascript",
 					"typescript",
 					"tsx",
+
 					"html",
 					"css",
 					"markdown",
 					"markdown_inline",
 					"ruby",
 					"python",
+
 					"go",
+          "gotmpl",
+
 					"dockerfile",
+
 					"yaml",
 					"json",
 					"jsonc",
+          "toml",
+
 					"graphql",
+
 					"terraform",
 					"hcl",
-					"nix",
 				},
 				highlight = {
 					enable = true,

@@ -114,10 +114,12 @@
       "minikube"
       "cloudflared"
       "iproute2mac"
-      "gemini-cli"
       "devcontainer"
       "auth0/auth0-cli/auth0"
       "cloud-sql-proxy"
+      # AI CLIs
+      "gemini-cli"
+      "opencode"
 
       # Container tools
       # "podman"
