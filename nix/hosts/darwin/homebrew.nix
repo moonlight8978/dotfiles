@@ -117,9 +117,11 @@
       "devcontainer"
       "auth0/auth0-cli/auth0"
       "cloud-sql-proxy"
+
       # AI CLIs
       "gemini-cli"
       "opencode"
+      "copilot-cli"
 
       # Container tools
       # "podman"
