@@ -1,10 +1,9 @@
 # ref: https://github.com/dustinlyons/nixos-config/blob/main/modules/shared/packages.nix
-inputs @ {
+{
   pkgs,
-  laio,
   system,
-}:
-with pkgs; [
+  inputs,
+}: with pkgs; [
   # General purpose
   git
   wget
@@ -39,7 +38,7 @@ with pkgs; [
   foreman
   ngrok
   argocd
-  laio.packages.${system}.default
+  inputs.laio.packages.${system}.default
   s3cmd
   minio-client
   # vagrant
@@ -47,8 +46,8 @@ with pkgs; [
   rclone
   talosctl
   atuin
-  mise
   starship
+  mise
   # Load testing
   k6
 

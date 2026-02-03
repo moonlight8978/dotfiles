@@ -1,25 +1,26 @@
-{
+inputs@{
   pkgs,
-  lib,
-  self,
-  home-manager,
-  laio,
   ...
 }: {
   imports = [
-    ./home-manager.nix
-    ./homebrew.nix
     ./dock.nix
     ./settings.nix
     ./hotkeys.nix
   ];
+
+  users.users.moonlight = {
+    name = "moonlight";
+    home = "/Users/moonlight";
+  };
+
+  system.primaryUser = "moonlight";
 
   environment.systemPackages = with pkgs;
     [
       vim
     ]
     ++ (import ../../modules/packages.nix {
-      inherit pkgs laio;
+      inherit pkgs inputs;
       system = "aarch64-darwin";
     });
 
