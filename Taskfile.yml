@@ -11,9 +11,14 @@ tasks:
     dir: nix
     cmd: sudo cp -R * /etc/nix-darwin
 
+  nix:homebrew:update:
+    dir: nix/modules/homebrew
+    cmd: nix flake update
+
   nix:rebuild:
     dir: nix
     cmds:
+      - task: nix:homebrew:update
       - sudo ulimit -n 65536
       - sudo darwin-rebuild switch --impure
 
