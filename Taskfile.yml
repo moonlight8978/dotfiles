@@ -15,7 +15,7 @@ tasks:
     dir: nix
     cmds:
       - sudo ulimit -n 65536
-      - sudo darwin-rebuild switch
+      - sudo darwin-rebuild switch --impure
 
   asdf:
     cmd: ansible-playbook main.yml --tag asdf {{.CLI_ARGS}}

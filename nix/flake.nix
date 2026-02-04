@@ -11,10 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    homebrew = {
-      url = "path:modules/homebrew";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,13 +19,12 @@
     laio = {
       url = "github:ck3mp3r/laio-cli";
     };
-
-    # nix-flatpak = {
-    #   url = "github:gmodena/nix-flatpak/main";
-    # };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nix-darwin, ... }: let
+    # TODO: Extract to github repo and auto bump deps
+    homebrew = builtins.getFlake "/Users/moonlight/Workspace/moonlight8978/dotfiles/nix/modules/homebrew";
+
     mkNixpkgs = system: import nixpkgs {
       inherit system;
       config = {
@@ -41,7 +36,7 @@
     darwinConfigurations."AZmb-M4" = nix-darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
       pkgs = mkNixpkgs system;
-      modules = inputs.homebrew.modules ++ [
+      modules = homebrew.modules ++ [
         home-manager.darwinModules.home-manager
         ./hosts/darwin
       ];
