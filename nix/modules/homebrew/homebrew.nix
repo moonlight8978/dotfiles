@@ -1,15 +1,6 @@
 {
-  homebrew-core,
-  homebrew-cask,
-  homebrew-moonlight,
-  homebrew-services,
-  homebrew-hashicorp,
+  inputs,
   config,
-  homebrew-bundle,
-  homebrew-mongodb,
-  homebrew-telepresence,
-  homebrew-k0s,
-  homebrew-auth0,
   ...
 }: {
   nix-homebrew = {
@@ -19,16 +10,17 @@
     autoMigrate = true;
 
     taps = {
-      "homebrew/homebrew-core" = homebrew-core;
-      "homebrew/homebrew-cask" = homebrew-cask;
-      "homebrew/homebrew-bundle" = homebrew-bundle;
-      "moonlight8978/homebrew-tap" = homebrew-moonlight;
-      "homebrew/homebrew-services" = homebrew-services;
-      "hashicorp/homebrew-tap" = homebrew-hashicorp;
-      "mongodb/homebrew-brew" = homebrew-mongodb;
-      "telepresenceio/homebrew-telepresence" = homebrew-telepresence;
-      "k0sproject/homebrew-tap" = homebrew-k0s;
-      "auth0/homebrew-auth0-cli" = homebrew-auth0;
+      "homebrew/homebrew-core" = inputs.homebrew-core;
+      "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+      "moonlight8978/homebrew-tap" = inputs.homebrew-moonlight;
+      "homebrew/homebrew-services" = inputs.homebrew-services;
+      "hashicorp/homebrew-tap" = inputs.homebrew-hashicorp;
+      "mongodb/homebrew-brew" = inputs.homebrew-mongodb;
+      "telepresenceio/homebrew-telepresence" = inputs.homebrew-telepresence;
+      "k0sproject/homebrew-tap" = inputs.homebrew-k0s;
+      "auth0/homebrew-auth0-cli" = inputs.homebrew-auth0;
+      "messense/homebrew-macos-cross-toolchains" = inputs.homebrew-macos-cross-toolchains;
     };
     mutableTaps = false;
   };
@@ -117,6 +109,10 @@
       "devcontainer"
       "auth0/auth0-cli/auth0"
       "cloud-sql-proxy"
+
+      # Toolchains
+      "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
+      "messense/macos-cross-toolchains/aarch64-unknown-linux-gnu"
 
       # AI CLIs
       "gemini-cli"

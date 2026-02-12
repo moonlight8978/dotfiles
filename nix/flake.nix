@@ -25,6 +25,8 @@
     # TODO: Extract to github repo and auto bump deps
     homebrew = builtins.getFlake "/Users/moonlight/Workspace/moonlight8978/dotfiles/nix/modules/homebrew";
 
+    inputs.homebrew = homebrew;
+
     mkNixpkgs = system: import nixpkgs {
       inherit system;
       config = {
@@ -39,6 +41,7 @@
       modules = homebrew.modules ++ [
         home-manager.darwinModules.home-manager
         ./hosts/darwin
+        homebrew.config
       ];
       specialArgs = inputs;
     };

@@ -46,11 +46,17 @@
       url = "github:auth0/homebrew-auth0-cli";
       flake = false;
     };
+    homebrew-macos-cross-toolchains = {
+      url = "github:messense/macos-cross-toolchains";
+      flake = false;
+    };
   };
 
   outputs = inputs: {
     modules = [
       inputs.nix-homebrew.darwinModules.nix-homebrew
     ];
+
+    config = ({config,...}: import ./homebrew.nix { inherit config inputs; });
   };
 }

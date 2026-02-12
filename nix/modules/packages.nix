@@ -38,7 +38,7 @@
   foreman
   ngrok
   argocd
-  inputs.laio.packages.${system}.default
+  # laio.packages.${system}.default
   s3cmd
   minio-client
   # vagrant
