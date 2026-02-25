@@ -117,7 +117,7 @@
       # AI CLIs
       "gemini-cli"
       "opencode"
-      "copilot-cli"
+      # "copilot-cli"
 
       # Container tools
       # "podman"
