@@ -7,7 +7,7 @@ rust = "1.90.0"
 pnpm = "10.18.0"
 opentofu = "1.11.3"
 terraform = "1.14.3"
-terragrunt = "0.97.2"
+terragrunt = "0.99.2"
 java = "openjdk-21"
 
 [settings]
