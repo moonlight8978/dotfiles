@@ -118,6 +118,7 @@
       "gemini-cli"
       "opencode"
       # "copilot-cli"
+      "repomix"
 
       # Container tools
       # "podman"
@@ -127,6 +128,7 @@
 
       # Security
       "age"
+      "trivy"
     ];
   };
 }
