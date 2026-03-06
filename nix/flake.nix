@@ -52,6 +52,7 @@
       modules = homebrew.modules ++ [
         home-manager.darwinModules.home-manager
         ./hosts/darwin
+        homebrew.config
       ];
       specialArgs = inputs;
     };
@@ -62,6 +63,7 @@
       modules = homebrew.modules ++ [
         home-manager.darwinModules.home-manager
         ./hosts/darwin
+        homebrew.config
       ];
       specialArgs = inputs;
     };
