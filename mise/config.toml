@@ -9,6 +9,7 @@ opentofu = "1.11.3"
 terraform = "1.14.3"
 terragrunt = "0.97.2"
 java = "openjdk-21"
+bun = "latest"
 
 [settings]
 python.default_packages_file = "$HOME/.config/mise/.default-python-packages"
