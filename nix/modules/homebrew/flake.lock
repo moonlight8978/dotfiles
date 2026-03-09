@@ -52,11 +52,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1772812187,
-        "narHash": "sha256-ePfmNNWcnKb8iDRv3SpY49ta3T5TEQh6I+klL9vLcPU=",
+        "lastModified": 1773019318,
+        "narHash": "sha256-bHdavzdd6KCRpzF9CSJO9zn5exE+lPSpY6VNckjBz08=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "a51fceabace09e8e08e70e49e5446b5bcae1926d",
+        "rev": "ee0129e2bcc3b59ded801785af7b0c053c64174e",
         "type": "github"
       },
       "original": {
@@ -68,11 +68,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1772812393,
-        "narHash": "sha256-vG+ObimLUX05FUP9QHTA7iqqN8+B5dZ3hJqnW/zsltY=",
+        "lastModified": 1773019239,
+        "narHash": "sha256-poRnpl7UUOxf89AW9XQPplM7kKCuZA+V+E227oDZbzY=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "a6ed40c4b549f68cf3b73e0b69a29feb4518c469",
+        "rev": "a85abba1b5771568192802cdd1cd81eba24b0f1c",
         "type": "github"
       },
       "original": {
@@ -180,11 +180,11 @@
     "homebrew-telepresence": {
       "flake": false,
       "locked": {
-        "lastModified": 1772314374,
-        "narHash": "sha256-2bKDMtQX8RHyl6oX7gsgJYrWV9er8IUHRUvctlfbym0=",
+        "lastModified": 1772985472,
+        "narHash": "sha256-7yXPk1JJBfLn3gqbwWvbZJwnJO5Zv3n+v8ybt88XEHE=",
         "owner": "telepresenceio",
         "repo": "homebrew-telepresence",
-        "rev": "283a4d42baf970e9dac51fa684bd092aac6b53f2",
+        "rev": "b09cd910256f8426ac37f9df0de792d560ab5c3e",
         "type": "github"
       },
       "original": {
