@@ -282,11 +282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772985285,
-        "narHash": "sha256-wEEmvfqJcl9J0wyMgMrj1TixOgInBW/6tLPhWGoZE3s=",
+        "lastModified": 1773093840,
+        "narHash": "sha256-u/96NoAyN8BSRuM3ZimGf7vyYgXa3pLx4MYWjokuoH4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5be5d8245cbc7bc0c09fbb5f38f23f223c543f85",
+        "rev": "bb014746edb2a98d975abde4dd40fa240de4cf86",
         "type": "github"
       },
       "original": {
@@ -304,11 +304,11 @@
         "rustnix": "rustnix"
       },
       "locked": {
-        "lastModified": 1772931360,
-        "narHash": "sha256-oyCXRsSXwQNKu1HJbyHgJNhU14iGhy84c9oaFlLeXCU=",
+        "lastModified": 1773036523,
+        "narHash": "sha256-Ln3/IkZqMJpkrqGmezBsrXtaqzxIRH/dyG3n/CY4MWk=",
         "owner": "ck3mp3r",
         "repo": "laio-cli",
-        "rev": "26012a479ee0342672f24a5bc1c37047f4836d98",
+        "rev": "a154f172588fd9c4557cbf3bd521a5049d0729e2",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1772880540,
-        "narHash": "sha256-iZNfrAQfIciv/F4oXpkjH+ajr3N+Sh42zY8VYV01dXw=",
+        "lastModified": 1773050225,
+        "narHash": "sha256-P2iGJwvzj031ZJA7cgbehYC+21fLJjkB7NG42VJ1CYw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e3dc44fc3cfc7f5e8d96f6cfc87eeb26a324164a",
+        "rev": "397b2b93739ce0944a5dd912894ec51c3b090d3d",
         "type": "github"
       },
       "original": {
