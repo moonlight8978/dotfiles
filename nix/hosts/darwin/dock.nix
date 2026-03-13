@@ -17,7 +17,7 @@
         show-recents = false;
 
         # Lock screen
-        wvous-tr-corner = 13;
+        wvous-tl-corner = 13;
 
         persistent-apps = [
           {
