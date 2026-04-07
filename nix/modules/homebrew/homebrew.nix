@@ -21,6 +21,7 @@
       "k0sproject/homebrew-tap" = inputs.homebrew-k0s;
       "auth0/homebrew-auth0-cli" = inputs.homebrew-auth0;
       "messense/homebrew-macos-cross-toolchains" = inputs.homebrew-macos-cross-toolchains;
+      "anomalyco/homebrew-tap" = inputs.homebrew-anomalyco;
     };
     mutableTaps = false;
   };
@@ -38,17 +39,17 @@
     casks = [
       # Development
       "ghostty"
-      "postman"
-      "bruno"
+      # "postman"
+      # "bruno"
       "medis"
       "tableplus"
-      "figma"
+      # "figma"
       "visual-studio-code"
-      "cursor"
-      "cursor-cli"
+      # "cursor"
+      # "cursor-cli"
       "zed"
       "orbstack"
-      "clickhouse"
+      # "clickhouse"
       "yaak"
       "claude-code"
       "gcloud-cli"
@@ -62,9 +63,9 @@
       "bluestacks-air"
       "balenaetcher"
       "telegram"
-      "mark-text"
+      # "mark-text"
       "syncthing-app"
-      "lobehub"
+      # "lobehub"
 
       # VPN, Remote
       "openvpn-connect"
@@ -82,22 +83,22 @@
 
       # General purpose
       "smartmontools"
-      "mas"
+      # "mas"
       "bitwarden-cli"
       "bitwarden-sm-cli"
 
       # Dev tools
       "lazygit"
       "zsh"
-      "pdm"
+      # "pdm"
       "libpq"
       "act"
       "hashicorp/tap/vault"
       "ansible"
       "goreleaser"
       "go-task"
-      "velero"
-      "telepresenceio/telepresence/telepresence-oss"
+      # "velero"
+      # "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
       "k3sup"
       "kubernetes-schema-store"
@@ -111,12 +112,12 @@
       "cloud-sql-proxy"
 
       # Toolchains
-      "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
-      "messense/macos-cross-toolchains/aarch64-unknown-linux-gnu"
+      # "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
+      # "messense/macos-cross-toolchains/aarch64-unknown-linux-gnu"
 
       # AI CLIs
-      "gemini-cli"
-      "opencode"
+      # "gemini-cli"
+      "anomalyco/tap/opencode"
       # "copilot-cli"
       "repomix"
 

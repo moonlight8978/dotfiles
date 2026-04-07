@@ -50,6 +50,10 @@
       url = "github:messense/macos-cross-toolchains";
       flake = false;
     };
+    homebrew-anomalyco = {
+      url = "github:anomalyco/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs = inputs: {

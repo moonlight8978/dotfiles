@@ -48,12 +48,6 @@
             app = "/Applications/Zed.app";
           }
           {
-            app = "/Applications/Cursor.app";
-          }
-          {
-            app = "/Applications/MarkText.app";
-          }
-          {
             app = "/Applications/Medis.app";
           }
           {
