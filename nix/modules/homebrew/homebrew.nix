@@ -54,6 +54,8 @@
       "claude-code"
       "gcloud-cli"
       "antigravity"
+      "codex"
+      "codex-app"
 
       # General purpose
       "google-chrome"
@@ -120,6 +122,7 @@
       "anomalyco/tap/opencode"
       # "copilot-cli"
       "repomix"
+      "beads"
 
       # Container tools
       # "podman"
