@@ -1,6 +1,6 @@
 [tools]
 node = "24.11.0"
-ruby = "3.4.4"
+ruby = "4.0.2"
 python = "3.12.13"
 uv = "0.11.5"
 golang = "1.25.0"
