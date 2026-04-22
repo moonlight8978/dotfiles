@@ -123,6 +123,7 @@
       # "copilot-cli"
       "repomix"
       "beads"
+      "rtk"
 
       # Container tools
       # "podman"
