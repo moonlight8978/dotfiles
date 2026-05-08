@@ -1,6 +1,6 @@
 local set = vim.keymap.set
 
-require("fzf-lua").setup({})
+require("fzf-lua").setup({'fzf-native'})
 
 -- f stands for find
 set("n", "<leader>ff", ":FzfLua files<CR>")
