@@ -102,6 +102,8 @@
       # "velero"
       # "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
+      "lima"
+      "lima-additional-guestagents"
       "k3sup"
       "kubernetes-schema-store"
       "k0sctl"
@@ -134,6 +136,8 @@
       # Security
       "age"
       "trivy"
+      "trufflehog"
+      "dive"
     ];
   };
 }
