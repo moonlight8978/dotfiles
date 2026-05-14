@@ -63,7 +63,7 @@
       "microsoft-edge"
       "openkey"
       "bluestacks-air"
-      "balenaetcher"
+      # "balenaetcher"
       "telegram"
       # "mark-text"
       "syncthing-app"
@@ -114,6 +114,7 @@
       "devcontainer"
       "auth0/auth0-cli/auth0"
       "cloud-sql-proxy"
+      "dnsmasq"
 
       # Toolchains
       # "messense/macos-cross-toolchains/x86_64-unknown-linux-gnu"
