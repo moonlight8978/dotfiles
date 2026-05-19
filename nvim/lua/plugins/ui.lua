@@ -29,17 +29,16 @@ return {
 			show_warnings = true,
 		},
 	},
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {
-			exclude = {
-				filetypes = { "help", "git", "markdown", "snippets", "text", "gitconfig" },
-				buftypes = { "terminal" },
-			},
-		},
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	opts = {
+	-- 		exclude = {
+	-- 			filetypes = { "help", "git", "markdown", "snippets", "text", "gitconfig" },
+	-- 			buftypes = { "terminal" },
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"akinsho/bufferline.nvim",
 		opts = {
