@@ -42,7 +42,7 @@
       # "postman"
       # "bruno"
       "medis"
-      "tableplus"
+      "tablepro"
       # "figma"
       "visual-studio-code"
       # "cursor"

@@ -1,0 +1,3 @@
+# Powerlevel10k prompt
+# zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

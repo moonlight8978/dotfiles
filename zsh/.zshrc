@@ -1,12 +1,5 @@
-# OPENSPEC:START
-# OpenSpec shell completions configuration
-fpath=("/Users/moonlight/.oh-my-zsh/custom/completions" $fpath)
-autoload -Uz compinit
-compinit
-# OPENSPEC:END
-
-# nvim as default editor
-export EDITOR=nvim
+# Binary
+export PATH="$PATH:/usr/local/bin"
 
 # https://github.com/agkozak/zcomet?tab=readme-ov-file#sample-zshrc
 if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
@@ -50,29 +43,23 @@ setopt hist_find_no_dups hist_reduce_blanks
 # Themes
 zcomet load zsh-users/zsh-syntax-highlighting
 
-# starship prompt
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
-
-# Powerlevel10k prompt
-# zcomet load romkatv/powerlevel10k powerlevel10k.zsh-theme
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Binary
-# export PATH="$PATH:/usr/local/bin"
-
-# terraform
-complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
-
 # Ctrl+W delete word by word
 autoload -U select-word-style
 select-word-style bash
 
-# fzf
-# source <(fzf --zsh)
+# Load .zshrc.d/*.zsh and .zshrc.d/{darwin,linux}/*.zsh
+ZSHRC_D="${ZDOTDIR:-$HOME}/.zshrc.d"
+setopt nullglob
+for file in $ZSHRC_D/*.zsh; do source $file; done
 
-# atuin
-eval "$(atuin init zsh)"
+case "$(uname)" in
+  Darwin) os_dir="darwin" ;;
+  Linux)  os_dir="linux" ;;
+esac
+if [[ -n "$os_dir" && -d "$ZSHRC_D/$os_dir" ]]; then
+  for file in $ZSHRC_D/$os_dir/*.zsh; do source $file; done
+fi
+unsetopt nullglob
 
 # Source ~/.env if it exists
 if [ -f $HOME/.env ]; then
@@ -88,14 +75,4 @@ setopt nullglob # Prevent errors if no files are found
 for file in ~/.alias/*; do
   source $file
 done
-
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-else
-  echo "warning: mise not found"
-fi
-
-export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+unsetopt nullglob

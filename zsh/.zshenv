@@ -1,9 +1,11 @@
-# . "$HOME/.cargo/env"
+typeset -U path PATH
 
-platform=$(uname)
-if [[ $platform == "Linux" ]]; then
-  export TERM=xterm-256color
-fi
+case "$OSTYPE" in
+  darwin*) OS_NAME="darwin" ;;
+  linux*)  OS_NAME="linux" ;;
+esac
 
-# uv
-export PATH="/Users/moonlight/.local/bin:$PATH"
+ZSHENV_D="${ZDOTDIR:-$HOME}/.zshenv.d"
+for file in $ZSHENV_D/*.zsh(N) $ZSHENV_D/$OS_NAME/*.zsh(N); do
+  source $file
+done
