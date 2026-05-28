@@ -48,18 +48,30 @@ autoload -U select-word-style
 select-word-style bash
 
 # Load .zshrc.d/*.zsh and .zshrc.d/{darwin,linux}/*.zsh
+# Files are sourced in lexical order of their basename, so the numeric
+# prefix controls priority across both the parent and OS-specific folder
+# (e.g. 000_prompt.zsh > darwin/001_prompt.zsh > 002_tool.zsh).
 ZSHRC_D="${ZDOTDIR:-$HOME}/.zshrc.d"
-setopt nullglob
-for file in $ZSHRC_D/*.zsh; do source $file; done
-
 case "$(uname)" in
   Darwin) os_dir="darwin" ;;
   Linux)  os_dir="linux" ;;
 esac
+
+setopt nullglob
+zshrc_d_files=($ZSHRC_D/*.zsh)
 if [[ -n "$os_dir" && -d "$ZSHRC_D/$os_dir" ]]; then
-  for file in $ZSHRC_D/$os_dir/*.zsh; do source $file; done
+  zshrc_d_files+=($ZSHRC_D/$os_dir/*.zsh)
 fi
 unsetopt nullglob
+
+zshrc_d_pairs=()
+for file in $zshrc_d_files; do
+  zshrc_d_pairs+=("${file:t}|$file")
+done
+for pair in ${(o)zshrc_d_pairs}; do
+  source ${pair#*|}
+done
+unset zshrc_d_files zshrc_d_pairs pair file os_dir
 
 # Source ~/.env if it exists
 if [ -f $HOME/.env ]; then
