@@ -51,7 +51,7 @@
             app = "/Applications/Medis.app";
           }
           {
-            app = "/Applications/TablePlus.app";
+            app = "/Applications/TablePro.app";
           }
           {
             app = "/Applications/OrbStack.app";
