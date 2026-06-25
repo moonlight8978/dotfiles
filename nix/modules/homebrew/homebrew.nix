@@ -36,6 +36,12 @@
 
     taps = builtins.attrNames config.nix-homebrew.taps;
 
+    trusts = {
+      taps = {
+        
+      }
+    }
+
     casks = [
       # Development
       "ghostty"
