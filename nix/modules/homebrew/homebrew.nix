@@ -13,8 +13,8 @@
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
       "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
-      "moonlight8978/homebrew-tap" = inputs.homebrew-moonlight;
       "homebrew/homebrew-services" = inputs.homebrew-services;
+      "moonlight8978/homebrew-tap" = inputs.homebrew-moonlight;
       "hashicorp/homebrew-tap" = inputs.homebrew-hashicorp;
       "mongodb/homebrew-brew" = inputs.homebrew-mongodb;
       "telepresenceio/homebrew-telepresence" = inputs.homebrew-telepresence;
@@ -24,6 +24,19 @@
       "anomalyco/homebrew-tap" = inputs.homebrew-anomalyco;
     };
     mutableTaps = false;
+
+    trust = {
+      taps = [
+        "moonlight8978/homebrew-tap"
+        "hashicorp/homebrew-tap"
+        "mongodb/homebrew-brew"
+        "telepresenceio/homebrew-telepresence"
+        "k0sproject/homebrew-tap"
+        "auth0/homebrew-auth0-cli"
+        "messense/homebrew-macos-cross-toolchains"
+        "anomalyco/homebrew-tap"
+      ];
+    };
   };
 
   homebrew = {
@@ -35,12 +48,6 @@
     };
 
     taps = builtins.attrNames config.nix-homebrew.taps;
-
-    trusts = {
-      taps = {
-        
-      }
-    }
 
     casks = [
       # Development
@@ -60,24 +67,24 @@
       "claude-code"
       "gcloud-cli"
       "antigravity"
-      "codex"
-      "codex-app"
+      # "codex"
+      # "codex-app"
 
       # General purpose
       "google-chrome"
-      "firefox"
+      # "firefox"
       "microsoft-edge"
       "openkey"
-      "bluestacks-air"
+      # "bluestacks-air"
       # "balenaetcher"
       "telegram"
       # "mark-text"
-      "syncthing-app"
+      # "syncthing-app"
       # "lobehub"
 
       # VPN, Remote
-      "openvpn-connect"
-      "rustdesk"
+      # "openvpn-connect"
+      # "rustdesk"
       "cloudflare-warp"
     ];
 
@@ -109,7 +116,7 @@
       # "telepresenceio/telepresence/telepresence-oss"
       "ggshield"
       "lima"
-      "lima-additional-guestagents"
+      # "lima-additional-guestagents"
       "k3sup"
       "kubernetes-schema-store"
       "k0sctl"
@@ -128,7 +135,7 @@
 
       # AI CLIs
       # "gemini-cli"
-      "anomalyco/tap/opencode"
+      # "anomalyco/tap/opencode"
       # "copilot-cli"
       "repomix"
       "beads"
