@@ -22,8 +22,8 @@ tasks:
       - sudo ulimit -n 65536
       - sudo darwin-rebuild switch --impure
 
-  asdf:
-    cmd: ansible-playbook main.yml --tag asdf {{.CLI_ARGS}}
+  nix:cleanup:
+    cmd: nix store gc
 
   home:*:
     vars:
@@ -41,6 +41,11 @@ tasks:
   mise:
     cmds:
       - mise install
+
+  mise:cleanup:
+    cmds:
+      - rm ~/.local/state/mise/tracked-configs/*
+      - mise prune -y
 
   disk:uuid:
     vars:
