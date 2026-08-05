@@ -1,17 +1,18 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: [
-    "config:recommended",
-    "github>moonlight8978/renovate-config",
-    "local>moonlight8978/dotfiles//.renovate/tools.json5"
-  ],
+  extends: ["config:recommended", "github>moonlight8978/renovate-config"],
   packageRules: [
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "automerge": true
-    }
-  ]
+      matchPackageNames: ["*"],
+      minimumReleaseAge: "7 days",
+      automerge: true,
+      dependencyDashboardApproval: false,
+    },
+    {
+      matchManagers: ["mise"],
+      matchPackageNames: ["python"],
+      matchUpdateTypes: ["major", "minor"],
+      enabled: false,
+    },
+  ],
 }
