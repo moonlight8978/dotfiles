@@ -36,16 +36,13 @@
             app = "/Applications/Telegram.app";
           }
           {
-            app = "/Applications/Microsoft Edge.app";
+            app = "/Applications/Firefox.app";
           }
           {
             app = "/Applications/Ghostty.app";
           }
           {
             app = "/Applications/Visual Studio Code.app";
-          }
-          {
-            app = "/Applications/Zed.app";
           }
           {
             app = "/Applications/Medis.app";
@@ -58,9 +55,6 @@
           }
           {
             app = "/Applications/Yaak.app";
-          }
-          {
-            app = "/Applications/RustDesk.app";
           }
         ];
       };

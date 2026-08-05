@@ -10,10 +10,7 @@
     autoMigrate = true;
 
     taps = {
-      "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
-      "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
-      "homebrew/homebrew-services" = inputs.homebrew-services;
       "moonlight8978/homebrew-tap" = inputs.homebrew-moonlight;
       "hashicorp/homebrew-tap" = inputs.homebrew-hashicorp;
       "mongodb/homebrew-brew" = inputs.homebrew-mongodb;
@@ -64,7 +61,7 @@
       "orbstack"
       # "clickhouse"
       "yaak"
-      "claude-code"
+      "claude-code@latest"
       "gcloud-cli"
       "antigravity"
       # "codex"
@@ -72,7 +69,7 @@
 
       # General purpose
       "google-chrome"
-      # "firefox"
+      "firefox"
       "microsoft-edge"
       "openkey"
       # "bluestacks-air"
