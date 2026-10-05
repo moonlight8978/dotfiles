@@ -6,6 +6,7 @@
 }: with pkgs; [
   # General purpose
   git
+  delta
   wget
   curl
   neofetch

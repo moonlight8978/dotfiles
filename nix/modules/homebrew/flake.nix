@@ -3,9 +3,14 @@
 
   inputs = {
     nix-homebrew = {
-      url = "github:zhaofengli/nix-homebrew";
+      url = "github:zhaofengli/nix-homebrew/09a921d0181146cf6163ec2cc1db7b6fd539a885";
+      inputs.brew-src.follows = "brew-src";
     };
 
+    brew-src = {
+      url = "github:Homebrew/brew/6.0.18";
+      flake = false;
+    };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;
